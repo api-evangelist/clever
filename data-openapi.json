@@ -1,0 +1,2378 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.2.0",
+        "title": "Data",
+        "description": "Serves the Clever Data API",
+        "termsOfService": "http:\/\/exmple.com\/license\/"
+    },
+    "servers": [
+        "http:\/\/api.clever.com\/v1.2"
+    ],
+    "paths": {
+        "\/contacts": {
+            "get": {
+                "summary": "",
+                "description": "Returns a list of student contacts",
+                "operationId": "GetContacts",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/contacts\/{id}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a specific student contact",
+                "operationId": "GetContact",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/contacts\/{id}\/district": {
+            "get": {
+                "summary": "",
+                "description": "Returns the district for a student contact",
+                "operationId": "GetDistrictForStudentContact",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/contacts\/{id}\/student": {
+            "get": {
+                "summary": "",
+                "description": "Returns the student for a student contact",
+                "operationId": "GetStudentForContact",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/district_admins": {
+            "get": {
+                "summary": "",
+                "description": "Returns a list of district admins",
+                "operationId": "GetDistrictAdmins",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "show_links",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/district_admins\/{id}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a specific district admin",
+                "operationId": "GetDistrictAdmin",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/districts": {
+            "get": {
+                "summary": "",
+                "description": "Returns a list of districts",
+                "operationId": "GetDistricts",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/districts\/{id}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a specific district",
+                "operationId": "GetDistrict",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/districts\/{id}\/admins": {
+            "get": {
+                "summary": "",
+                "description": "Returns the admins for a district",
+                "operationId": "GetAdminsForDistrict",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/districts\/{id}\/schools": {
+            "get": {
+                "summary": "",
+                "description": "Returns the schools for a district",
+                "operationId": "GetSchoolsForDistrict",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/districts\/{id}\/sections": {
+            "get": {
+                "summary": "",
+                "description": "Returns the sections for a district",
+                "operationId": "GetSectionsForDistrict",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/districts\/{id}\/status": {
+            "get": {
+                "summary": "",
+                "description": "Returns the status of the district",
+                "operationId": "GetDistrictStatus",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/districts\/{id}\/students": {
+            "get": {
+                "summary": "",
+                "description": "Returns the students for a district",
+                "operationId": "GetStudentsForDistrict",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/districts\/{id}\/teachers": {
+            "get": {
+                "summary": "",
+                "description": "Returns the teachers for a district",
+                "operationId": "GetTeachersForDistrict",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/school_admins": {
+            "get": {
+                "summary": "",
+                "description": "Returns a list of school admins",
+                "operationId": "GetSchoolAdmins",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/school_admins\/{id}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a specific school admin",
+                "operationId": "GetSchoolAdmin",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/school_admins\/{id}\/schools": {
+            "get": {
+                "summary": "",
+                "description": "Returns the schools for a school admin",
+                "operationId": "GetSchoolsForSchoolAdmin",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/schools": {
+            "get": {
+                "summary": "",
+                "description": "Returns a list of schools",
+                "operationId": "GetSchools",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/schools\/{id}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a specific school",
+                "operationId": "GetSchool",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/schools\/{id}\/district": {
+            "get": {
+                "summary": "",
+                "description": "Returns the district for a school",
+                "operationId": "GetDistrictForSchool",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/schools\/{id}\/sections": {
+            "get": {
+                "summary": "",
+                "description": "Returns the sections for a school",
+                "operationId": "GetSectionsForSchool",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/schools\/{id}\/students": {
+            "get": {
+                "summary": "",
+                "description": "Returns the students for a school",
+                "operationId": "GetStudentsForSchool",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/schools\/{id}\/teachers": {
+            "get": {
+                "summary": "",
+                "description": "Returns the teachers for a school",
+                "operationId": "GetTeachersForSchool",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/sections": {
+            "get": {
+                "summary": "",
+                "description": "Returns a list of sections",
+                "operationId": "GetSections",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/sections\/{id}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a specific section",
+                "operationId": "GetSection",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/sections\/{id}\/district": {
+            "get": {
+                "summary": "",
+                "description": "Returns the district for a section",
+                "operationId": "GetDistrictForSection",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/sections\/{id}\/school": {
+            "get": {
+                "summary": "",
+                "description": "Returns the school for a section",
+                "operationId": "GetSchoolForSection",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/sections\/{id}\/students": {
+            "get": {
+                "summary": "",
+                "description": "Returns the students for a section",
+                "operationId": "GetStudentsForSection",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/sections\/{id}\/teacher": {
+            "get": {
+                "summary": "",
+                "description": "Returns the primary teacher for a section",
+                "operationId": "GetTeacherForSection",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/sections\/{id}\/teachers": {
+            "get": {
+                "summary": "",
+                "description": "Returns the teachers for a section",
+                "operationId": "GetTeachersForSection",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/students": {
+            "get": {
+                "summary": "",
+                "description": "Returns a list of students",
+                "operationId": "GetStudents",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/students\/{id}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a specific student",
+                "operationId": "GetStudent",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/students\/{id}\/contacts": {
+            "get": {
+                "summary": "",
+                "description": "Returns the contacts for a student",
+                "operationId": "GetContactsForStudent",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/students\/{id}\/district": {
+            "get": {
+                "summary": "",
+                "description": "Returns the district for a student",
+                "operationId": "GetDistrictForStudent",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/students\/{id}\/school": {
+            "get": {
+                "summary": "",
+                "description": "Returns the primary school for a student",
+                "operationId": "GetSchoolForStudent",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/students\/{id}\/sections": {
+            "get": {
+                "summary": "",
+                "description": "Returns the sections for a student",
+                "operationId": "GetSectionsForStudent",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/students\/{id}\/teachers": {
+            "get": {
+                "summary": "",
+                "description": "Returns the teachers for a student",
+                "operationId": "GetTeachersForStudent",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/teachers": {
+            "get": {
+                "summary": "",
+                "description": "Returns a list of teachers",
+                "operationId": "GetTeachers",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/teachers\/{id}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a specific teacher",
+                "operationId": "GetTeacher",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/teachers\/{id}\/district": {
+            "get": {
+                "summary": "",
+                "description": "Returns the district for a teacher",
+                "operationId": "GetDistrictForTeacher",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/teachers\/{id}\/grade_levels": {
+            "get": {
+                "summary": "",
+                "description": "Returns the grade levels for sections a teacher teaches",
+                "operationId": "GetGradeLevelsForTeacher",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/teachers\/{id}\/school": {
+            "get": {
+                "summary": "",
+                "description": "Retrieves school info for a teacher.",
+                "operationId": "GetSchoolForTeacher",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/teachers\/{id}\/sections": {
+            "get": {
+                "summary": "",
+                "description": "Returns the sections for a teacher",
+                "operationId": "GetSectionsForTeacher",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/teachers\/{id}\/students": {
+            "get": {
+                "summary": "",
+                "description": "Returns the students for a teacher",
+                "operationId": "GetStudentsForTeacher",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "starting_after",
+                        "in": "query",
+                        "description": ""
+                    },
+                    {
+                        "name": "ending_before",
+                        "in": "query",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK Response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/StudentContactsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BadRequest": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Credentials": {
+                "type": "object",
+                "properties": {
+                    "district_username": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "District": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "mdr_number": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "DistrictAdmin": {
+                "type": "object",
+                "properties": {
+                    "district": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "title": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "name": {
+                "type": "object",
+                "properties": {
+                    "first": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "last": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "middle": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "DistrictAdminResponse": {
+                "type": "object",
+                "properties": {
+                    "DistrictAdmin": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "DistrictAdminsResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "data": {
+                "type": "array"
+            },
+            "DistrictResponse": {
+                "type": "object",
+                "properties": {
+                    "District": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "DistrictStatus": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "instant_login": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "last_sync": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "launch_date": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "pause_end": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "pause_start": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "sis_type": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "DistrictStatusResponse": {
+                "type": "object",
+                "properties": {
+                    "DistrictStatus": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "DistrictStatusResponses": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "DistrictsResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "GradeLevelsResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "InternalError": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Location": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "lat": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "lon": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "zip": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "NotFound": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Principal": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "School": {
+                "type": "object",
+                "properties": {
+                    "created": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "district": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "high_grade": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "last_modified": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "Location": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "location": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "low_grade": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "mdr_number": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "nces_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "phone": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "Principal": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "principal": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "school_number": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "sis_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "state_id": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "SchoolAdmin": {
+                "type": "object",
+                "properties": {
+                    "Credentials": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "credentials": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "district": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "schools": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "staff_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "schools": {
+                "type": "array"
+            },
+            "SchoolAdminResponse": {
+                "type": "object",
+                "properties": {
+                    "SchoolAdmin": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "SchoolAdminsResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "SchoolResponse": {
+                "type": "object",
+                "properties": {
+                    "School": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "SchoolsResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "Section": {
+                "type": "object",
+                "properties": {
+                    "course_description": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "course_name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "course_number": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "created": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "district": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "grade": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "last_modified": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "period": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "school": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "section_number": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "sis_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "students": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "subject": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "teacher": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "teachers": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "term": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "students": {
+                "type": "array"
+            },
+            "teachers": {
+                "type": "array"
+            },
+            "term": {
+                "type": "object",
+                "properties": {
+                    "end_date": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "start_date": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "SectionResponse": {
+                "type": "object",
+                "properties": {
+                    "Section": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "SectionsResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "Student": {
+                "type": "object",
+                "properties": {
+                    "created": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "Credentials": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "credentials": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "district": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "dob": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "ell_status": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "gender": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "grade": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "graduation_year": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "hispanic_ethnicity": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "last_modified": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "Location": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "location": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "name": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "race": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "school": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "schools": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "sis_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "state_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "student_number": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "StudentContact": {
+                "type": "object",
+                "properties": {
+                    "district": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "phone": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "phone_type": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "relationship": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "sis_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "student": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "StudentContactResponse": {
+                "type": "object",
+                "properties": {
+                    "StudentContact": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "StudentContactsForStudentResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "StudentContactsResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "StudentResponse": {
+                "type": "object",
+                "properties": {
+                    "Student": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "StudentsResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "Teacher": {
+                "type": "object",
+                "properties": {
+                    "created": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "Credentials": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "credentials": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "district": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "last_modified": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "school": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "schools": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "sis_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "state_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "teacher_number": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "TeacherResponse": {
+                "type": "object",
+                "properties": {
+                    "Teacher": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": ""
+                    }
+                }
+            },
+            "TeachersResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            }
+        }
+    }
+}
