@@ -1,5 +1,5 @@
 {
-    "id": "2d08635444aff80adbd9c30c3f4ca33b",
+    "id": "3ed47fd76953460ab1ad2804bd7d52c0",
     "name": "Data",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "fef6c8f69930910ca75d6fc41e6eeaa1",
+            "id": "134d8b0a396d720f9987ea14bc5ed1e3",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/contacts",
             "description": "Returns a list of student contacts",
@@ -51,11 +51,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "7ea5591de5c21ad225fa4c881057b289",
+            "id": "579a051a4870f36d9f7b85ce595f41d6",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/contacts\/{id}",
             "description": "Returns a specific student contact",
@@ -82,11 +82,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "a01c97fcc81c0cd8abde56ed77f1bf81",
+            "id": "062fa29c555061e367c405cc1773f0aa",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/contacts\/{id}\/district",
             "description": "Returns the district for a student contact",
@@ -113,11 +113,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "ec9114a5fbf886fd14e90ecff7ae9848",
+            "id": "052f3aeeda62f6bacb52c7c4cd29b60d",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/contacts\/{id}\/student",
             "description": "Returns the student for a student contact",
@@ -144,11 +144,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "da444a9c67af52687eff50bec3a6f5ce",
+            "id": "9de290b0ac189e62b22739bd505f0123",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/district_admins",
             "description": "Returns a list of district admins",
@@ -189,11 +189,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "040733c8361dbbd61495f6d6b5c181db",
+            "id": "e78045c62cac342b3c3030f7c862f0fb",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/district_admins\/{id}",
             "description": "Returns a specific district admin",
@@ -220,11 +220,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "5d3d72856bffe04bb7f293f2265f6c63",
+            "id": "fd272adc8fa85a21f724a300a381034c",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/districts",
             "description": "Returns a list of districts",
@@ -243,11 +243,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "7f7fdb6a94d555d65096b4e581e72816",
+            "id": "b5a92dd2d8811a0a59ecae6c882923c1",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/districts\/{id}",
             "description": "Returns a specific district",
@@ -281,11 +281,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "3680c0e8582808e197a928c0d8f99615",
+            "id": "e710661357cc6e5988a7260ebd3205a5",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/districts\/{id}\/admins",
             "description": "Returns the admins for a district",
@@ -312,11 +312,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "8afc05f46eafc7cef4cbf264d41dc088",
+            "id": "f96ec5e729b1ec66499e9b82c096252f",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/districts\/{id}\/schools",
             "description": "Returns the schools for a district",
@@ -371,11 +371,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "506f6f85feb9abbe49e09083204f9327",
+            "id": "4f77f1dcbbb312a0d47b21f2b20a6d56",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/districts\/{id}\/sections",
             "description": "Returns the sections for a district",
@@ -430,11 +430,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "70a216c4633c63806a6c48101af68291",
+            "id": "3ebc9692a6584109f7a99d6f29d30d63",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/districts\/{id}\/status",
             "description": "Returns the status of the district",
@@ -461,11 +461,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "1adbb5ce0fab00f98db4417acc1f6919",
+            "id": "3c40c634a2d0a1db861872cf6415ff4c",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/districts\/{id}\/students",
             "description": "Returns the students for a district",
@@ -520,11 +520,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "cde67c2288a1de0c2c6c332e70d20a99",
+            "id": "646a0baa6b9dd4dfeb43ab35e90668a1",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/districts\/{id}\/teachers",
             "description": "Returns the teachers for a district",
@@ -579,11 +579,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "c1661d4fc658c90f5192478ed6a5a847",
+            "id": "5e05c97c8849d10d763ec2ac2672351e",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/school_admins",
             "description": "Returns a list of school admins",
@@ -631,11 +631,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "65cb6a0f10ca740aada13206e86f6dac",
+            "id": "868194a4ff144a99aa29279b4bb8c691",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/school_admins\/{id}",
             "description": "Returns a specific school admin",
@@ -669,11 +669,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "72afa6e55360d8724a80a6059ec9f8e0",
+            "id": "9f46ea5e52960d91dde83c93982fa5c7",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/school_admins\/{id}\/schools",
             "description": "Returns the schools for a school admin",
@@ -721,11 +721,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "84bf460a6c54c2bec0974ae3a99de799",
+            "id": "acf1c0445c30fe5298b2a44fa32260ac",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/schools",
             "description": "Returns a list of schools",
@@ -773,11 +773,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "ba0d1bc1f639f9e56606a6b8a7c6ffdc",
+            "id": "f7dc4a3998415b9f8a2cc92c8283f521",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/schools\/{id}",
             "description": "Returns a specific school",
@@ -804,11 +804,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "aa41ac76fdf2fb63e3b891ea355ede00",
+            "id": "3e1e3f325847df2c8fd23f72e6841e14",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/schools\/{id}\/district",
             "description": "Returns the district for a school",
@@ -835,11 +835,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "8ece139d86124cdeca18c21682599017",
+            "id": "0279685debc6f61bfb8b01ed7a811722",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/schools\/{id}\/sections",
             "description": "Returns the sections for a school",
@@ -894,11 +894,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "39144222a435688fd3d9d1ec723d6313",
+            "id": "efa3bd2e5f089c97faea908b61b560d5",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/schools\/{id}\/students",
             "description": "Returns the students for a school",
@@ -953,11 +953,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "9f6be9ec9dbc5a0003e248c07bd1b8be",
+            "id": "62dda20866565817294c6dd5614be84b",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/schools\/{id}\/teachers",
             "description": "Returns the teachers for a school",
@@ -1012,11 +1012,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "e20ed2e45795ff597a2592d3e9a88c5e",
+            "id": "7fab7e01bb160a9f83b03dce754d2365",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/sections",
             "description": "Returns a list of sections",
@@ -1064,11 +1064,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "08f73e44c2727e6b5d0d04429eba3314",
+            "id": "a2cd9fce09142774387614aa2f7373dc",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/sections\/{id}",
             "description": "Returns a specific section",
@@ -1095,11 +1095,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "a3ff5d8d92d0e1b3b39ce11a71bc8a47",
+            "id": "97fd5ff7002d67e7947aa21a007b4eea",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/sections\/{id}\/district",
             "description": "Returns the district for a section",
@@ -1126,11 +1126,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "d64a446ee705fab149f36b7c8d686df7",
+            "id": "3223fb19bf95dcff0075bd07755ebecd",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/sections\/{id}\/school",
             "description": "Returns the school for a section",
@@ -1157,11 +1157,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "4f9c3d0e188c8d1c4d3067c6d74e1e94",
+            "id": "e8fb27bbda0226f7ad6c6c25afba859e",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/sections\/{id}\/students",
             "description": "Returns the students for a section",
@@ -1209,11 +1209,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "64b201dcdf264b36fefa1dec16af296d",
+            "id": "10ef7cdbd9cd8250298f4f7c76274c18",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/sections\/{id}\/teacher",
             "description": "Returns the primary teacher for a section",
@@ -1240,11 +1240,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "e8dd656aa051c171f4786edab1d4b2ee",
+            "id": "cea555791a6c5d311f5b6469fcecd67e",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/sections\/{id}\/teachers",
             "description": "Returns the teachers for a section",
@@ -1292,11 +1292,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "4f8d7ff3884de8ef0979113bc360dbe9",
+            "id": "ce0020842a2bfa1b5b80bc9a69e71579",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/students",
             "description": "Returns a list of students",
@@ -1344,11 +1344,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "aa0caf34e0011a92e14827538316da4c",
+            "id": "f454ec1d5d4fea43e6fcee4c0627dc3f",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/students\/{id}",
             "description": "Returns a specific student",
@@ -1382,11 +1382,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "d0aa4a6f26f9f76b3714fd9c1e3e5c62",
+            "id": "75e51a4f17d48e6cd1527466e48e8940",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/students\/{id}\/contacts",
             "description": "Returns the contacts for a student",
@@ -1420,11 +1420,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "10a013f1b91e4776e6f52925624e8616",
+            "id": "8463c112c3c5a7395bc3f0608da1d634",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/students\/{id}\/district",
             "description": "Returns the district for a student",
@@ -1451,11 +1451,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "6d959a1b4389a64f7afed629a5940b7d",
+            "id": "3ff796f1df8384cebe42255e5fe4c514",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/students\/{id}\/school",
             "description": "Returns the primary school for a student",
@@ -1482,11 +1482,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "ac43a1d956bdca142637fa62391511ca",
+            "id": "6f5495fcff1054c23a5de70084557f63",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/students\/{id}\/sections",
             "description": "Returns the sections for a student",
@@ -1534,11 +1534,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "25e935a7a0a0e45407d79d1b227c14c2",
+            "id": "abcc74f7ba17813baca81de8c8afb452",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/students\/{id}\/teachers",
             "description": "Returns the teachers for a student",
@@ -1586,11 +1586,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "87161df08f1322c5742da4106bcd50d9",
+            "id": "48c3d3216a508fea3ec7b8e6737b6c88",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/teachers",
             "description": "Returns a list of teachers",
@@ -1638,11 +1638,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "0b21a383ddccb06e4b271f845c457840",
+            "id": "6178416f976bf259ef5e17e32a508bea",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/teachers\/{id}",
             "description": "Returns a specific teacher",
@@ -1676,11 +1676,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "7cc5a1f9db4094e20d681ab8dc9cc4c4",
+            "id": "9a830af093bef066b3bade40c20a45f2",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/teachers\/{id}\/district",
             "description": "Returns the district for a teacher",
@@ -1707,11 +1707,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "ff989b2d18a88854cdafb4097f8fb6c0",
+            "id": "00649468a87d977e6a834f75a294cbb5",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/teachers\/{id}\/grade_levels",
             "description": "Returns the grade levels for sections a teacher teaches",
@@ -1738,11 +1738,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "d406fa2a2092a3ce94381827ab3f16b3",
+            "id": "7764143d525707b54322eda8e0fa1e83",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/teachers\/{id}\/school",
             "description": "Retrieves school info for a teacher.",
@@ -1769,11 +1769,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "1beb90799bfe78f1463c6a98105eef59",
+            "id": "1d33770936fd3de072456e74a90a527b",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/teachers\/{id}\/sections",
             "description": "Returns the sections for a teacher",
@@ -1821,11 +1821,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         },
         {
-            "id": "d247fbd2bdb6975ae18fa4e1edaccb78",
+            "id": "0d8d442cbc3e35458cc6a18f43e577a3",
             "name": "",
             "url": "http:\/\/api.clever.com\/v1.2\/teachers\/{id}\/students",
             "description": "Returns the students for a teacher",
@@ -1873,7 +1873,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2d08635444aff80adbd9c30c3f4ca33b",
+            "collectionId": "3ed47fd76953460ab1ad2804bd7d52c0",
             "rawModeData": ""
         }
     ]
