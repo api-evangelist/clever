@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clever/main/json-schema/clever-school.json",
+  "title": "School",
+  "description": "A Clever School object representing a K-12 school within a district.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "description": "Unique Clever identifier for the school." },
+    "district": { "type": "string", "description": "Clever identifier of the district." },
+    "name": { "type": "string", "description": "Name of the school." },
+    "sis_id": { "type": "string", "description": "School identifier from the SIS." },
+    "state_id": { "type": ["string", "null"], "description": "State-assigned school identifier." },
+    "school_number": { "type": "string", "description": "Local school number." },
+    "nces_id": { "type": ["string", "null"], "description": "NCES school identifier." },
+    "mdr_number": { "type": ["string", "null"], "description": "MDR school number." },
+    "phone": { "type": ["string", "null"], "description": "School phone number." },
+    "created": { "type": "string", "format": "date-time" },
+    "last_modified": { "type": "string", "format": "date-time" },
+    "low_grade": {
+      "type": ["string", "null"],
+      "description": "Lowest grade served by the school."
+    },
+    "high_grade": {
+      "type": ["string", "null"],
+      "description": "Highest grade served by the school."
+    },
+    "location": {
+      "type": "object",
+      "description": "Physical address of the school.",
+      "properties": {
+        "address": { "type": ["string", "null"] },
+        "city": { "type": ["string", "null"] },
+        "state": { "type": ["string", "null"] },
+        "zip": { "type": ["string", "null"] }
+      }
+    },
+    "principal": {
+      "type": "object",
+      "description": "Principal information for the school.",
+      "properties": {
+        "email": { "type": ["string", "null"] },
+        "name": { "type": ["string", "null"] }
+      }
+    },
+    "ext": { "type": "object", "description": "Extension fields." }
+  },
+  "required": ["id", "district", "name"]
+}

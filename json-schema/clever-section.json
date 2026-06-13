@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clever/main/json-schema/clever-section.json",
+  "title": "Section",
+  "description": "A Clever Section object (analogous to a class) linking teachers and students within a school.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "description": "Unique Clever identifier for the section." },
+    "district": { "type": "string", "description": "Clever identifier of the district." },
+    "school": { "type": "string", "description": "Clever identifier of the school." },
+    "course": { "type": ["string", "null"], "description": "Clever identifier of the associated course." },
+    "term_id": { "type": ["string", "null"], "description": "Clever identifier of the associated term." },
+    "name": { "type": "string", "description": "Name of the section." },
+    "sis_id": { "type": "string", "description": "Section identifier from the SIS." },
+    "section_number": { "type": ["string", "null"] },
+    "period": { "type": ["string", "null"], "description": "Period identifier for the section." },
+    "subject": {
+      "type": ["string", "null"],
+      "enum": ["english/language arts","math","science","social studies","language","homeroom/advisory","interventions/online learning","technology and engineering","PE and health","arts and music","other",""],
+      "description": "Subject category for the section."
+    },
+    "grade": {
+      "type": ["string", "null"],
+      "description": "Grade level of the section."
+    },
+    "teacher": { "type": ["string", "null"], "description": "Primary teacher Clever identifier." },
+    "teachers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "All teacher Clever identifiers for the section."
+    },
+    "students": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "All student Clever identifiers enrolled in the section."
+    },
+    "lms_status": {
+      "type": "object",
+      "description": "LMS synchronization status for the section."
+    },
+    "created": { "type": "string", "format": "date-time" },
+    "last_modified": { "type": "string", "format": "date-time" },
+    "ext": { "type": "object", "description": "Extension fields." }
+  },
+  "required": ["id", "district", "school", "name"]
+}

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "id": "58da8c6ad3ef4f025409b3c1",
+    "district": "58da8c6ad3ef4f0254099f4a",
+    "school": "58da8c6ad3ef4f025409a1b2",
+    "course": "58da8c6ad3ef4f025409c2d3",
+    "term_id": "58da8c6ad3ef4f025409d4e5",
+    "name": "Algebra II - Period 3",
+    "sis_id": "ALGIIP3-2023",
+    "section_number": "ALG2-003",
+    "period": "3",
+    "subject": "math",
+    "grade": "10",
+    "teacher": "58da8c6ad3ef4f025409e5f6",
+    "teachers": ["58da8c6ad3ef4f025409e5f6"],
+    "students": [
+      "5be3bbeea96f6b000153b0f5",
+      "5be3bbeea96f6b000153b0f6",
+      "5be3bbeea96f6b000153b0f7"
+    ],
+    "lms_status": {
+      "canvas": "active",
+      "schoology": null,
+      "google_classroom": null
+    },
+    "created": "2023-08-01T00:00:00.000Z",
+    "last_modified": "2023-08-15T10:00:00.000Z",
+    "ext": {}
+  },
+  "links": [
+    { "rel": "self", "uri": "/v3.1/sections/58da8c6ad3ef4f025409b3c1" },
+    { "rel": "district", "uri": "/v3.1/districts/58da8c6ad3ef4f0254099f4a" },
+    { "rel": "school", "uri": "/v3.1/schools/58da8c6ad3ef4f025409a1b2" }
+  ]
+}

@@ -1,0 +1,661 @@
+openapi: 3.0.0
+info:
+  description: The Clever LMS Connect API
+  title: LMS Connect API
+  version: 3.1.0
+paths:
+  "/sections/{section_id}/assignments":
+    post:
+      description: Creates a new assignment in the specified section
+      operationId: createAssignmentForSection
+      parameters:
+        - in: path
+          name: section_id
+          required: true
+          schema:
+            type: string
+            format: mongo-id
+      requestBody:
+        $ref: "#/components/requestBodies/AssignmentRequest"
+      responses:
+        "200":
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssignmentResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      tags:
+        - Assignments
+  "/sections/{section_id}/assignments/{assignment_id}":
+    delete:
+      description: Deletes an existing assignment in the specified section
+      operationId: deleteAssignmentForSection
+      parameters:
+        - in: path
+          name: section_id
+          required: true
+          schema:
+            type: string
+            format: mongo-id
+        - in: path
+          name: assignment_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK Response
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      tags:
+        - Assignments
+    get:
+      description: Returns a specific assignment for a section
+      operationId: getAssignmentForSection
+      parameters:
+        - in: path
+          name: section_id
+          required: true
+          schema:
+            type: string
+            format: mongo-id
+        - in: path
+          name: assignment_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssignmentResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      tags:
+        - Assignments
+    patch:
+      description: Updates an existing assignment in the specified section
+      operationId: updateAssignmentForSection
+      parameters:
+        - in: path
+          name: section_id
+          required: true
+          schema:
+            type: string
+            format: mongo-id
+        - in: path
+          name: assignment_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/AssignmentRequest"
+      responses:
+        "200":
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssignmentResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalError"
+      tags:
+        - Assignments
+  "/sections/{section_id}/assignments/{assignment_id}/submissions":
+    get:
+      description: Returns the submissions for an assignment.
+      operationId: getSubmissionsForAssignment
+      parameters:
+        - in: path
+          name: section_id
+          required: true
+          schema:
+            type: string
+            format: mongo-id
+        - in: path
+          name: assignment_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: cursor
+          schema:
+            type: string
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+      responses:
+        "200":
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmissionsResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      tags:
+        - Assignments
+  "/sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}":
+    get:
+      description: Returns a specific user's submission for an assignment.
+      operationId: getSubmissionForAssignment
+      parameters:
+        - in: path
+          name: section_id
+          required: true
+          schema:
+            type: string
+            format: mongo-id
+        - in: path
+          name: assignment_id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+            format: mongo-id
+      responses:
+        "200":
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmissionResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      tags:
+        - Submissions
+    patch:
+      description: Updates an existing submission in the specified assignment for a user.
+      operationId: updateSubmissionForAssignment
+      parameters:
+        - in: path
+          name: section_id
+          required: true
+          schema:
+            type: string
+            format: mongo-id
+        - in: path
+          name: assignment_id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+            format: mongo-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubmissionRequest"
+        required: true
+      responses:
+        "200":
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmissionResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalError"
+      tags:
+        - Submissions
+security:
+  - oauth: []
+x-samples-languages:
+  - curl
+  - node
+  - ruby
+  - python
+  - php
+  - java
+  - go
+servers:
+  - url: https://api.clever.com/v3.1
+components:
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/BadRequest"
+    InternalError:
+      description: Internal Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/InternalError"
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFound"
+    Unauthorized:
+      description: Not authorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Unauthorized"
+  requestBodies:
+    AssignmentRequest:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AssignmentRequest"
+      required: true
+  securitySchemes:
+    oauth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://clever.com/oauth/authorize
+          tokenUrl: https://clever.com/oauth/tokens
+          scopes: {}
+  schemas:
+    AssigneeMode:
+      enum:
+        - all
+        - individuals
+      type: string
+    Assignment:
+      properties:
+        assignee_ids:
+          items:
+            type: string
+          type: array
+          x-omitempty: true
+        assignee_mode:
+          $ref: "#/components/schemas/AssigneeMode"
+        attachments:
+          items:
+            $ref: "#/components/schemas/Attachment"
+          type: array
+          x-omitempty: true
+        category_id:
+          type: string
+          nullable: true
+        created:
+          format: datetime
+          type: string
+          nullable: true
+        description:
+          type: string
+        description_plaintext:
+          type: string
+          nullable: true
+        display_date:
+          format: datetime
+          type: string
+          nullable: true
+        due_date:
+          format: datetime
+          type: string
+          nullable: true
+        end_date:
+          format: datetime
+          type: string
+          nullable: true
+        grading_scale:
+          items:
+            $ref: "#/components/schemas/GradingScale"
+          type: array
+          x-omitempty: true
+        grading_type:
+          $ref: "#/components/schemas/GradingType"
+        id:
+          type: string
+        last_modified:
+          format: datetime
+          type: string
+          nullable: true
+        max_attempts:
+          type: integer
+          x-omitempty: true
+        points_possible:
+          format: float
+          type: number
+          nullable: true
+        start_date:
+          format: datetime
+          type: string
+          nullable: true
+        state:
+          $ref: "#/components/schemas/AssignmentState"
+        submission_types:
+          items:
+            $ref: "#/components/schemas/SubmissionType"
+          type: array
+          x-omitempty: true
+        term_id:
+          type: string
+          nullable: true
+        title:
+          type: string
+      type: object
+    AssignmentRequest:
+      properties:
+        assignee_ids:
+          items:
+            type: string
+          type: array
+          x-omitempty: true
+        assignee_mode:
+          $ref: "#/components/schemas/AssigneeMode"
+        attachments:
+          items:
+            $ref: "#/components/schemas/AttachmentRequest"
+          type: array
+          x-omitempty: true
+        description:
+          type: string
+          nullable: true
+        description_plaintext:
+          type: string
+          nullable: true
+        display_date:
+          format: datetime
+          type: string
+          nullable: true
+        due_date:
+          format: datetime
+          type: string
+          nullable: true
+        end_date:
+          format: datetime
+          type: string
+          nullable: true
+        grading_type:
+          $ref: "#/components/schemas/GradingType"
+        max_attempts:
+          type: integer
+          x-omitempty: true
+        points_possible:
+          format: float
+          type: number
+          nullable: true
+        start_date:
+          format: datetime
+          type: string
+          nullable: true
+        submission_types:
+          items:
+            $ref: "#/components/schemas/SubmissionType"
+          type: array
+          x-omitempty: true
+        term_id:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+      type: object
+    AssignmentResponse:
+      properties:
+        data:
+          $ref: "#/components/schemas/Assignment"
+      type: object
+    AssignmentState:
+      enum:
+        - draft
+        - scheduled
+        - open
+        - locked
+      type: string
+    Attachment:
+      properties:
+        description:
+          type: string
+          nullable: true
+        file_external_id:
+          type: string
+          nullable: true
+        size:
+          format: float
+          type: number
+          x-omitempty: true
+        thumbnail_url:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        type:
+          type: string
+        url:
+          type: string
+          nullable: true
+      type: object
+    AttachmentRequest:
+      properties:
+        description:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        type:
+          enum:
+            - file
+          type: string
+        url:
+          type: string
+          nullable: true
+      type: object
+    BadRequest:
+      properties:
+        message:
+          type: string
+      type: object
+    GradingScale:
+      properties:
+        entries:
+          items:
+            $ref: "#/components/schemas/GradingScaleEntry"
+          type: array
+          nullable: true
+        name:
+          type: string
+      type: object
+    GradingScaleEntry:
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
+    GradingType:
+      enum:
+        - points
+        - percent
+        - pass_fail
+        - letter_grade
+      type: string
+    InternalError:
+      properties:
+        message:
+          type: string
+      type: object
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+    Submission:
+      properties:
+        assignment_id:
+          type: string
+        attachments:
+          items:
+            $ref: "#/components/schemas/Attachment"
+          type: array
+          x-omitempty: true
+        created:
+          format: datetime
+          type: string
+          nullable: true
+        extra_attempts:
+          type: integer
+          x-omitempty: true
+        flags:
+          items:
+            $ref: "#/components/schemas/SubmissionFlag"
+          type: array
+          x-omitempty: true
+        grade:
+          type: string
+          nullable: true
+        grade_comment:
+          type: string
+          nullable: true
+        grade_points:
+          format: float
+          type: number
+          x-omitempty: true
+        grader_id:
+          type: string
+          nullable: true
+        id:
+          description: >
+            Deprecated. The Clever unique identifier of the submission. Will
+            always be empty if the
+
+            upstream LMS provider is Google Classroom; it is currently still present for Canvas and
+
+            Schoology LMSs but will be removed in the near future.
+          type: string
+        last_modified:
+          format: datetime
+          type: string
+          nullable: true
+        override_due_date:
+          format: datetime
+          type: string
+          nullable: true
+        state:
+          $ref: "#/components/schemas/SubmissionState"
+        user_id:
+          type: string
+      type: object
+    SubmissionFlag:
+      enum:
+        - excused
+        - late
+        - missing
+      type: string
+    SubmissionRequest:
+      properties:
+        attachments:
+          items:
+            $ref: "#/components/schemas/AttachmentRequest"
+          type: array
+          x-omitempty: true
+        extra_attempts:
+          type: integer
+          x-omitempty: true
+        flags:
+          items:
+            $ref: "#/components/schemas/SubmissionFlag"
+          type: array
+          x-omitempty: true
+        grade:
+          type: string
+          nullable: true
+        grade_comment:
+          type: string
+          nullable: true
+        grade_points:
+          format: float
+          type: number
+          x-omitempty: true
+        grader_id:
+          type: string
+          nullable: true
+        override_due_date:
+          format: datetime
+          type: string
+          nullable: true
+        state:
+          $ref: "#/components/schemas/SubmissionState"
+      type: object
+    SubmissionResponse:
+      properties:
+        data:
+          $ref: "#/components/schemas/Submission"
+      type: object
+    SubmissionState:
+      enum:
+        - created
+        - submitted
+        - returned
+        - reclaimed
+      type: string
+    SubmissionType:
+      enum:
+        - link
+        - file
+        - text
+        - discussion
+      type: string
+    SubmissionsLink:
+      properties:
+        rel:
+          enum:
+            - next
+          type: string
+        uri:
+          type: string
+      type: object
+    SubmissionsResponse:
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/Submission"
+          type: array
+        links:
+          items:
+            $ref: "#/components/schemas/SubmissionsLink"
+          type: array
+          x-omitempty: true
+      type: object
+    Unauthorized:
+      properties:
+        message:
+          type: string
+      type: object

@@ -1,0 +1,135 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "clever": "https://clever.com/ontology/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "id": "@id",
+    "type": "@type",
+
+    "District": "clever:District",
+    "School": "clever:School",
+    "User": "clever:User",
+    "Student": "clever:Student",
+    "Teacher": "clever:Teacher",
+    "Staff": "clever:Staff",
+    "DistrictAdmin": "clever:DistrictAdmin",
+    "Section": "clever:Section",
+    "Course": "clever:Course",
+    "Term": "clever:Term",
+    "Contact": "clever:Contact",
+    "Resource": "clever:Resource",
+    "Event": "clever:Event",
+
+    "name": "schema:name",
+    "email": "schema:email",
+    "phone": "schema:telephone",
+    "created": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "last_modified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+
+    "district": { "@id": "clever:district", "@type": "@id" },
+    "school": { "@id": "clever:school", "@type": "@id" },
+    "schools": { "@id": "clever:schools", "@type": "@id", "@container": "@list" },
+    "course": { "@id": "clever:course", "@type": "@id" },
+    "term_id": { "@id": "clever:term", "@type": "@id" },
+    "teacher": { "@id": "clever:teacher", "@type": "@id" },
+    "teachers": { "@id": "clever:teachers", "@type": "@id", "@container": "@list" },
+    "students": { "@id": "clever:students", "@type": "@id", "@container": "@list" },
+
+    "sis_id": "clever:sisId",
+    "state_id": "clever:stateId",
+    "student_number": "clever:studentNumber",
+    "teacher_number": "clever:teacherNumber",
+    "school_number": "clever:schoolNumber",
+    "section_number": "clever:sectionNumber",
+    "nces_id": "clever:ncesId",
+    "mdr_number": "clever:mdrNumber",
+    "legacy_id": "clever:legacyId",
+
+    "grade": "clever:grade",
+    "dob": {
+      "@id": "schema:birthDate",
+      "@type": "xsd:string"
+    },
+    "gender": "schema:gender",
+    "graduation_year": "clever:graduationYear",
+    "race": "schema:raceEthnicity",
+    "hispanic_ethnicity": "clever:hispanicEthnicity",
+    "ell_status": "clever:ellStatus",
+    "frl_status": "clever:frlStatus",
+    "iep_status": "clever:iepStatus",
+    "section_504_status": "clever:section504Status",
+    "gifted_status": "clever:giftedStatus",
+    "home_language": "clever:homeLanguage",
+    "home_language_code": "clever:homeLanguageCode",
+
+    "period": "clever:period",
+    "subject": "clever:subject",
+
+    "sis_type": "clever:sisType",
+    "lms_type": "clever:lmsType",
+    "lms_state": "clever:lmsState",
+    "lms_status": "clever:lmsStatus",
+    "state": "clever:syncState",
+    "last_sync": {
+      "@id": "clever:lastSync",
+      "@type": "xsd:dateTime"
+    },
+    "launch_date": {
+      "@id": "clever:launchDate",
+      "@type": "xsd:date"
+    },
+    "portal_url": {
+      "@id": "clever:portalUrl",
+      "@type": "@id"
+    },
+    "login_methods": "clever:loginMethods",
+
+    "location": {
+      "@id": "schema:address",
+      "@type": "schema:PostalAddress"
+    },
+    "address": "schema:streetAddress",
+    "city": "schema:addressLocality",
+    "zip": "schema:postalCode",
+
+    "low_grade": "clever:lowGrade",
+    "high_grade": "clever:highGrade",
+    "principal": "clever:principal",
+
+    "credentials": "clever:credentials",
+    "district_username": "clever:districtUsername",
+    "enrollments": "clever:enrollments",
+    "start_date": {
+      "@id": "schema:startDate",
+      "@type": "xsd:date"
+    },
+    "end_date": {
+      "@id": "schema:endDate",
+      "@type": "xsd:date"
+    },
+
+    "ext": "clever:extensionFields",
+    "roles": "clever:roles",
+    "links": "clever:links",
+    "data": "clever:data",
+
+    "preferred_name": "clever:preferredName",
+    "title": "schema:jobTitle",
+    "disability": "clever:disability",
+    "number": "clever:courseNumber",
+
+    "event_type": "clever:eventType",
+    "info": "clever:eventInfo",
+
+    "assignments": "clever:assignments",
+    "submissions": "clever:submissions"
+  }
+}

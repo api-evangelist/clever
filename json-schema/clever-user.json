@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clever/main/json-schema/clever-user.json",
+  "title": "User",
+  "description": "A Clever User object representing a student, teacher, staff member, or district admin.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique Clever identifier for the user."
+    },
+    "district": {
+      "type": "string",
+      "description": "Clever identifier of the district the user belongs to."
+    },
+    "email": {
+      "type": ["string", "null"],
+      "description": "Email address of the user."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the user record was created."
+    },
+    "last_modified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the user record was last modified."
+    },
+    "name": {
+      "type": "object",
+      "description": "Name components for the user.",
+      "properties": {
+        "first": { "type": "string" },
+        "last": { "type": "string" },
+        "middle": { "type": ["string", "null"] }
+      }
+    },
+    "roles": {
+      "type": "object",
+      "description": "Roles assigned to the user (student, teacher, staff, district_admin).",
+      "properties": {
+        "student": { "type": "object" },
+        "teacher": { "type": "object" },
+        "staff": { "type": "object" },
+        "district_admin": { "type": "object" }
+      }
+    },
+    "lms_status": {
+      "type": "object",
+      "description": "LMS synchronization status for the user.",
+      "properties": {
+        "canvas": { "type": ["string", "null"] },
+        "schoology": { "type": ["string", "null"] },
+        "google_classroom": { "type": ["string", "null"] }
+      }
+    }
+  },
+  "required": ["id", "district"]
+}

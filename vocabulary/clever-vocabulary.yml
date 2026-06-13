@@ -1,0 +1,228 @@
+title: Clever API Vocabulary
+description: >-
+  Vocabulary of key terms, concepts, and domain objects used across the
+  Clever K-12 EdTech platform, Data API (v3.1), Events API, LMS Connect API,
+  and Single Sign-On integrations.
+version: "3.1"
+updated: "2026-06-13"
+
+terms:
+
+  - term: district
+    definition: >-
+      The highest-level organizational unit in Clever's data model. Each
+      district corresponds to a K-12 school district that has authorized the
+      Clever integration. All users, schools, sections, and courses belong to
+      exactly one district.
+    tags: [organization, rostering]
+
+  - term: school
+    definition: >-
+      A K-12 school within a district. Every user, term, course, and section
+      must be associated with at least one school. User records may be
+      associated with multiple schools.
+    tags: [organization, rostering]
+
+  - term: user
+    definition: >-
+      A unified identity record in Clever v3.x representing any person in the
+      system. Users carry role-specific sub-objects (student, teacher, staff,
+      district_admin) rather than being separate object types.
+    tags: [identity, rostering]
+
+  - term: student
+    definition: >-
+      A role sub-object within a User record. Contains student-specific
+      demographic and roster fields such as grade, dob, ell_status, frl_status,
+      iep_status, and enrollment data.
+    tags: [identity, rostering, demographics]
+
+  - term: teacher
+    definition: >-
+      A role sub-object within a User record. Contains teacher-specific fields
+      such as teacher_number, title, and credentials.
+    tags: [identity, rostering]
+
+  - term: staff
+    definition: >-
+      A role sub-object within a User record for non-teaching school staff.
+    tags: [identity, rostering]
+
+  - term: district_admin
+    definition: >-
+      A role sub-object within a User record for district-level administrators.
+    tags: [identity, rostering]
+
+  - term: section
+    definition: >-
+      Analogous to a class or classroom. Sections tie teachers and students
+      together within a school. Each section may optionally reference a course
+      and a term.
+    tags: [rostering]
+
+  - term: course
+    definition: >-
+      An optional data type representing a curriculum course. Courses are only
+      present if a district chooses to sync course information to Clever. A
+      course may be associated with multiple sections.
+    tags: [rostering, curriculum]
+
+  - term: term
+    definition: >-
+      An optional data type representing an academic term (semester, quarter,
+      trimester). Only present if a district sends term information. Sections
+      reference terms via term_id.
+    tags: [rostering, academic-calendar]
+
+  - term: contact
+    definition: >-
+      A student contact (guardian). Contains name and contact information for a
+      student's parent or guardian. Also referred to as a guardian.
+    tags: [rostering, demographics]
+
+  - term: resource
+    definition: >-
+      An optional data type that applications can create and assign to courses
+      by district admins. Used for content mapping.
+    tags: [content-mapping]
+
+  - term: event
+    definition: >-
+      A delta-sync record indicating a change (create, update, delete) to a
+      roster object within a district. The Events API returns events to enable
+      efficient incremental synchronization. Events must be enabled in the
+      application dashboard.
+    tags: [sync, events]
+
+  - term: sis_id
+    definition: >-
+      The identifier assigned to a record by the Student Information System
+      (SIS). Used to correlate Clever data back to the district's authoritative
+      source of record.
+    tags: [identifiers]
+
+  - term: state_id
+    definition: >-
+      A state-assigned identifier for a student or school, issued by the state
+      department of education.
+    tags: [identifiers]
+
+  - term: nces_id
+    definition: >-
+      National Center for Education Statistics identifier assigned to schools
+      and districts by the U.S. Department of Education.
+    tags: [identifiers]
+
+  - term: district_app_token
+    definition: >-
+      A long-lived bearer token scoped to a district-application authorization.
+      Used to authenticate Data API (Secure Sync) requests and Events API
+      requests. Distinct from SSO bearer tokens.
+    tags: [authentication, security]
+
+  - term: sso_bearer_token
+    definition: >-
+      A short-lived bearer token prefixed with "il" issued during a Clever
+      Single Sign-On flow for an individual user. Used to call identity
+      endpoints such as /me and /userinfo.
+    tags: [authentication, security, sso]
+
+  - term: secure_sync
+    definition: >-
+      Clever's district-managed rostering product. Applications subscribe to
+      Secure Sync to receive real-time roster data from a district's SIS via
+      the Data API. Requires a district to authorize the application and a
+      Secure Sync subscription.
+    tags: [product, rostering]
+
+  - term: single_sign_on
+    definition: >-
+      Clever's identity and SSO product enabling application partners to
+      authenticate students, teachers, and staff through the Clever portal.
+      Implements OAuth 2.0 authorization code flow; optionally OIDC or SAML.
+    tags: [product, sso, identity]
+
+  - term: lms_connect
+    definition: >-
+      Clever's integration layer for Learning Management Systems to sync
+      gradebook data, assignments, and course enrollments. Available in API
+      v3.1. Supports Canvas, Schoology, and Google Classroom.
+    tags: [product, lms, gradebook]
+
+  - term: clever_complete
+    definition: >-
+      The full suite of Clever integration products including Secure Sync
+      (rostering), Single Sign-On (SSO), and LMS Connect (gradebook sync).
+    tags: [product]
+
+  - term: delta_sync
+    definition: >-
+      An incremental synchronization strategy using the Events API. Instead of
+      re-syncing all roster data, applications retrieve only the changes
+      (creates, updates, deletes) since the last sync.
+    tags: [sync, events]
+
+  - term: ell_status
+    definition: >-
+      English Language Learner status for a student. Values: Y (yes), N (no),
+      or empty string.
+    tags: [demographics]
+
+  - term: frl_status
+    definition: >-
+      Free and Reduced Lunch eligibility status for a student. Values: Free,
+      Reduced, Paid, Other, or empty string.
+    tags: [demographics]
+
+  - term: iep_status
+    definition: >-
+      Individualized Education Program status for a student. Indicates whether
+      a student has a special education plan.
+    tags: [demographics]
+
+  - term: section_504_status
+    definition: >-
+      Section 504 accommodation plan status. Indicates whether a student
+      receives accommodations under Section 504 of the Rehabilitation Act.
+    tags: [demographics]
+
+  - term: lms_status
+    definition: >-
+      An object on User and Section records indicating synchronization status
+      with connected LMS platforms (canvas, schoology, google_classroom).
+    tags: [lms, sync]
+
+  - term: oauth_2
+    definition: >-
+      The authorization protocol used by Clever SSO. Implements the
+      authorization code flow. Applications redirect users to
+      clever.com/oauth/authorize and exchange the resulting code for an access
+      token at clever.com/oauth/tokens.
+    tags: [authentication, protocol]
+
+  - term: oidc
+    definition: >-
+      OpenID Connect — an identity layer built on OAuth 2.0 supported by
+      Clever. Provides an id_token and access to the /userinfo endpoint for
+      standardized identity claims.
+    tags: [authentication, protocol, identity]
+
+  - term: saml
+    definition: >-
+      Security Assertion Markup Language — a federated SSO protocol supported
+      by Clever for integrations with third-party identity services.
+    tags: [authentication, protocol]
+
+  - term: pagination
+    definition: >-
+      Clever Data API list endpoints support cursor-based pagination using
+      starting_after and ending_before query parameters (Clever object IDs)
+      along with a limit parameter. Responses include navigation links.
+    tags: [api-design, pagination]
+
+  - term: extension_fields
+    definition: >-
+      Custom fields (ext) on User, Student, Teacher, School, and Section
+      objects that allow districts or applications to pass non-standard data
+      fields through Clever.
+    tags: [api-design, extensibility]

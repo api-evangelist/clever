@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clever/main/json-schema/clever-student.json",
+  "title": "Student",
+  "description": "A Clever Student object containing roster and demographic data synced from the district SIS.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "description": "Unique Clever identifier for the student." },
+    "district": { "type": "string", "description": "Clever identifier of the district." },
+    "school": { "type": "string", "description": "Primary school Clever identifier." },
+    "schools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of school Clever identifiers the student is enrolled in."
+    },
+    "sis_id": { "type": "string", "description": "Student identifier from the Student Information System." },
+    "state_id": { "type": ["string", "null"], "description": "State-assigned student identifier." },
+    "student_number": { "type": ["string", "null"], "description": "Local student number." },
+    "legacy_id": { "type": "string", "description": "Previous Clever identifier (if migrated)." },
+    "created": { "type": "string", "format": "date-time" },
+    "last_modified": { "type": "string", "format": "date-time" },
+    "name": {
+      "type": "object",
+      "properties": {
+        "first": { "type": "string" },
+        "last": { "type": "string" },
+        "middle": { "type": ["string", "null"] }
+      }
+    },
+    "dob": {
+      "type": ["string", "null"],
+      "pattern": "(?:[0-9]{1,2})/([0-9]{1,2})/([0-9]{4})",
+      "description": "Date of birth in MM/DD/YYYY format."
+    },
+    "gender": {
+      "type": ["string", "null"],
+      "enum": ["M", "F", "X", ""],
+      "description": "Gender of the student."
+    },
+    "grade": {
+      "type": ["string", "null"],
+      "enum": ["InfantToddler","Preschool","PreKindergarten","TransitionalKindergarten","Kindergarten","1","2","3","4","5","6","7","8","9","10","11","12","13","PostGraduate","Ungraded","Other",""],
+      "description": "Current grade level of the student."
+    },
+    "graduation_year": { "type": ["string", "null"], "description": "Expected graduation year." },
+    "race": {
+      "type": ["string", "null"],
+      "enum": ["Caucasian","Asian","Black or African American","American Indian","Hawaiian or Other Pacific Islander","Two or More Races","Unknown",""],
+      "description": "Race of the student."
+    },
+    "hispanic_ethnicity": { "type": ["string", "null"], "enum": ["Y","N",""] },
+    "ell_status": { "type": ["string", "null"], "enum": ["Y","N",""], "description": "English Language Learner status." },
+    "frl_status": {
+      "type": ["string", "null"],
+      "enum": ["Free","Reduced","Paid","Other",""],
+      "description": "Free/Reduced Lunch status."
+    },
+    "iep_status": { "type": ["string", "null"], "description": "Individualized Education Program status." },
+    "section_504_status": { "type": ["string", "null"], "enum": ["Y","N",""] },
+    "gifted_status": { "type": ["string", "null"], "enum": ["Y","N",""] },
+    "home_language": { "type": ["string", "null"], "description": "Primary home language name." },
+    "home_language_code": { "type": ["string", "null"], "description": "ISO 639-3 language code for home language." },
+    "location": {
+      "type": "object",
+      "description": "Student address information.",
+      "properties": {
+        "address": { "type": ["string", "null"] },
+        "city": { "type": ["string", "null"] },
+        "state": { "type": ["string", "null"] },
+        "zip": { "type": ["string", "null"] }
+      }
+    },
+    "enrollments": {
+      "type": "array",
+      "description": "School enrollment records for the student.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "school": { "type": "string" },
+          "start_date": { "type": ["string", "null"] },
+          "end_date": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "credentials": {
+      "type": "object",
+      "description": "Login credentials for district-managed platforms.",
+      "properties": {
+        "district_username": { "type": ["string", "null"] }
+      }
+    },
+    "ext": { "type": "object", "description": "Extension fields defined by the district or application." }
+  },
+  "required": ["id", "district"]
+}

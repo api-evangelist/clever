@@ -1,0 +1,54 @@
+{
+  "data": {
+    "id": "5be3bbeea96f6b000153b0f5",
+    "district": "58da8c6ad3ef4f0254099f4a",
+    "school": "58da8c6ad3ef4f025409a1b2",
+    "schools": ["58da8c6ad3ef4f025409a1b2"],
+    "sis_id": "12345678",
+    "state_id": "A12345678",
+    "student_number": "STU-001",
+    "legacy_id": "oldid123",
+    "created": "2018-11-07T18:03:42.000Z",
+    "last_modified": "2023-08-15T10:22:11.000Z",
+    "name": {
+      "first": "Jane",
+      "last": "Doe",
+      "middle": "A"
+    },
+    "dob": "03/15/2008",
+    "gender": "F",
+    "grade": "10",
+    "graduation_year": "2026",
+    "race": "Asian",
+    "hispanic_ethnicity": "N",
+    "ell_status": "N",
+    "frl_status": "Paid",
+    "iep_status": null,
+    "section_504_status": "N",
+    "gifted_status": "N",
+    "home_language": "English",
+    "home_language_code": "eng",
+    "location": {
+      "address": "123 Main St",
+      "city": "Springfield",
+      "state": "CA",
+      "zip": "90210"
+    },
+    "enrollments": [
+      {
+        "school": "58da8c6ad3ef4f025409a1b2",
+        "start_date": "2023-08-15",
+        "end_date": null
+      }
+    ],
+    "credentials": {
+      "district_username": "jdoe2026"
+    },
+    "ext": {}
+  },
+  "links": [
+    { "rel": "self", "uri": "/v3.1/students/5be3bbeea96f6b000153b0f5" },
+    { "rel": "district", "uri": "/v3.1/districts/58da8c6ad3ef4f0254099f4a" },
+    { "rel": "school", "uri": "/v3.1/schools/58da8c6ad3ef4f025409a1b2" }
+  ]
+}

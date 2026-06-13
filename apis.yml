@@ -50,7 +50,7 @@ apis:
       - type: Documentation
         url: https://dev.clever.com/docs/api-overview
       - type: OpenAPI
-        url: https://dev.clever.com/llms.txt
+        url: openapi/clever-data-api-openapi.yml
   - name: Clever Single Sign-On API
     description: >-
       OAuth 2.0, OIDC, and SAML-based single sign-on integration that
@@ -88,6 +88,8 @@ apis:
     properties:
       - type: Documentation
         url: https://dev.clever.com/docs/integration-types
+      - type: OpenAPI
+        url: openapi/clever-lms-connect-api-openapi.yml
   - name: Clever Events API
     description: >-
       Delta-sync event stream API that notifies application partners of
@@ -105,6 +107,8 @@ apis:
     properties:
       - type: Documentation
         url: https://dev.clever.com/docs/api-overview
+      - type: OpenAPI
+        url: openapi/clever-events-api-openapi.yml
 common:
   - type: Website
     url: https://clever.com
@@ -128,6 +132,26 @@ common:
     url: rate-limits/clever-rate-limits.yml
   - type: FinOps
     url: finops/clever-finops.yml
+  - type: Vocabulary
+    url: vocabulary/clever-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/clever-context.jsonld
+  - type: JSONSchema
+    url: json-schema/clever-user.json
+  - type: JSONSchema
+    url: json-schema/clever-student.json
+  - type: JSONSchema
+    url: json-schema/clever-school.json
+  - type: JSONSchema
+    url: json-schema/clever-section.json
+  - type: Examples
+    url: examples/clever-user-example.json
+  - type: Examples
+    url: examples/clever-student-example.json
+  - type: Examples
+    url: examples/clever-district-example.json
+  - type: Examples
+    url: examples/clever-section-example.json
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

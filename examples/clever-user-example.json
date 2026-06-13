@@ -1,0 +1,30 @@
+{
+  "data": {
+    "id": "5be3bbeea96f6b000153b0f5",
+    "district": "58da8c6ad3ef4f0254099f4a",
+    "email": "jane.doe@district.edu",
+    "created": "2018-11-07T18:03:42.000Z",
+    "last_modified": "2023-08-15T10:22:11.000Z",
+    "name": {
+      "first": "Jane",
+      "last": "Doe",
+      "middle": "A"
+    },
+    "roles": {
+      "student": {
+        "school": "58da8c6ad3ef4f025409a1b2",
+        "schools": ["58da8c6ad3ef4f025409a1b2"],
+        "grade": "10",
+        "sis_id": "12345678"
+      }
+    },
+    "lms_status": {
+      "canvas": null,
+      "schoology": null,
+      "google_classroom": null
+    }
+  },
+  "links": [
+    { "rel": "self", "uri": "/me" }
+  ]
+}

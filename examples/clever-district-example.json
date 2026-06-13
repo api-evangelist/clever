@@ -1,0 +1,28 @@
+{
+  "data": {
+    "id": "58da8c6ad3ef4f0254099f4a",
+    "name": "Springfield Unified School District",
+    "sis_type": "PowerSchool",
+    "nces_id": "0612345",
+    "mdr_number": "123456",
+    "state": "success",
+    "last_sync": "2026-06-12T04:15:00.000Z",
+    "last_attendance_sync": null,
+    "launch_date": "2021-08-15",
+    "portal_url": "https://clever.com/in/springfield-usd",
+    "login_methods": ["clever", "google"],
+    "lms_type": "canvas",
+    "lms_state": "success",
+    "pause_start": null,
+    "pause_end": null,
+    "district_contact": {
+      "email": "admin@springfieldusd.edu",
+      "name": "Dr. Smith",
+      "title": "IT Director"
+    },
+    "error": ""
+  },
+  "links": [
+    { "rel": "self", "uri": "/v3.1/districts/58da8c6ad3ef4f0254099f4a" }
+  ]
+}
