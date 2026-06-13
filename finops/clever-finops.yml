@@ -1,0 +1,123 @@
+specificationVersion: "1.0"
+name: Clever FinOps Framework
+description: >-
+  FinOps guidance for organizations integrating with the Clever API platform.
+  Clever pricing is primarily district-facing (SaaS tiers) and partner-facing
+  (custom integration agreements). Cost optimization centers on selecting the
+  right integration type, minimizing unnecessary API calls via event-driven
+  sync patterns, and right-sizing support and consulting add-ons.
+framework: FinOps Framework 1.0 (FOCUS-aligned)
+currency: USD
+costDimensions:
+  - dimension: District License Tier
+    description: >-
+      Districts pay for platform access based on the tier selected: Secure
+      Access (free), Protect Plus (custom quote), or Elevate (custom quote).
+      Costs scale with the number of schools and features required.
+    category: Subscription
+    managementTip: >-
+      Start with the free Secure Access tier to evaluate fit before committing
+      to Protect Plus or Elevate. Negotiate multi-year agreements for better
+      pricing on paid tiers.
+  - dimension: Application Partner Integration Fee
+    description: >-
+      Application partners integrating Secure Sync Rostering, Clever LMS
+      Connect, or Clever SSO negotiate custom pricing with Clever. The Clever
+      Library integration is free. Costs depend on the integration type,
+      number of districts connected, and student seat count.
+    category: Usage-Based / Custom
+    managementTip: >-
+      Start with the free Library integration to validate the integration
+      pattern before committing to paid Secure Sync or LMS Connect agreements.
+      Negotiate based on expected district and student volume.
+  - dimension: Professional Services
+    description: >-
+      À la carte services including Live Training ($500/session), Technical
+      Consulting ($1,200/engagement), and Premium Support ($4,000+/year).
+      These are optional but may accelerate time-to-launch for new integrations.
+    category: Professional Services
+    managementTip: >-
+      Use Clever Academy (free online training) and self-service developer
+      documentation before purchasing live training or consulting. Reserve
+      Premium Support for production integrations with strict SLA requirements.
+  - dimension: API Call Volume
+    description: >-
+      While Clever does not publish per-call pricing, excessive API polling
+      can trigger rate limiting and degrades integration reliability. Using
+      the Events API for delta syncs reduces overall call volume and
+      operational risk.
+    category: Operational Efficiency
+    managementTip: >-
+      Implement event-driven sync via the Events API rather than full roster
+      polling. Cache frequently-accessed data (district, school metadata) with
+      appropriate TTLs. Monitor 429 response rates and adjust polling intervals
+      accordingly.
+costOptimizationRecommendations:
+  - title: Use the Events API for Incremental Sync
+    description: >-
+      The Clever Events API delivers delta changes (creates, updates, deletes)
+      rather than requiring full roster pulls. This dramatically reduces API
+      call volume and is the recommended pattern for production integrations.
+    impact: High
+    effort: Medium
+  - title: Leverage Free Tiers Before Upgrading
+    description: >-
+      The Clever Library integration and Secure Access district tier are free.
+      Validate integration patterns at zero cost before negotiating paid
+      partner agreements or district upgrades.
+    impact: High
+    effort: Low
+  - title: Use Clever Academy for Training
+    description: >-
+      Clever Academy provides free self-service training for both district
+      administrators and application developers, reducing the need for
+      paid live training sessions ($500+) during onboarding.
+    impact: Medium
+    effort: Low
+  - title: Consolidate Support Tier Investment
+    description: >-
+      Premium Support ($4,000+/year) is only cost-effective for high-volume
+      production integrations. Community forums and self-service documentation
+      cover most common integration scenarios at no cost.
+    impact: Medium
+    effort: Low
+  - title: Right-Size Integration Scope
+    description: >-
+      Request only the data scopes (districts, schools, students, teachers,
+      sections, courses) that your application actually needs. Narrower scopes
+      reduce compliance surface area and may affect pricing negotiations.
+    impact: Medium
+    effort: Medium
+budgetingGuidance:
+  - category: Initial Integration
+    recommendation: >-
+      Budget $0 for API access during development using sandbox/test district
+      tokens. Budget $1,200-$2,400 for optional technical consulting if the
+      integration is complex. Allow 6-12 months for Clever certification and
+      going-live with districts.
+  - category: Production Operations
+    recommendation: >-
+      Factor in partner agreement fees negotiated with Clever based on the
+      number of districts and students served. Premium Support ($4,000+/year)
+      is recommended for integrations serving large district counts. Budget
+      for annual API version updates (major versions released at most once
+      per year).
+focusAlignment:
+  version: "1.0"
+  dimensions:
+    - name: BilledCost
+      notes: >-
+        Partner integration fees and district tier upgrades constitute primary
+        billed costs. Professional services are billed separately per
+        engagement or annually.
+    - name: UsageQuantity
+      notes: >-
+        API call volume is not directly billed but affects rate limiting and
+        integration reliability. Student seat count and district count are
+        the primary usage dimensions for pricing negotiations.
+    - name: ResourceType
+      values:
+        - Clever Data API (rostering, events)
+        - Clever SSO API (identity, OAuth)
+        - Clever LMS Connect API (gradebook)
+        - Clever Library Integration (free)

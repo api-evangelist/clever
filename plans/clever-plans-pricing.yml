@@ -1,0 +1,106 @@
+specificationVersion: "0.1"
+name: Clever Plans and Pricing
+description: >-
+  Clever offers tiered plans for districts and separate integration options
+  for application partners. District plans range from a base free tier
+  (Secure Access) to premium paid tiers (Protect Plus and Elevate) with
+  advanced identity management and analytics features. Application partner
+  integrations require a Clever Complete Agreement and may involve custom
+  pricing for rostering, LMS connect, and SSO integrations.
+plans:
+  - name: Secure Access
+    description: >-
+      Base district plan providing rostering, single sign-on, Clever Badges,
+      Clever Portal, Digital Classroom, Substitute Access, and Clever
+      Analytics. Available at no cost to districts and schools as the
+      foundational tier of the Clever platform.
+    type: Free
+    price: 0
+    currency: USD
+    audience: Districts and Schools
+    features:
+      - Rostering via SFTP or API
+      - Single Sign-On Portal
+      - Clever Badges
+      - Digital Classroom
+      - Substitute Access
+      - Clever Analytics
+  - name: Protect Plus
+    description: >-
+      Mid-tier district plan including all Secure Access features plus Clever
+      IDM for identity provisioning with Google, Active Directory, and Entra
+      ID; secure password management; Classroom MFA; and dedicated onboarding
+      support. Pricing available via sales contact.
+    type: Commercial
+    price: null
+    currency: USD
+    audience: Districts and Schools
+    contact: https://www.clever.com/pricing
+    features:
+      - All Secure Access features
+      - Clever IDM provisioning (Google, Active Directory, Entra ID)
+      - Secure password management
+      - Classroom MFA (Google & Entra)
+      - Cell-phone-free MFA
+      - Dedicated onboarding support
+  - name: Elevate
+    description: >-
+      Premium district plan including all Protect Plus features plus Guardian
+      Portal with custom branding, Advanced Analytics, customized training,
+      premium 24/7 support, and hands-on consulting services. Pricing
+      available via sales contact.
+    type: Commercial
+    price: null
+    currency: USD
+    audience: Districts and Schools
+    contact: https://www.clever.com/pricing
+    features:
+      - All Protect Plus features
+      - Guardian Portal with custom branding
+      - Advanced Analytics
+      - Customized training
+      - Premium 24/7 support
+      - Hands-on consulting
+addons:
+  - name: Live Training
+    description: Instructor-led training sessions for district staff.
+    price: 500
+    unit: per training session
+    currency: USD
+  - name: Technical Consulting
+    description: Hands-on technical consulting engagement for implementation support.
+    price: 1200
+    unit: per engagement
+    currency: USD
+  - name: Premium Support
+    description: Priority support subscription for districts requiring elevated SLA.
+    price: 4000
+    unit: per year (starting)
+    currency: USD
+partnerPlans:
+  - name: Clever Library Integration
+    description: Integration with the Clever Library for application partners. Free.
+    type: Free
+    price: 0
+    currency: USD
+  - name: Secure Sync Rostering
+    description: >-
+      Application partner integration for district-managed rostering via
+      Secure Sync. Custom pricing available upon request.
+    type: Commercial
+    price: null
+    contact: https://www.clever.com/pricing
+  - name: Clever LMS Connect
+    description: >-
+      Application partner integration for gradebook and LMS data exchange.
+      Custom pricing available upon request.
+    type: Commercial
+    price: null
+    contact: https://www.clever.com/pricing
+  - name: Clever SSO
+    description: >-
+      Application partner integration for single sign-on via OAuth 2.0,
+      OIDC, and SAML. Custom pricing available upon request.
+    type: Commercial
+    price: null
+    contact: https://www.clever.com/pricing

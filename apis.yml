@@ -1,0 +1,133 @@
+aid: clever
+name: Clever
+description: >-
+  Clever is a K-12 EdTech identity platform that provides a unified single
+  sign-on portal and roster synchronization service used by over 111,000 US
+  schools, including 95 of the largest 100 districts. The Clever REST API
+  enables application partners to securely access real-time student roster
+  data, school and district information, class and section data, and user
+  identity records through a single integration. Clever Complete offers
+  Secure Sync for district-managed rostering, LMS Connect for gradebook
+  syncing, and Single Sign-On via OAuth 2.0, OIDC, and SAML, eliminating
+  the need for per-SIS integrations. Approximately 60 percent of US students
+  log in monthly through Clever, making it the de facto identity layer for
+  K-12 EdTech applications across the United States.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/clever/refs/heads/main/apis.yml
+created: 2026-06-13
+modified: 2026-06-13
+specificationVersion: "0.19"
+tags:
+  - Education
+  - K-12
+  - EdTech
+  - Single Sign-On
+  - Rostering
+  - Identity
+  - SSO
+  - Student Data
+  - LMS
+  - SIS
+apis:
+  - name: Clever Data API
+    description: >-
+      RESTful API providing access to district, school, student, teacher,
+      section, and course data synchronized from Student Information Systems.
+      Supports delta sync via Events API and requires a district-app token
+      for authentication. Current version is v3.1.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dev.clever.com/docs/api-overview
+    baseURL: https://api.clever.com
+    tags:
+      - Rostering
+      - Student Data
+      - Districts
+      - Schools
+      - Sections
+      - Courses
+    properties:
+      - type: Documentation
+        url: https://dev.clever.com/docs/api-overview
+      - type: OpenAPI
+        url: https://dev.clever.com/llms.txt
+  - name: Clever Single Sign-On API
+    description: >-
+      OAuth 2.0, OIDC, and SAML-based single sign-on integration that
+      enables application partners to authenticate students, teachers, and
+      staff through the Clever portal. Issues bearer access tokens scoped to
+      individual users for identity and profile data access.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dev.clever.com/docs/integration-types
+    baseURL: https://clever.com/oauth
+    tags:
+      - Single Sign-On
+      - OAuth
+      - OIDC
+      - SAML
+      - Authentication
+      - Identity
+    properties:
+      - type: Documentation
+        url: https://dev.clever.com/docs/integration-types
+  - name: Clever LMS Connect API
+    description: >-
+      Integration layer allowing Learning Management Systems to sync
+      gradebook data, assignments, and course enrollments with Clever.
+      Available as of API v3.1, enabling LMS partners to exchange academic
+      progress data in real time with districts using Clever.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dev.clever.com/docs/integration-types
+    baseURL: https://api.clever.com/v3.1
+    tags:
+      - LMS
+      - Gradebook
+      - Assignments
+      - Courses
+      - Learning Management
+    properties:
+      - type: Documentation
+        url: https://dev.clever.com/docs/integration-types
+  - name: Clever Events API
+    description: >-
+      Delta-sync event stream API that notifies application partners of
+      changes to roster data (creates, updates, deletes) within a district.
+      Must be enabled via the application dashboard and uses a district-app
+      token for access, enabling efficient incremental data synchronization.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dev.clever.com/docs/api-overview
+    baseURL: https://api.clever.com/v3.1
+    tags:
+      - Events
+      - Delta Sync
+      - Webhooks
+      - Rostering
+    properties:
+      - type: Documentation
+        url: https://dev.clever.com/docs/api-overview
+common:
+  - type: Website
+    url: https://clever.com
+  - type: Documentation
+    url: https://dev.clever.com
+  - type: GitHubOrg
+    url: https://github.com/clever-inc
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/clever-inc-/
+  - type: Blog
+    url: https://www.clever.com/blog
+  - type: Pricing
+    url: https://www.clever.com/pricing
+  - type: StatusPage
+    url: https://status.clever.com
+  - type: X
+    url: https://twitter.com/clever
+  - type: Plans
+    url: plans/clever-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/clever-rate-limits.yml
+  - type: FinOps
+    url: finops/clever-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

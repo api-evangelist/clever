@@ -1,0 +1,56 @@
+specificationVersion: "0.1"
+name: Clever API Rate Limits
+description: >-
+  Clever does not publish explicit numeric rate limits in its public developer
+  documentation. The API is accessed using either district-app tokens for
+  data/roster endpoints or SSO bearer tokens for identity endpoints. Access
+  requires an active Clever Complete Agreement. The API change policy freezes
+  each version for at least 3 months post-release and releases major versions
+  at most once annually, providing stability guarantees rather than throughput
+  limits. Application partners should contact Clever for rate limit details
+  specific to their integration tier.
+rateLimits:
+  - name: Data API Rate Limit
+    description: >-
+      Rate limits for the Clever Data API (roster, district, school, user,
+      section, course, and events endpoints) using district-app tokens.
+      Specific numeric limits are not published; partners are advised to
+      implement exponential backoff on 429 responses and to use the Events
+      API for delta syncs rather than polling all endpoints.
+    endpoint: https://api.clever.com/v3.1/*
+    tokenType: district-app token
+    limit: Not publicly specified
+    window: Not publicly specified
+    burstLimit: Not publicly specified
+    notes: >-
+      Use the Events API for incremental sync to reduce polling load. Retry
+      with exponential backoff on HTTP 429 Too Many Requests responses.
+  - name: Identity/SSO API Rate Limit
+    description: >-
+      Rate limits for the Clever SSO endpoints using bearer access tokens
+      issued during the OAuth 2.0 flow. Tokens are scoped to individual
+      users and provide access to /me, /users/<id>, /schools/<id>, and
+      /districts/<id> endpoints only.
+    endpoint: https://clever.com/oauth/*
+    tokenType: SSO bearer token
+    limit: Not publicly specified
+    window: Not publicly specified
+    burstLimit: Not publicly specified
+    notes: >-
+      SSO tokens are user-scoped and short-lived. Implement token refresh
+      flows per the OAuth 2.0 specification.
+headers:
+  - name: Retry-After
+    description: >-
+      Standard HTTP header returned with 429 responses indicating how long
+      (in seconds) the client should wait before retrying the request.
+    type: Response
+bestPractices:
+  - Use the Events API for delta syncs instead of full roster polling to
+    minimize request volume.
+  - Implement exponential backoff with jitter when encountering 429 responses.
+  - Cache district-app tokens securely; they do not expire on a fixed schedule
+    but should be rotated per Clever security guidelines.
+  - Contact Clever developer support or your account manager for contractual
+    rate limit details specific to your application integration tier.
+contact: https://dev.clever.com
