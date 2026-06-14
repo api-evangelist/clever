@@ -1,0 +1,1066 @@
+"""
+Clever GraphQL API Schema
+Endpoint: https://api.clever.com/v3.0/graphql
+Authentication: OAuth 2.0 Bearer token (district-app token or user token)
+"""
+
+schema {
+  query: Query
+}
+
+# ─────────────────────────────────────────────
+# Root Query
+# ─────────────────────────────────────────────
+
+type Query {
+  """Fetch a single district by ID."""
+  district(id: ID!): District
+
+  """List all districts the authenticated application has access to."""
+  districts(first: Int, after: String, last: Int, before: String): DistrictConnection
+
+  """Fetch a single school by ID."""
+  school(id: ID!): School
+
+  """List schools, optionally filtered by district."""
+  schools(districtId: ID, first: Int, after: String): SchoolConnection
+
+  """Fetch a single student by ID."""
+  student(id: ID!): Student
+
+  """List students, optionally filtered by district or school."""
+  students(districtId: ID, schoolId: ID, first: Int, after: String): StudentConnection
+
+  """Fetch a single teacher by ID."""
+  teacher(id: ID!): Teacher
+
+  """List teachers, optionally filtered by district or school."""
+  teachers(districtId: ID, schoolId: ID, first: Int, after: String): TeacherConnection
+
+  """Fetch a single staff member by ID."""
+  staffMember(id: ID!): Staff
+
+  """List staff members, optionally filtered by district or school."""
+  staff(districtId: ID, schoolId: ID, first: Int, after: String): StaffConnection
+
+  """Fetch a single section by ID."""
+  section(id: ID!): Section
+
+  """List sections, optionally filtered by district, school, or term."""
+  sections(districtId: ID, schoolId: ID, termId: ID, first: Int, after: String): SectionConnection
+
+  """Fetch a single course by ID."""
+  course(id: ID!): Course
+
+  """List courses, optionally filtered by district."""
+  courses(districtId: ID, first: Int, after: String): CourseConnection
+
+  """Fetch a single term by ID."""
+  term(id: ID!): Term
+
+  """List terms, optionally filtered by district or school."""
+  terms(districtId: ID, schoolId: ID, first: Int, after: String): TermConnection
+
+  """Fetch a single contact by ID."""
+  contact(id: ID!): Contact
+
+  """List contacts for a student."""
+  contacts(studentId: ID!, first: Int, after: String): ContactConnection
+
+  """Fetch identity record for the authenticated user (requires user token)."""
+  me: Identity
+
+  """Fetch identity by Clever user ID."""
+  identity(id: ID!): Identity
+
+  """List event stream for a district since a given timestamp or cursor."""
+  districtEvents(districtId: ID!, since: String, first: Int, after: String): DistrictEventConnection
+
+  """Fetch an application by ID."""
+  application(id: ID!): Application
+
+  """List applications the authenticated context has access to."""
+  applications(first: Int, after: String): ApplicationConnection
+
+  """Fetch data sync status for a district."""
+  dataSync(districtId: ID!): DataSync
+}
+
+# ─────────────────────────────────────────────
+# Pagination
+# ─────────────────────────────────────────────
+
+"""Cursor-based pagination metadata."""
+type PageInfo {
+  """Whether more results exist after this page."""
+  hasNextPage: Boolean!
+
+  """Whether more results exist before this page."""
+  hasPreviousPage: Boolean!
+
+  """Cursor for the first item in this page."""
+  startCursor: String
+
+  """Cursor for the last item in this page."""
+  endCursor: String
+}
+
+"""Generic connection wrapper for paginated lists."""
+type Connection {
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+"""Generic edge in a paginated connection."""
+type Edge {
+  cursor: String!
+}
+
+# ─────────────────────────────────────────────
+# District
+# ─────────────────────────────────────────────
+
+"""A school district in the Clever platform."""
+type District {
+  id: ID!
+  name: String!
+  details: DistrictDetails
+  status: DistrictStatus
+  admins: DistrictAdminConnection
+  schools(first: Int, after: String): SchoolConnection
+  students(first: Int, after: String): StudentConnection
+  teachers(first: Int, after: String): TeacherConnection
+  staff(first: Int, after: String): StaffConnection
+  sections(first: Int, after: String): SectionConnection
+  courses(first: Int, after: String): CourseConnection
+  terms(first: Int, after: String): TermConnection
+  createdAt: String
+  updatedAt: String
+}
+
+"""Extended metadata for a district."""
+type DistrictDetails {
+  mdrNumber: String
+  ncessId: String
+  state: String
+  loginMethods: [String]
+  launchDate: String
+  pauseStart: String
+  pauseEnd: String
+  error: String
+}
+
+"""Status of a district's data sync with Clever."""
+type DistrictStatus {
+  type: String
+  lastSync: String
+  syncEnabled: Boolean
+  error: String
+}
+
+"""A district-level administrator account."""
+type DistrictAdmin {
+  id: ID!
+  districtId: ID!
+  name: DistrictAdminName
+  email: String
+  title: String
+  createdAt: String
+  updatedAt: String
+}
+
+"""Name components for a district admin."""
+type DistrictAdminName {
+  first: String
+  last: String
+}
+
+"""A district-level event from the event stream."""
+type DistrictEvent {
+  id: ID!
+  districtId: ID!
+  type: EventType!
+  data: EventData
+  createdAt: String
+}
+
+type DistrictAdminConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [DistrictAdminEdge]
+}
+
+type DistrictAdminEdge {
+  cursor: String!
+  node: DistrictAdmin
+}
+
+type DistrictConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [DistrictEdge]
+}
+
+type DistrictEdge {
+  cursor: String!
+  node: District
+}
+
+type DistrictEventConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [DistrictEventEdge]
+}
+
+type DistrictEventEdge {
+  cursor: String!
+  node: DistrictEvent
+}
+
+# ─────────────────────────────────────────────
+# School
+# ─────────────────────────────────────────────
+
+"""A school within a district."""
+type School {
+  id: ID!
+  districtId: ID!
+  name: String!
+  details: SchoolDetails
+  admins: SchoolAdminConnection
+  students(first: Int, after: String): StudentConnection
+  teachers(first: Int, after: String): TeacherConnection
+  staff(first: Int, after: String): StaffConnection
+  sections(first: Int, after: String): SectionConnection
+  terms(first: Int, after: String): TermConnection
+  createdAt: String
+  updatedAt: String
+}
+
+"""Extended metadata for a school."""
+type SchoolDetails {
+  sisId: String
+  ncessId: String
+  stateId: String
+  name: String
+  phone: String
+  principalName: String
+  principalEmail: String
+  schoolNumber: String
+  mdrNumber: String
+  lowGrade: String
+  highGrade: String
+  location: SchoolLocation
+  subtype: String
+  created: String
+  ext: SchoolExt
+}
+
+"""Geographic location of a school."""
+type SchoolLocation {
+  address: String
+  city: String
+  state: String
+  zip: String
+}
+
+"""Custom extension fields on a school record."""
+type SchoolExt {
+  [key: String]: String
+}
+
+"""A school-level administrator."""
+type SchoolAdmin {
+  id: ID!
+  schoolId: ID!
+  name: AdminName
+  email: String
+  title: String
+  staffId: String
+  createdAt: String
+  updatedAt: String
+}
+
+"""Shared name structure for admins."""
+type AdminName {
+  first: String
+  last: String
+}
+
+type SchoolConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [SchoolEdge]
+}
+
+type SchoolEdge {
+  cursor: String!
+  node: School
+}
+
+type SchoolAdminConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [SchoolAdminEdge]
+}
+
+type SchoolAdminEdge {
+  cursor: String!
+  node: SchoolAdmin
+}
+
+# ─────────────────────────────────────────────
+# Student
+# ─────────────────────────────────────────────
+
+"""A K-12 student record."""
+type Student {
+  id: ID!
+  districtId: ID!
+  details: StudentDetails
+  demographics: StudentDemographics
+  contacts(first: Int, after: String): ContactConnection
+  enrollments(first: Int, after: String): StudentEnrollmentConnection
+  schools(first: Int, after: String): SchoolConnection
+  sections(first: Int, after: String): SectionConnection
+  createdAt: String
+  updatedAt: String
+}
+
+"""Core personal and academic details for a student."""
+type StudentDetails {
+  sisId: String
+  stateId: String
+  studentNumber: String
+  name: StudentName
+  email: String
+  emailVerified: Boolean
+  username: String
+  grade: String
+  graduationYear: String
+  dob: String
+  gender: String
+  location: StudentLocation
+  ext: StudentExt
+}
+
+"""Name components for a student."""
+type StudentName {
+  first: String
+  middle: String
+  last: String
+}
+
+"""Home address for a student."""
+type StudentLocation {
+  address: String
+  city: String
+  state: String
+  zip: String
+}
+
+"""Custom extension fields on a student record."""
+type StudentExt {
+  [key: String]: String
+}
+
+"""Demographic data associated with a student."""
+type StudentDemographics {
+  race: [StudentRace]
+  hispanicEthnicity: String
+  gender: String
+  ellStatus: String
+  iepStatus: String
+  frlStatus: String
+  migrantStatus: Boolean
+  homelessStatus: Boolean
+  militaryConnected: String
+}
+
+"""Individual race entry on a student demographic record."""
+type StudentRace {
+  race: String
+}
+
+"""A student's enrollment in a specific school for a term."""
+type StudentEnrollment {
+  schoolId: ID!
+  startDate: String
+  endDate: String
+  grade: String
+}
+
+type StudentConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [StudentEdge]
+}
+
+type StudentEdge {
+  cursor: String!
+  node: Student
+}
+
+type StudentEnrollmentConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [StudentEnrollmentEdge]
+}
+
+type StudentEnrollmentEdge {
+  cursor: String!
+  node: StudentEnrollment
+}
+
+# ─────────────────────────────────────────────
+# Teacher
+# ─────────────────────────────────────────────
+
+"""A teacher record."""
+type Teacher {
+  id: ID!
+  districtId: ID!
+  details: TeacherDetails
+  roles: [TeacherRole]
+  enrollments(first: Int, after: String): TeacherEnrollmentConnection
+  schools(first: Int, after: String): SchoolConnection
+  sections(first: Int, after: String): SectionConnection
+  createdAt: String
+  updatedAt: String
+}
+
+"""Core personal and professional details for a teacher."""
+type TeacherDetails {
+  sisId: String
+  teacherNumber: String
+  stateId: String
+  name: TeacherName
+  email: String
+  emailVerified: Boolean
+  username: String
+  credentials: TeacherCredentials
+  ext: TeacherExt
+}
+
+"""Name components for a teacher."""
+type TeacherName {
+  first: String
+  middle: String
+  last: String
+}
+
+"""Credentialing information for a teacher."""
+type TeacherCredentials {
+  districtUsername: String
+}
+
+"""Custom extension fields on a teacher record."""
+type TeacherExt {
+  [key: String]: String
+}
+
+"""Role a teacher holds in a section or school."""
+type TeacherRole {
+  role: String
+  schoolId: ID
+  sectionId: ID
+}
+
+"""A teacher's enrollment in a specific section."""
+type TeacherEnrollment {
+  sectionId: ID!
+  schoolId: ID
+  role: String
+  primary: Boolean
+}
+
+type TeacherConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [TeacherEdge]
+}
+
+type TeacherEdge {
+  cursor: String!
+  node: Teacher
+}
+
+type TeacherEnrollmentConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [TeacherEnrollmentEdge]
+}
+
+type TeacherEnrollmentEdge {
+  cursor: String!
+  node: TeacherEnrollment
+}
+
+# ─────────────────────────────────────────────
+# Staff
+# ─────────────────────────────────────────────
+
+"""A non-teaching staff member at a district or school."""
+type Staff {
+  id: ID!
+  districtId: ID!
+  details: StaffDetails
+  roles: [StaffRole]
+  schools(first: Int, after: String): SchoolConnection
+  createdAt: String
+  updatedAt: String
+}
+
+"""Core personal details for a staff member."""
+type StaffDetails {
+  sisId: String
+  staffId: String
+  name: StaffName
+  email: String
+  emailVerified: Boolean
+  username: String
+  title: String
+  department: String
+  ext: StaffExt
+}
+
+"""Name components for a staff member."""
+type StaffName {
+  first: String
+  middle: String
+  last: String
+}
+
+"""Custom extension fields on a staff record."""
+type StaffExt {
+  [key: String]: String
+}
+
+"""Role a staff member holds at a school or district level."""
+type StaffRole {
+  role: String
+  schoolId: ID
+}
+
+type StaffConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [StaffEdge]
+}
+
+type StaffEdge {
+  cursor: String!
+  node: Staff
+}
+
+# ─────────────────────────────────────────────
+# Section
+# ─────────────────────────────────────────────
+
+"""A class or course section within a school."""
+type Section {
+  id: ID!
+  districtId: ID!
+  schoolId: ID!
+  details: SectionDetails
+  course: Course
+  term: Term
+  students(first: Int, after: String): StudentConnection
+  teachers(first: Int, after: String): TeacherConnection
+  createdAt: String
+  updatedAt: String
+}
+
+"""Core metadata about a section."""
+type SectionDetails {
+  sisId: String
+  name: String
+  subject: String
+  description: String
+  grade: String
+  period: String
+  sequence: Int
+  ssisId: String
+  courseNumber: String
+  ext: SectionExt
+}
+
+"""Custom extension fields on a section record."""
+type SectionExt {
+  [key: String]: String
+}
+
+type SectionConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [SectionEdge]
+}
+
+type SectionEdge {
+  cursor: String!
+  node: Section
+}
+
+# ─────────────────────────────────────────────
+# Course
+# ─────────────────────────────────────────────
+
+"""An academic course definition."""
+type Course {
+  id: ID!
+  districtId: ID!
+  details: CourseDetails
+  sections(first: Int, after: String): SectionConnection
+  terms: [CourseTerm]
+  createdAt: String
+  updatedAt: String
+}
+
+"""Core metadata about a course."""
+type CourseDetails {
+  sisId: String
+  name: String
+  number: String
+  description: String
+  ext: CourseExt
+}
+
+"""Custom extension fields on a course record."""
+type CourseExt {
+  [key: String]: String
+}
+
+"""Association between a course and a term."""
+type CourseTerm {
+  courseId: ID!
+  termId: ID!
+  schoolId: ID
+}
+
+type CourseConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [CourseEdge]
+}
+
+type CourseEdge {
+  cursor: String!
+  node: Course
+}
+
+# ─────────────────────────────────────────────
+# Term
+# ─────────────────────────────────────────────
+
+"""An academic term (semester, quarter, year) scoping sections."""
+type Term {
+  id: ID!
+  districtId: ID!
+  details: TermDetails
+  sections(first: Int, after: String): SectionConnection
+  createdAt: String
+  updatedAt: String
+}
+
+"""Core metadata for a term."""
+type TermDetails {
+  sisId: String
+  name: String
+  startDate: String
+  endDate: String
+  schoolId: ID
+  ext: TermExt
+}
+
+"""Custom extension fields on a term record."""
+type TermExt {
+  [key: String]: String
+}
+
+type TermConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [TermEdge]
+}
+
+type TermEdge {
+  cursor: String!
+  node: Term
+}
+
+# ─────────────────────────────────────────────
+# Contact
+# ─────────────────────────────────────────────
+
+"""A parent, guardian, or emergency contact linked to a student."""
+type Contact {
+  id: ID!
+  districtId: ID!
+  details: ContactDetails
+  relationships: [ContactRelationship]
+  type: ContactType
+  createdAt: String
+  updatedAt: String
+}
+
+"""Personal details for a contact."""
+type ContactDetails {
+  sisId: String
+  name: ContactName
+  email: String
+  phone: String
+  phoneType: String
+  address: ContactAddress
+  ext: ContactExt
+}
+
+"""Name components for a contact."""
+type ContactName {
+  first: String
+  last: String
+}
+
+"""Address for a contact."""
+type ContactAddress {
+  address: String
+  city: String
+  state: String
+  zip: String
+}
+
+"""Custom extension fields on a contact record."""
+type ContactExt {
+  [key: String]: String
+}
+
+"""Relationship between a contact and a student."""
+type ContactRelationship {
+  studentId: ID!
+  relationship: String
+  phone: String
+  phoneType: String
+  smsOptIn: Boolean
+  emailOptIn: Boolean
+  portalLoginEmail: String
+  seq: Int
+}
+
+"""Classification of a contact (guardian, parent, emergency, etc.)."""
+type ContactType {
+  category: String
+  legal: Boolean
+  emergency: Boolean
+  pickup: Boolean
+}
+
+type ContactConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [ContactEdge]
+}
+
+type ContactEdge {
+  cursor: String!
+  node: Contact
+}
+
+# ─────────────────────────────────────────────
+# Events
+# ─────────────────────────────────────────────
+
+"""A roster change event from the Clever Events API."""
+type Event {
+  id: ID!
+  districtId: ID!
+  type: EventType!
+  data: EventData
+  createdAt: String
+}
+
+"""Payload of an event describing what changed."""
+type EventData {
+  object: String
+  objectId: ID
+  delta: [EventDelta]
+}
+
+"""A field-level delta within an event."""
+type EventDelta {
+  key: String!
+  previousValue: String
+  currentValue: String
+}
+
+"""Types of roster change events."""
+enum EventType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+# ─────────────────────────────────────────────
+# Identity and SSO
+# ─────────────────────────────────────────────
+
+"""Unified identity record for a Clever user."""
+type Identity {
+  id: ID!
+  districtId: ID!
+  details: IdentityDetails
+  sso: SSO
+  roles: [String]
+  createdAt: String
+  updatedAt: String
+}
+
+"""Personal details embedded in an identity record."""
+type IdentityDetails {
+  name: IdentityName
+  email: String
+  district: String
+  type: String
+  credentials: IdentityCredentials
+  authorized_by: String
+}
+
+"""Name components in an identity record."""
+type IdentityName {
+  first: String
+  last: String
+}
+
+"""Credential information in an identity record."""
+type IdentityCredentials {
+  districtUsername: String
+}
+
+"""Single sign-on configuration for an application-district pair."""
+type SSO {
+  id: ID!
+  applicationId: ID!
+  districtId: ID!
+  enabled: Boolean
+  loginMethod: String
+  badges: Boolean
+  cleverId: Boolean
+  tokens: [SSOToken]
+}
+
+"""OAuth token bundle issued after an SSO flow completes."""
+type SSOToken {
+  accessToken: String!
+  tokenType: String
+  expiresIn: Int
+  scope: String
+  idToken: String
+}
+
+"""OAuth 2.0 authorization metadata."""
+type OAuth {
+  clientId: String
+  redirectUri: String
+  responseType: String
+  scope: String
+  state: String
+  district: String
+}
+
+# ─────────────────────────────────────────────
+# Application
+# ─────────────────────────────────────────────
+
+"""A Clever application (partner app) descriptor."""
+type Application {
+  id: ID!
+  details: AppDetails
+  districts(first: Int, after: String): AppDistrictConnection
+  rostering: Rostering
+  createdAt: String
+  updatedAt: String
+}
+
+"""Details about a Clever application."""
+type AppDetails {
+  name: String
+  description: String
+  iconUri: String
+  bannerUri: String
+  websiteUri: String
+  privacyPolicyUri: String
+  supportEmail: String
+  vendorId: String
+  assistiveSchoolsEnabled: Boolean
+  assistiveStudentsEnabled: Boolean
+}
+
+"""The relationship between an application and a district."""
+type AppDistrict {
+  id: ID!
+  applicationId: ID!
+  districtId: ID!
+  state: String
+  sharingStartedAt: String
+  credentials: AppDistrictCredentials
+}
+
+"""Credentials used by an application within a specific district context."""
+type AppDistrictCredentials {
+  authorizedBy: String
+  districtUsername: String
+}
+
+type ApplicationConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [ApplicationEdge]
+}
+
+type ApplicationEdge {
+  cursor: String!
+  node: Application
+}
+
+type AppDistrictConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [AppDistrictEdge]
+}
+
+type AppDistrictEdge {
+  cursor: String!
+  node: AppDistrict
+}
+
+# ─────────────────────────────────────────────
+# Rostering and Data Sync
+# ─────────────────────────────────────────────
+
+"""Rostering configuration for an application."""
+type Rostering {
+  enabled: Boolean
+  method: String
+  lastSync: String
+  syncFrequency: String
+}
+
+"""A data synchronization job for a district."""
+type DataSync {
+  districtId: ID!
+  details: SyncDetails
+  status: SyncStatus
+  history(first: Int, after: String): SyncHistoryConnection
+}
+
+"""Details about a data sync configuration."""
+type SyncDetails {
+  sisType: String
+  sftp: SyncSFTP
+  lastSync: String
+  nextSync: String
+  scheduleEnabled: Boolean
+}
+
+"""SFTP configuration for a district SIS data sync."""
+type SyncSFTP {
+  host: String
+  port: Int
+  username: String
+  path: String
+}
+
+"""Current status of a district data sync."""
+type SyncStatus {
+  state: SyncState
+  error: String
+  startedAt: String
+  completedAt: String
+  studentsAdded: Int
+  studentsModified: Int
+  studentsDeleted: Int
+  teachersAdded: Int
+  teachersModified: Int
+  teachersDeleted: Int
+  sectionsAdded: Int
+  sectionsModified: Int
+  sectionsDeleted: Int
+}
+
+"""State of a data sync job."""
+enum SyncState {
+  PENDING
+  RUNNING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+}
+
+"""A historical sync run record."""
+type SyncHistoryEntry {
+  syncId: ID!
+  districtId: ID!
+  status: SyncStatus
+  startedAt: String
+  completedAt: String
+}
+
+type SyncHistoryConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [SyncHistoryEdge]
+}
+
+type SyncHistoryEdge {
+  cursor: String!
+  node: SyncHistoryEntry
+}
+
+# ─────────────────────────────────────────────
+# Change Events (Delta Sync)
+# ─────────────────────────────────────────────
+
+"""A change event representing a field-level delta on a resource."""
+type ChangeEvent {
+  id: ID!
+  districtId: ID!
+  type: EventType!
+  objectType: String
+  objectId: ID!
+  delta: [EventDelta]
+  createdAt: String
+}
+
+# ─────────────────────────────────────────────
+# Resources and API Keys
+# ─────────────────────────────────────────────
+
+"""A collection of resources accessible under a given context."""
+type Resources {
+  students: StudentConnection
+  teachers: TeacherConnection
+  staff: StaffConnection
+  schools: SchoolConnection
+  sections: SectionConnection
+  courses: CourseConnection
+  terms: TermConnection
+  contacts: ContactConnection
+}
+
+"""An API key associated with an application or district context."""
+type APIKey {
+  id: ID!
+  applicationId: ID
+  districtId: ID
+  keyPrefix: String
+  createdAt: String
+  expiresAt: String
+  scopes: [String]
+}
+
+"""A bearer token with associated metadata."""
+type Token {
+  accessToken: String!
+  tokenType: String
+  expiresIn: Int
+  scope: String
+  createdAt: String
+}
