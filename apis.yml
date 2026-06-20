@@ -11,7 +11,7 @@ description: Clever is a K-12 EdTech identity platform that provides a unified s
   monthly through Clever, making it the de facto identity layer for K-12 EdTech applications
   across the United States.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/clever/refs/heads/main/apis.yml
 created: 2026-06-13
 modified: 2026-06-13
@@ -33,7 +33,7 @@ apis:
     section, and course data synchronized from Student Information Systems. Supports
     delta sync via Events API and requires a district-app token for authentication.
     Current version is v3.1.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dev.clever.com/docs/api-overview
   baseURL: https://api.clever.com
   tags:
@@ -55,7 +55,7 @@ apis:
     application partners to authenticate students, teachers, and staff through the
     Clever portal. Issues bearer access tokens scoped to individual users for identity
     and profile data access.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dev.clever.com/docs/integration-types
   baseURL: https://clever.com/oauth
   tags:
@@ -73,7 +73,7 @@ apis:
     data, assignments, and course enrollments with Clever. Available as of API v3.1,
     enabling LMS partners to exchange academic progress data in real time with districts
     using Clever.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dev.clever.com/docs/integration-types
   baseURL: https://api.clever.com/v3.1
   tags:
@@ -92,7 +92,7 @@ apis:
     to roster data (creates, updates, deletes) within a district. Must be enabled
     via the application dashboard and uses a district-app token for access, enabling
     efficient incremental data synchronization.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dev.clever.com/docs/api-overview
   baseURL: https://api.clever.com/v3.1
   tags:
