@@ -2,6 +2,13 @@
   "repo": "clever",
   "feeds": [
     {
+      "source": "https://www.clever.com/feed/",
+      "feed_url": "https://www.clever.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://www.linkedin.com/company/clever-inc-/",
       "feed_url": "https://www.linkedin.com/company/clever-inc-/",
       "title": "",
@@ -9,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 3,
+  "fetched": "2026-06-27T12:03:07Z"
 }
