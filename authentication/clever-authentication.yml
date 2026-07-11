@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/clever-data-api-openapi.yml, openapi/clever-events-api-openapi.yml, openapi/clever-lms-connect-api-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: oauth
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://clever.com/oauth/authorize
+    tokenUrl: https://clever.com/oauth/tokens
+    scopes: 0
+  sources:
+  - openapi/clever-data-api-openapi.yml
+  - openapi/clever-events-api-openapi.yml
+  - openapi/clever-lms-connect-api-openapi.yml
