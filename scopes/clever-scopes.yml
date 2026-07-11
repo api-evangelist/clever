@@ -1,0 +1,53 @@
+generated: '2026-07-11'
+method: searched
+docs: https://dev.clever.com/docs/setting-up-district-sso
+note: Clever manages scopes through application configuration rather than client-requested
+  scope parameters (https://dev.clever.com/docs/oidc-implementation); the documented
+  Clever Single Sign-On access tier scopes are listed below, while full Data API roster
+  access uses district-app tokens instead of OAuth scopes.
+source: openapi/clever-data-api-openapi.yml, openapi/clever-events-api-openapi.yml, openapi/clever-lms-connect-api-openapi.yml
+schemes:
+- name: oauth
+  source: openapi/clever-data-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://clever.com/oauth/authorize
+    tokenUrl: https://clever.com/oauth/tokens
+- name: oauth
+  source: openapi/clever-events-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://clever.com/oauth/authorize
+    tokenUrl: https://clever.com/oauth/tokens
+- name: oauth
+  source: openapi/clever-lms-connect-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://clever.com/oauth/authorize
+    tokenUrl: https://clever.com/oauth/tokens
+scopes:
+- scope: read:user_id
+  description: Read the authorizing user's Clever user identifier via the /me endpoint;
+    part of the Clever Single Sign-On access tier.
+  sources:
+  - https://dev.clever.com/docs/setting-up-district-sso
+- scope: read:students_basic
+  description: Read basic student information for the authorizing user; part of the
+    Clever Single Sign-On access tier.
+  sources:
+  - https://dev.clever.com/docs/setting-up-district-sso
+- scope: read:teachers_basic
+  description: Read basic teacher information for the authorizing user; part of the
+    Clever Single Sign-On access tier.
+  sources:
+  - https://dev.clever.com/docs/setting-up-district-sso
+- scope: read:school_admins_basic
+  description: Read basic school administrator information for the authorizing user;
+    part of the Clever Single Sign-On access tier.
+  sources:
+  - https://dev.clever.com/docs/setting-up-district-sso
+- scope: read:district_admins_basic
+  description: Read basic district administrator information for the authorizing
+    user; part of the Clever Single Sign-On access tier.
+  sources:
+  - https://dev.clever.com/docs/setting-up-district-sso
