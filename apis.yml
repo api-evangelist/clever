@@ -106,6 +106,8 @@ apis:
   - type: OpenAPI
     url: openapi/clever-events-api-openapi.yml
 common:
+- type: AgenticAccess
+  url: agentic-access/clever-agentic-access.yml
 - type: TrustCenter
   url: security/clever-trust-center.yml
 - type: VulnerabilityDisclosure
