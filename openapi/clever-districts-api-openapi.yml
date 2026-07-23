@@ -1,0 +1,226 @@
+openapi: 3.0.0
+info:
+  description: Serves the Clever Data API
+  title: Data Assignments Districts API
+  version: 3.1.0
+servers:
+- url: https://api.clever.com/v3.1
+security:
+- oauth: []
+tags:
+- name: Districts
+paths:
+  /districts:
+    get:
+      description: Returns a list of districts. In practice this will only return the one district associated with the bearer token
+      operationId: getDistricts
+      parameters:
+      - in: query
+        name: count
+        schema:
+          type: string
+          enum:
+          - ''
+          - 'true'
+          - 'false'
+          - undefined
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistrictsResponse'
+      tags:
+      - Districts
+  /districts/{id}:
+    get:
+      description: Returns a specific district
+      operationId: getDistrict
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistrictResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Districts
+components:
+  schemas:
+    DistrictContact:
+      properties:
+        district:
+          type: string
+          x-validation: true
+        email:
+          type: string
+          nullable: true
+        id:
+          type: string
+          x-validation: true
+        name:
+          $ref: '#/components/schemas/Name'
+        title:
+          type: string
+          x-validation: true
+      type: object
+    District:
+      properties:
+        district_contact:
+          $ref: '#/components/schemas/DistrictContact'
+        error:
+          type: string
+        id:
+          type: string
+          x-validation: true
+        last_attendance_sync:
+          format: datetime
+          type: string
+          x-validation: true
+          nullable: true
+        last_sync:
+          format: datetime
+          type: string
+          x-validation: true
+          nullable: true
+        launch_date:
+          format: date
+          type: string
+          x-validation: true
+        lms_state:
+          enum:
+          - initial_sync_processing
+          - pending_authorization
+          - matching_in_progress
+          - error
+          - disconnected
+          - ''
+          - success
+          type: string
+          x-validation: true
+          nullable: true
+        lms_type:
+          enum:
+          - canvas
+          - schoology
+          - google_classroom
+          - ''
+          type: string
+          x-validation: true
+          nullable: true
+        login_methods:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        mdr_number:
+          type: string
+          nullable: true
+        name:
+          type: string
+        nces_id:
+          type: string
+          nullable: true
+        pause_end:
+          format: datetime
+          type: string
+          x-validation: true
+          nullable: true
+        pause_start:
+          format: datetime
+          type: string
+          x-validation: true
+          nullable: true
+        portal_url:
+          type: string
+        sis_type:
+          type: string
+          x-validation: true
+        state:
+          enum:
+          - running
+          - pending
+          - error
+          - paused
+          - ''
+          - success
+          type: string
+          x-validation: true
+          nullable: true
+      type: object
+    DistrictsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DistrictResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    Name:
+      properties:
+        first:
+          type: string
+          nullable: true
+        last:
+          type: string
+          nullable: true
+        middle:
+          type: string
+          nullable: true
+      type: object
+    DistrictResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/District'
+      type: object
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+    Link:
+      properties:
+        rel:
+          enum:
+          - next
+          - prev
+          - self
+          type: string
+        uri:
+          type: string
+      type: object
+  responses:
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFound'
+  securitySchemes:
+    oauth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://clever.com/oauth/authorize
+          tokenUrl: https://clever.com/oauth/tokens
+          scopes: {}
+x-samples-languages:
+- curl
+- node
+- ruby
+- python
+- php
+- java
+- go

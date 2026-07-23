@@ -1,0 +1,303 @@
+openapi: 3.0.0
+info:
+  description: Serves the Clever Data API
+  title: Data Assignments Submissions API
+  version: 3.1.0
+servers:
+- url: https://api.clever.com/v3.1
+security:
+- oauth: []
+tags:
+- name: Submissions
+paths:
+  /sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}:
+    get:
+      description: Returns a specific user's submission for an assignment.
+      operationId: getSubmissionForAssignment
+      parameters:
+      - in: path
+        name: section_id
+        required: true
+        schema:
+          type: string
+          format: mongo-id
+      - in: path
+        name: assignment_id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+          format: mongo-id
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmissionResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Submissions
+    patch:
+      description: Updates an existing submission in the specified assignment for a user.
+      operationId: updateSubmissionForAssignment
+      parameters:
+      - in: path
+        name: section_id
+        required: true
+        schema:
+          type: string
+          format: mongo-id
+      - in: path
+        name: assignment_id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+          format: mongo-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionRequest'
+        required: true
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmissionResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      tags:
+      - Submissions
+components:
+  schemas:
+    SubmissionResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Submission'
+      type: object
+    SubmissionState:
+      enum:
+      - created
+      - submitted
+      - returned
+      - reclaimed
+      type: string
+    SubmissionRequest:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentRequest'
+          type: array
+          x-omitempty: true
+        extra_attempts:
+          type: integer
+          x-omitempty: true
+        flags:
+          items:
+            $ref: '#/components/schemas/SubmissionFlag'
+          type: array
+          x-omitempty: true
+        grade:
+          type: string
+          nullable: true
+        grade_comment:
+          type: string
+          nullable: true
+        grade_points:
+          format: float
+          type: number
+          x-omitempty: true
+        grader_id:
+          type: string
+          nullable: true
+        override_due_date:
+          format: datetime
+          type: string
+          nullable: true
+        state:
+          $ref: '#/components/schemas/SubmissionState'
+      type: object
+    SubmissionFlag:
+      enum:
+      - excused
+      - late
+      - missing
+      type: string
+    AttachmentRequest:
+      properties:
+        description:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        type:
+          enum:
+          - file
+          type: string
+        url:
+          type: string
+          nullable: true
+      type: object
+    Attachment:
+      properties:
+        description:
+          type: string
+          nullable: true
+        file_external_id:
+          type: string
+          nullable: true
+        size:
+          format: float
+          type: number
+          x-omitempty: true
+        thumbnail_url:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        type:
+          type: string
+        url:
+          type: string
+          nullable: true
+      type: object
+    BadRequest:
+      properties:
+        message:
+          type: string
+      type: object
+    Submission:
+      properties:
+        assignment_id:
+          type: string
+        attachments:
+          items:
+            $ref: '#/components/schemas/Attachment'
+          type: array
+          x-omitempty: true
+        created:
+          format: datetime
+          type: string
+          nullable: true
+        extra_attempts:
+          type: integer
+          x-omitempty: true
+        flags:
+          items:
+            $ref: '#/components/schemas/SubmissionFlag'
+          type: array
+          x-omitempty: true
+        grade:
+          type: string
+          nullable: true
+        grade_comment:
+          type: string
+          nullable: true
+        grade_points:
+          format: float
+          type: number
+          x-omitempty: true
+        grader_id:
+          type: string
+          nullable: true
+        id:
+          description: 'Deprecated. The Clever unique identifier of the submission. Will always be empty if the
+
+            upstream LMS provider is Google Classroom; it is currently still present for Canvas and
+
+            Schoology LMSs but will be removed in the near future.
+
+            '
+          type: string
+        last_modified:
+          format: datetime
+          type: string
+          nullable: true
+        override_due_date:
+          format: datetime
+          type: string
+          nullable: true
+        state:
+          $ref: '#/components/schemas/SubmissionState'
+        user_id:
+          type: string
+      type: object
+    InternalError:
+      properties:
+        message:
+          type: string
+      type: object
+    Unauthorized:
+      properties:
+        message:
+          type: string
+      type: object
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+  responses:
+    InternalError:
+      description: Internal Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalError'
+    Unauthorized:
+      description: Not authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BadRequest'
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFound'
+  securitySchemes:
+    oauth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://clever.com/oauth/authorize
+          tokenUrl: https://clever.com/oauth/tokens
+          scopes: {}
+x-samples-languages:
+- curl
+- node
+- ruby
+- python
+- php
+- java
+- go

@@ -1,0 +1,680 @@
+openapi: 3.0.0
+info:
+  description: Serves the Clever Data API
+  title: Data Assignments Courses API
+  version: 3.1.0
+servers:
+- url: https://api.clever.com/v3.1
+security:
+- oauth: []
+tags:
+- name: Courses
+paths:
+  /courses:
+    get:
+      description: Returns a list of courses
+      operationId: getCourses
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      - in: query
+        name: starting_after
+        schema:
+          type: string
+      - in: query
+        name: ending_before
+        schema:
+          type: string
+      - in: query
+        name: count
+        schema:
+          type: string
+          enum:
+          - ''
+          - 'true'
+          - 'false'
+          - undefined
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoursesResponse'
+      tags:
+      - Courses
+  /courses/{id}:
+    get:
+      description: Returns a specific course
+      operationId: getCourse
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Courses
+  /courses/{id}/district:
+    get:
+      description: Returns the district for a course
+      operationId: getDistrictForCourse
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistrictResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Courses
+  /courses/{id}/resources:
+    get:
+      description: Returns the resources for a course
+      operationId: getResourcesForCourse
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      - in: query
+        name: starting_after
+        schema:
+          type: string
+      - in: query
+        name: ending_before
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcesResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Courses
+  /courses/{id}/schools:
+    get:
+      description: Returns the schools for a course
+      operationId: getSchoolsForCourse
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      - in: query
+        name: starting_after
+        schema:
+          type: string
+      - in: query
+        name: ending_before
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchoolsResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Courses
+  /courses/{id}/sections:
+    get:
+      description: Returns the sections for a course
+      operationId: getSectionsForCourse
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      - in: query
+        name: starting_after
+        schema:
+          type: string
+      - in: query
+        name: ending_before
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SectionsResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Courses
+components:
+  schemas:
+    Resource:
+      properties:
+        created:
+          format: date-time
+          type: string
+        district:
+          type: string
+        id:
+          type: string
+        resource_id:
+          type: string
+        roles:
+          items:
+            enum:
+            - teacher
+            - student
+            type: string
+          type: array
+        title:
+          type: string
+        updated:
+          format: date-time
+          type: string
+      type: object
+    SectionsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SectionResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    Course:
+      properties:
+        district:
+          type: string
+          x-validation: true
+        id:
+          type: string
+          x-validation: true
+        name:
+          type: string
+          nullable: true
+        number:
+          type: string
+          nullable: true
+      type: object
+    School:
+      properties:
+        created:
+          format: datetime
+          type: string
+          x-validation: true
+        district:
+          type: string
+          x-validation: true
+        ext:
+          type: object
+        high_grade:
+          enum:
+          - InfantToddler
+          - Preschool
+          - PreKindergarten
+          - TransitionalKindergarten
+          - Kindergarten
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+          - '11'
+          - '12'
+          - '13'
+          - PostGraduate
+          - Ungraded
+          - Other
+          - ''
+          type: string
+          x-validation: true
+          nullable: true
+        id:
+          type: string
+          x-validation: true
+        last_modified:
+          format: datetime
+          type: string
+          x-validation: true
+        location:
+          $ref: '#/components/schemas/Location'
+        low_grade:
+          enum:
+          - InfantToddler
+          - Preschool
+          - PreKindergarten
+          - TransitionalKindergarten
+          - Kindergarten
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+          - '11'
+          - '12'
+          - '13'
+          - PostGraduate
+          - Ungraded
+          - Other
+          - ''
+          type: string
+          x-validation: true
+          nullable: true
+        mdr_number:
+          type: string
+          nullable: true
+        name:
+          type: string
+        nces_id:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        principal:
+          $ref: '#/components/schemas/Principal'
+        school_number:
+          type: string
+        sis_id:
+          type: string
+        state_id:
+          type: string
+          nullable: true
+      type: object
+    SchoolsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SchoolResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+    SectionResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Section'
+      type: object
+    Section:
+      properties:
+        course:
+          type: string
+          x-validation: true
+          nullable: true
+        created:
+          format: datetime
+          type: string
+          x-validation: true
+        district:
+          type: string
+          x-validation: true
+        ext:
+          type: object
+        grade:
+          enum:
+          - InfantToddler
+          - Preschool
+          - PreKindergarten
+          - TransitionalKindergarten
+          - Kindergarten
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+          - '11'
+          - '12'
+          - '13'
+          - PostGraduate
+          - Ungraded
+          - Other
+          - ''
+          type: string
+          x-validation: true
+          nullable: true
+        id:
+          type: string
+          x-validation: true
+        last_modified:
+          format: datetime
+          type: string
+          x-validation: true
+        lms_status:
+          $ref: '#/components/schemas/LmsStatus'
+        name:
+          type: string
+        period:
+          type: string
+          nullable: true
+        school:
+          type: string
+          x-validation: true
+        section_number:
+          type: string
+          nullable: true
+        sis_id:
+          type: string
+        students:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        subject:
+          enum:
+          - english/language arts
+          - math
+          - science
+          - social studies
+          - language
+          - homeroom/advisory
+          - interventions/online learning
+          - technology and engineering
+          - PE and health
+          - arts and music
+          - other
+          - ''
+          type: string
+          x-validation: true
+          nullable: true
+        teacher:
+          type: string
+          x-validation: true
+          nullable: true
+        teachers:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        term_id:
+          type: string
+          x-validation: true
+          nullable: true
+      type: object
+    Location:
+      properties:
+        address:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        lat:
+          type: string
+          nullable: true
+        lon:
+          type: string
+          nullable: true
+        state:
+          type: string
+          nullable: true
+        zip:
+          type: string
+          nullable: true
+      type: object
+    ResourcesResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ResourceResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    CourseResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Course'
+      type: object
+    DistrictContact:
+      properties:
+        district:
+          type: string
+          x-validation: true
+        email:
+          type: string
+          nullable: true
+        id:
+          type: string
+          x-validation: true
+        name:
+          $ref: '#/components/schemas/Name'
+        title:
+          type: string
+          x-validation: true
+      type: object
+    CoursesResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CourseResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    ResourceResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Resource'
+      type: object
+    Principal:
+      properties:
+        email:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      type: object
+    Name:
+      properties:
+        first:
+          type: string
+          nullable: true
+        last:
+          type: string
+          nullable: true
+        middle:
+          type: string
+          nullable: true
+      type: object
+    DistrictResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/District'
+      type: object
+    SchoolResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/School'
+      type: object
+    LmsStatus:
+      properties:
+        synced_in_lms:
+          type: boolean
+      type: object
+    Link:
+      properties:
+        rel:
+          enum:
+          - next
+          - prev
+          - self
+          type: string
+        uri:
+          type: string
+      type: object
+    District:
+      properties:
+        district_contact:
+          $ref: '#/components/schemas/DistrictContact'
+        error:
+          type: string
+        id:
+          type: string
+          x-validation: true
+        last_attendance_sync:
+          format: datetime
+          type: string
+          x-validation: true
+          nullable: true
+        last_sync:
+          format: datetime
+          type: string
+          x-validation: true
+          nullable: true
+        launch_date:
+          format: date
+          type: string
+          x-validation: true
+        lms_state:
+          enum:
+          - initial_sync_processing
+          - pending_authorization
+          - matching_in_progress
+          - error
+          - disconnected
+          - ''
+          - success
+          type: string
+          x-validation: true
+          nullable: true
+        lms_type:
+          enum:
+          - canvas
+          - schoology
+          - google_classroom
+          - ''
+          type: string
+          x-validation: true
+          nullable: true
+        login_methods:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        mdr_number:
+          type: string
+          nullable: true
+        name:
+          type: string
+        nces_id:
+          type: string
+          nullable: true
+        pause_end:
+          format: datetime
+          type: string
+          x-validation: true
+          nullable: true
+        pause_start:
+          format: datetime
+          type: string
+          x-validation: true
+          nullable: true
+        portal_url:
+          type: string
+        sis_type:
+          type: string
+          x-validation: true
+        state:
+          enum:
+          - running
+          - pending
+          - error
+          - paused
+          - ''
+          - success
+          type: string
+          x-validation: true
+          nullable: true
+      type: object
+  responses:
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFound'
+  securitySchemes:
+    oauth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://clever.com/oauth/authorize
+          tokenUrl: https://clever.com/oauth/tokens
+          scopes: {}
+x-samples-languages:
+- curl
+- node
+- ruby
+- python
+- php
+- java
+- go
