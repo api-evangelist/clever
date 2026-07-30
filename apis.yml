@@ -11,7 +11,20 @@ description: Clever is a K-12 EdTech identity platform that provides a unified s
   monthly through Clever, making it the de facto identity layer for K-12 EdTech applications
   across the United States.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/clever.png
 url: https://raw.githubusercontent.com/api-evangelist/clever/refs/heads/main/apis.yml
 created: 2026-06-13
 modified: 2026-06-13
@@ -28,33 +41,11 @@ tags:
 - LMS
 - SIS
 apis:
-- name: Clever Data API
-  description: RESTful API providing access to district, school, student, teacher,
-    section, and course data synchronized from Student Information Systems. Supports
-    delta sync via Events API and requires a district-app token for authentication.
-    Current version is v3.1.
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://dev.clever.com/docs/api-overview
-  baseURL: https://api.clever.com
-  tags:
-  - Rostering
-  - Student Data
-  - Districts
-  - Schools
-  - Sections
-  - Courses
-  properties:
-  - type: Documentation
-    url: https://dev.clever.com/docs/api-overview
-  - type: OpenAPI
-    url: openapi/clever-data-api-openapi.yml
-  - url: graphql/clever-graphql.md
-    type: GraphQL
 - name: Clever Single Sign-On API
-  description: OAuth 2.0, OIDC, and SAML-based single sign-on integration that enables
-    application partners to authenticate students, teachers, and staff through the
-    Clever portal. Issues bearer access tokens scoped to individual users for identity
-    and profile data access.
+  description: >-
+    OAuth 2.0, OIDC, and SAML-based single sign-on integration that enables application partners to authenticate
+    students, teachers, and staff through the Clever portal. Issues bearer access tokens scoped to individual
+    users for identity and profile data access.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dev.clever.com/docs/integration-types
   baseURL: https://clever.com/oauth
@@ -68,30 +59,11 @@ apis:
   properties:
   - type: Documentation
     url: https://dev.clever.com/docs/integration-types
-- name: Clever LMS Connect API
-  description: Integration layer allowing Learning Management Systems to sync gradebook
-    data, assignments, and course enrollments with Clever. Available as of API v3.1,
-    enabling LMS partners to exchange academic progress data in real time with districts
-    using Clever.
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://dev.clever.com/docs/integration-types
-  baseURL: https://api.clever.com/v3.1
-  tags:
-  - LMS
-  - Gradebook
-  - Assignments
-  - Courses
-  - Learning Management
-  properties:
-  - type: Documentation
-    url: https://dev.clever.com/docs/integration-types
-  - type: OpenAPI
-    url: openapi/clever-lms-connect-api-openapi.yml
 - name: Clever Events API
-  description: Delta-sync event stream API that notifies application partners of changes
-    to roster data (creates, updates, deletes) within a district. Must be enabled
-    via the application dashboard and uses a district-app token for access, enabling
-    efficient incremental data synchronization.
+  description: >-
+    Delta-sync event stream API that notifies application partners of changes to roster data (creates,
+    updates, deletes) within a district. Must be enabled via the application dashboard and uses a district-app
+    token for access, enabling efficient incremental data synchronization.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dev.clever.com/docs/api-overview
   baseURL: https://api.clever.com/v3.1
@@ -105,6 +77,150 @@ apis:
     url: https://dev.clever.com/docs/api-overview
   - type: OpenAPI
     url: openapi/clever-events-api-openapi.yml
+- aid: clever:clever-assignments-api
+  name: Clever Assignments API
+  description: The Assignments API from Clever — 3 operation(s) for assignments.
+  humanURL: https://dev.clever.com/docs/api-overview
+  baseURL: https://api.clever.com
+  tags:
+  - Assignments
+  properties:
+  - type: OpenAPI
+    url: openapi/clever-assignments-api-openapi.yml
+  - type: Documentation
+    url: https://dev.clever.com/docs/api-overview
+  - type: GraphQL
+    url: graphql/clever-graphql.md
+  - type: Documentation
+    url: https://dev.clever.com/docs/integration-types
+- aid: clever:clever-courses-api
+  name: Clever Courses API
+  description: The Courses API from Clever — 6 operation(s) for courses.
+  humanURL: https://dev.clever.com/docs/api-overview
+  baseURL: https://api.clever.com
+  tags:
+  - Courses
+  properties:
+  - type: OpenAPI
+    url: openapi/clever-courses-api-openapi.yml
+  - type: Documentation
+    url: https://dev.clever.com/docs/api-overview
+  - type: GraphQL
+    url: graphql/clever-graphql.md
+  - type: Documentation
+    url: https://dev.clever.com/docs/integration-types
+- aid: clever:clever-districts-api
+  name: Clever Districts API
+  description: The Districts API from Clever — 2 operation(s) for districts.
+  humanURL: https://dev.clever.com/docs/api-overview
+  baseURL: https://api.clever.com
+  tags:
+  - Districts
+  properties:
+  - type: OpenAPI
+    url: openapi/clever-districts-api-openapi.yml
+  - type: Documentation
+    url: https://dev.clever.com/docs/api-overview
+  - type: GraphQL
+    url: graphql/clever-graphql.md
+  - type: Documentation
+    url: https://dev.clever.com/docs/integration-types
+- aid: clever:clever-resources-api
+  name: Clever Resources API
+  description: The Resources API from Clever — 5 operation(s) for resources.
+  humanURL: https://dev.clever.com/docs/api-overview
+  baseURL: https://api.clever.com
+  tags:
+  - Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/clever-resources-api-openapi.yml
+  - type: Documentation
+    url: https://dev.clever.com/docs/api-overview
+  - type: GraphQL
+    url: graphql/clever-graphql.md
+  - type: Documentation
+    url: https://dev.clever.com/docs/integration-types
+- aid: clever:clever-schools-api
+  name: Clever Schools API
+  description: The Schools API from Clever — 7 operation(s) for schools.
+  humanURL: https://dev.clever.com/docs/api-overview
+  baseURL: https://api.clever.com
+  tags:
+  - Schools
+  properties:
+  - type: OpenAPI
+    url: openapi/clever-schools-api-openapi.yml
+  - type: Documentation
+    url: https://dev.clever.com/docs/api-overview
+  - type: GraphQL
+    url: graphql/clever-graphql.md
+  - type: Documentation
+    url: https://dev.clever.com/docs/integration-types
+- aid: clever:clever-sections-api
+  name: Clever Sections API
+  description: The Sections API from Clever — 8 operation(s) for sections.
+  humanURL: https://dev.clever.com/docs/api-overview
+  baseURL: https://api.clever.com
+  tags:
+  - Sections
+  properties:
+  - type: OpenAPI
+    url: openapi/clever-sections-api-openapi.yml
+  - type: Documentation
+    url: https://dev.clever.com/docs/api-overview
+  - type: GraphQL
+    url: graphql/clever-graphql.md
+  - type: Documentation
+    url: https://dev.clever.com/docs/integration-types
+- aid: clever:clever-submissions-api
+  name: Clever Submissions API
+  description: The Submissions API from Clever — 1 operation(s) for submissions.
+  humanURL: https://dev.clever.com/docs/api-overview
+  baseURL: https://api.clever.com
+  tags:
+  - Submissions
+  properties:
+  - type: OpenAPI
+    url: openapi/clever-submissions-api-openapi.yml
+  - type: Documentation
+    url: https://dev.clever.com/docs/api-overview
+  - type: GraphQL
+    url: graphql/clever-graphql.md
+  - type: Documentation
+    url: https://dev.clever.com/docs/integration-types
+- aid: clever:clever-terms-api
+  name: Clever Terms API
+  description: The Terms API from Clever — 5 operation(s) for terms.
+  humanURL: https://dev.clever.com/docs/api-overview
+  baseURL: https://api.clever.com
+  tags:
+  - Terms
+  properties:
+  - type: OpenAPI
+    url: openapi/clever-terms-api-openapi.yml
+  - type: Documentation
+    url: https://dev.clever.com/docs/api-overview
+  - type: GraphQL
+    url: graphql/clever-graphql.md
+  - type: Documentation
+    url: https://dev.clever.com/docs/integration-types
+- aid: clever:clever-users-api
+  name: Clever Users API
+  description: The Users API from Clever — 9 operation(s) for users.
+  humanURL: https://dev.clever.com/docs/api-overview
+  baseURL: https://api.clever.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/clever-users-api-openapi.yml
+  - type: Documentation
+    url: https://dev.clever.com/docs/api-overview
+  - type: GraphQL
+    url: graphql/clever-graphql.md
+  - type: Documentation
+    url: https://dev.clever.com/docs/integration-types
 common:
 - type: AgenticAccess
   url: agentic-access/clever-agentic-access.yml
