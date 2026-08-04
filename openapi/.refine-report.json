@@ -1,0 +1,32 @@
+{
+  "provider": "clever",
+  "sources": [
+    "clever-assignments-api-openapi.yml",
+    "clever-courses-api-openapi.yml",
+    "clever-districts-api-openapi.yml",
+    "clever-events-api-openapi.yml",
+    "clever-resources-api-openapi.yml",
+    "clever-schools-api-openapi.yml",
+    "clever-sections-api-openapi.yml",
+    "clever-submissions-api-openapi.yml",
+    "clever-terms-api-openapi.yml",
+    "clever-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "clever-assignments-api-openapi.yml",
+    "clever-courses-api-openapi.yml",
+    "clever-districts-api-openapi.yml",
+    "clever-events-api-openapi.yml",
+    "clever-resources-api-openapi.yml",
+    "clever-schools-api-openapi.yml",
+    "clever-sections-api-openapi.yml",
+    "clever-submissions-api-openapi.yml",
+    "clever-terms-api-openapi.yml",
+    "clever-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
