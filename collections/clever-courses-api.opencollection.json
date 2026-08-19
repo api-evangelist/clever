@@ -1,0 +1,198 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Data Assignments Courses API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://clever.com/oauth/authorize",
+      "accessTokenUrl": "https://clever.com/oauth/tokens",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Courses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getCourses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/courses",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of courses"
+        },
+        {
+          "info": {
+            "name": "getCourse",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/courses/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific course"
+        },
+        {
+          "info": {
+            "name": "getDistrictForCourse",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/courses/:id/district",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the district for a course"
+        },
+        {
+          "info": {
+            "name": "getResourcesForCourse",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/courses/:id/resources",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the resources for a course"
+        },
+        {
+          "info": {
+            "name": "getSchoolsForCourse",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/courses/:id/schools",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the schools for a course"
+        },
+        {
+          "info": {
+            "name": "getSectionsForCourse",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/courses/:id/sections",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the sections for a course"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

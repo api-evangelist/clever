@@ -1,0 +1,307 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Data Assignments Users API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://clever.com/oauth/authorize",
+      "accessTokenUrl": "https://clever.com/oauth/tokens",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/users",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of contact, district admin, staff, student, and/or teacher users"
+        },
+        {
+          "info": {
+            "name": "getUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific user"
+        },
+        {
+          "info": {
+            "name": "getDistrictForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/users/:id/district",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the district for a user"
+        },
+        {
+          "info": {
+            "name": "getContactsForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/users/:id/mycontacts",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the contact users for a student user"
+        },
+        {
+          "info": {
+            "name": "getStudentsForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/users/:id/mystudents",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the student users for a teacher or contact user"
+        },
+        {
+          "info": {
+            "name": "getTeachersForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/users/:id/myteachers",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the teacher users for a student user"
+        },
+        {
+          "info": {
+            "name": "getResourcesForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/users/:id/resources",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the resources for a user"
+        },
+        {
+          "info": {
+            "name": "getSchoolsForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/users/:id/schools",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "primary",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the schools for a user"
+        },
+        {
+          "info": {
+            "name": "getSectionsForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/users/:id/sections",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the sections for a user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1043 @@
+{
+  "item": [
+    {
+      "id": "8e93a0e6-e967-4e29-b193-5b9d1fbe1ed4",
+      "name": "Courses",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d28e06a-ba5b-4ab6-8bcd-8838188f235d",
+          "name": "get Courses",
+          "request": {
+            "name": "get Courses",
+            "description": {
+              "content": "Returns a list of courses",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e426d005-f053-4029-968b-6fbc31bc7f86",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"data\": {\n        \"district\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"number\": \"string\"\n      }\n    },\n    {\n      \"data\": {\n        \"district\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"number\": \"string\"\n      }\n    }\n  ],\n  \"links\": [\n    {\n      \"rel\": \"prev\",\n      \"uri\": \"string\"\n    },\n    {\n      \"rel\": \"next\",\n      \"uri\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91291ae5-cb30-4b3a-b938-43c48d26014c",
+          "name": "get Course",
+          "request": {
+            "name": "get Course",
+            "description": {
+              "content": "Returns a specific course",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courses",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb0a369d-1c6b-4550-bd16-5ae59c1d706a",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"district\": \"string\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"number\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14f44354-fd51-45f6-a0ae-ee71b0c5982b",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d94b06df-bd17-4d60-816b-9f24db12283a",
+          "name": "get District For Course",
+          "request": {
+            "name": "get District For Course",
+            "description": {
+              "content": "Returns the district for a course",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courses",
+                ":id",
+                "district"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72121c0e-4141-4685-a1c6-d7809ba7b91a",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id",
+                    "district"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"district_contact\": {\n      \"district\": \"string\",\n      \"email\": \"string\",\n      \"id\": \"string\",\n      \"name\": {\n        \"first\": \"string\",\n        \"last\": \"string\",\n        \"middle\": \"string\"\n      },\n      \"title\": \"string\"\n    },\n    \"error\": \"string\",\n    \"id\": \"string\",\n    \"last_attendance_sync\": \"string\",\n    \"last_sync\": \"string\",\n    \"launch_date\": \"1962-02-12\",\n    \"lms_state\": \"error\",\n    \"lms_type\": \"schoology\",\n    \"login_methods\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mdr_number\": \"string\",\n    \"name\": \"string\",\n    \"nces_id\": \"string\",\n    \"pause_end\": \"string\",\n    \"pause_start\": \"string\",\n    \"portal_url\": \"string\",\n    \"sis_type\": \"string\",\n    \"state\": \"pending\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6abd20e1-49cb-450c-b3af-5e95b9a29afe",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id",
+                    "district"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdbe2513-cf58-49f3-8f62-364700e1abd1",
+          "name": "get Resources For Course",
+          "request": {
+            "name": "get Resources For Course",
+            "description": {
+              "content": "Returns the resources for a course",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courses",
+                ":id",
+                "resources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b1fc62f-6adf-4822-86ab-88a8d08b4302",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"data\": {\n        \"created\": \"1956-08-25T03:31:16.466Z\",\n        \"district\": \"string\",\n        \"id\": \"string\",\n        \"resource_id\": \"string\",\n        \"roles\": [\n          \"student\",\n          \"teacher\"\n        ],\n        \"title\": \"string\",\n        \"updated\": \"1963-04-11T05:58:32.970Z\"\n      }\n    },\n    {\n      \"data\": {\n        \"created\": \"2015-10-01T17:32:19.237Z\",\n        \"district\": \"string\",\n        \"id\": \"string\",\n        \"resource_id\": \"string\",\n        \"roles\": [\n          \"teacher\",\n          \"teacher\"\n        ],\n        \"title\": \"string\",\n        \"updated\": \"2021-06-16T13:48:19.533Z\"\n      }\n    }\n  ],\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"uri\": \"string\"\n    },\n    {\n      \"rel\": \"next\",\n      \"uri\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f70306c-a0cc-44e3-8a59-26054db82cb0",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a71372ac-e90f-4667-a159-0f0e899f9956",
+          "name": "get Schools For Course",
+          "request": {
+            "name": "get Schools For Course",
+            "description": {
+              "content": "Returns the schools for a course",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courses",
+                ":id",
+                "schools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e77e8b00-27bd-4099-b223-d3fcfbc0da3f",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id",
+                    "schools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"data\": {\n        \"created\": \"string\",\n        \"district\": \"string\",\n        \"ext\": {},\n        \"high_grade\": \"7\",\n        \"id\": \"string\",\n        \"last_modified\": \"string\",\n        \"location\": {\n          \"address\": \"string\",\n          \"city\": \"string\",\n          \"lat\": \"string\",\n          \"lon\": \"string\",\n          \"state\": \"string\",\n          \"zip\": \"string\"\n        },\n        \"low_grade\": \"Preschool\",\n        \"mdr_number\": \"string\",\n        \"name\": \"string\",\n        \"nces_id\": \"string\",\n        \"phone\": \"string\",\n        \"principal\": {\n          \"email\": \"string\",\n          \"name\": \"string\"\n        },\n        \"school_number\": \"string\",\n        \"sis_id\": \"string\",\n        \"state_id\": \"string\"\n      }\n    },\n    {\n      \"data\": {\n        \"created\": \"string\",\n        \"district\": \"string\",\n        \"ext\": {},\n        \"high_grade\": \"Other\",\n        \"id\": \"string\",\n        \"last_modified\": \"string\",\n        \"location\": {\n          \"address\": \"string\",\n          \"city\": \"string\",\n          \"lat\": \"string\",\n          \"lon\": \"string\",\n          \"state\": \"string\",\n          \"zip\": \"string\"\n        },\n        \"low_grade\": \"4\",\n        \"mdr_number\": \"string\",\n        \"name\": \"string\",\n        \"nces_id\": \"string\",\n        \"phone\": \"string\",\n        \"principal\": {\n          \"email\": \"string\",\n          \"name\": \"string\"\n        },\n        \"school_number\": \"string\",\n        \"sis_id\": \"string\",\n        \"state_id\": \"string\"\n      }\n    }\n  ],\n  \"links\": [\n    {\n      \"rel\": \"next\",\n      \"uri\": \"string\"\n    },\n    {\n      \"rel\": \"next\",\n      \"uri\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "608e3d3f-5211-4ee3-811f-751ba2ac8ded",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id",
+                    "schools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1de9af17-a5bf-4691-9266-625b2494ecab",
+          "name": "get Sections For Course",
+          "request": {
+            "name": "get Sections For Course",
+            "description": {
+              "content": "Returns the sections for a course",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courses",
+                ":id",
+                "sections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07537ce0-c819-4ee6-8f53-02ef6a56a513",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"data\": {\n        \"course\": \"string\",\n        \"created\": \"string\",\n        \"district\": \"string\",\n        \"ext\": {},\n        \"grade\": \"13\",\n        \"id\": \"string\",\n        \"last_modified\": \"string\",\n        \"lms_status\": {\n          \"synced_in_lms\": false\n        },\n        \"name\": \"string\",\n        \"period\": \"string\",\n        \"school\": \"string\",\n        \"section_number\": \"string\",\n        \"sis_id\": \"string\",\n        \"students\": [\n          \"string\",\n          \"string\"\n        ],\n        \"subject\": \"\",\n        \"teacher\": \"string\",\n        \"teachers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"term_id\": \"string\"\n      }\n    },\n    {\n      \"data\": {\n        \"course\": \"string\",\n        \"created\": \"string\",\n        \"district\": \"string\",\n        \"ext\": {},\n        \"grade\": \"PostGraduate\",\n        \"id\": \"string\",\n        \"last_modified\": \"string\",\n        \"lms_status\": {\n          \"synced_in_lms\": true\n        },\n        \"name\": \"string\",\n        \"period\": \"string\",\n        \"school\": \"string\",\n        \"section_number\": \"string\",\n        \"sis_id\": \"string\",\n        \"students\": [\n          \"string\",\n          \"string\"\n        ],\n        \"subject\": \"science\",\n        \"teacher\": \"string\",\n        \"teachers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"term_id\": \"string\"\n      }\n    }\n  ],\n  \"links\": [\n    {\n      \"rel\": \"prev\",\n      \"uri\": \"string\"\n    },\n    {\n      \"rel\": \"self\",\n      \"uri\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "584a42ad-583c-459e-922a-0a61101071d4",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courses",
+                    ":id",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.clever.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://clever.com/oauth/tokens"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://clever.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4c63c096-18db-434d-b390-baf4f0c510e1",
+    "name": "Data Assignments Courses API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Serves the Clever Data API",
+      "type": "text/plain"
+    }
+  }
+}

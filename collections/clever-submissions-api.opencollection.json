@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Data Assignments Submissions API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://clever.com/oauth/authorize",
+      "accessTokenUrl": "https://clever.com/oauth/tokens",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Submissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSubmissionForAssignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/sections/:section_id/assignments/:assignment_id/submissions/:user_id",
+            "params": [
+              {
+                "name": "section_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "assignment_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific user's submission for an assignment."
+        },
+        {
+          "info": {
+            "name": "updateSubmissionForAssignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.clever.com/v3.1/sections/:section_id/assignments/:assignment_id/submissions/:user_id",
+            "params": [
+              {
+                "name": "section_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "assignment_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing submission in the specified assignment for a user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

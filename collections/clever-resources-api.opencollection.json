@@ -1,0 +1,180 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Data Assignments Resources API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://clever.com/oauth/authorize",
+      "accessTokenUrl": "https://clever.com/oauth/tokens",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getResources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/resources",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of resources"
+        },
+        {
+          "info": {
+            "name": "getResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/resources/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific resource"
+        },
+        {
+          "info": {
+            "name": "getCoursesForResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/resources/:id/courses",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the courses for a resource"
+        },
+        {
+          "info": {
+            "name": "getSectionsForResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/resources/:id/sections",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the sections for a resource"
+        },
+        {
+          "info": {
+            "name": "getUsersForResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clever.com/v3.1/resources/:id/users",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the student and/or teacher users for a resource"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

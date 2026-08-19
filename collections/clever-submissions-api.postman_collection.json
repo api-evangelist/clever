@@ -1,0 +1,786 @@
+{
+  "item": [
+    {
+      "id": "4f971d0b-6358-4464-a7a6-a0e8d1e9aa4c",
+      "name": "Submissions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "36d08fe6-8555-4f80-a104-7b51fb3db6ab",
+          "name": "get Submission For Assignment",
+          "request": {
+            "name": "get Submission For Assignment",
+            "description": {
+              "content": "Returns a specific user's submission for an assignment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sections",
+                ":section_id",
+                "assignments",
+                ":assignment_id",
+                "submissions",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<mongo-id>",
+                  "key": "section_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assignment_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<mongo-id>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a10d81f-a17a-4525-b27c-4714bc68f416",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":section_id",
+                    "assignments",
+                    ":assignment_id",
+                    "submissions",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "section_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assignment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"assignment_id\": \"string\",\n    \"attachments\": [\n      {\n        \"description\": \"string\",\n        \"file_external_id\": \"string\",\n        \"size\": 7371.218233040937,\n        \"thumbnail_url\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"description\": \"string\",\n        \"file_external_id\": \"string\",\n        \"size\": 8143.349847993353,\n        \"thumbnail_url\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"created\": \"string\",\n    \"extra_attempts\": 1096,\n    \"flags\": [\n      \"late\",\n      \"missing\"\n    ],\n    \"grade\": \"string\",\n    \"grade_comment\": \"string\",\n    \"grade_points\": 2581.570634214039,\n    \"grader_id\": \"string\",\n    \"id\": \"string\",\n    \"last_modified\": \"string\",\n    \"override_due_date\": \"string\",\n    \"state\": \"submitted\",\n    \"user_id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d30db7b8-65c3-457c-be11-5dcd1281c149",
+              "name": "Not authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":section_id",
+                    "assignments",
+                    ":assignment_id",
+                    "submissions",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "section_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assignment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de99fc6b-69f6-41f8-b033-772e8eea90e5",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":section_id",
+                    "assignments",
+                    ":assignment_id",
+                    "submissions",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "section_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assignment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2405cfd2-b36c-41f0-8c4d-55713e6c081b",
+          "name": "update Submission For Assignment",
+          "request": {
+            "name": "update Submission For Assignment",
+            "description": {
+              "content": "Updates an existing submission in the specified assignment for a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sections",
+                ":section_id",
+                "assignments",
+                ":assignment_id",
+                "submissions",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<mongo-id>",
+                  "key": "section_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assignment_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<mongo-id>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attachments\": [\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"extra_attempts\": \"<integer>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grade\": \"<string>\",\n  \"grade_comment\": \"<string>\",\n  \"grade_points\": \"<float>\",\n  \"grader_id\": \"<string>\",\n  \"override_due_date\": \"<datetime>\",\n  \"state\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c1fa60f-a05c-4d57-a22b-002d1a0ecdef",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":section_id",
+                    "assignments",
+                    ":assignment_id",
+                    "submissions",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "section_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assignment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachments\": [\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"extra_attempts\": \"<integer>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grade\": \"<string>\",\n  \"grade_comment\": \"<string>\",\n  \"grade_points\": \"<float>\",\n  \"grader_id\": \"<string>\",\n  \"override_due_date\": \"<datetime>\",\n  \"state\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"assignment_id\": \"string\",\n    \"attachments\": [\n      {\n        \"description\": \"string\",\n        \"file_external_id\": \"string\",\n        \"size\": 7395.328797063521,\n        \"thumbnail_url\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"description\": \"string\",\n        \"file_external_id\": \"string\",\n        \"size\": 8169.130240914202,\n        \"thumbnail_url\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"created\": \"string\",\n    \"extra_attempts\": 9393,\n    \"flags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"grade\": \"string\",\n    \"grade_comment\": \"string\",\n    \"grade_points\": 1244.69881899932,\n    \"grader_id\": \"string\",\n    \"id\": \"string\",\n    \"last_modified\": \"string\",\n    \"override_due_date\": \"string\",\n    \"state\": \"<string>\",\n    \"user_id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dad4a646-07b4-4f16-ba9c-1f56fed6bbcc",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":section_id",
+                    "assignments",
+                    ":assignment_id",
+                    "submissions",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "section_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assignment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachments\": [\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"extra_attempts\": \"<integer>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grade\": \"<string>\",\n  \"grade_comment\": \"<string>\",\n  \"grade_points\": \"<float>\",\n  \"grader_id\": \"<string>\",\n  \"override_due_date\": \"<datetime>\",\n  \"state\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07ed2922-14ab-4ae3-9cb2-d397490e1715",
+              "name": "Not authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":section_id",
+                    "assignments",
+                    ":assignment_id",
+                    "submissions",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "section_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assignment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachments\": [\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"extra_attempts\": \"<integer>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grade\": \"<string>\",\n  \"grade_comment\": \"<string>\",\n  \"grade_points\": \"<float>\",\n  \"grader_id\": \"<string>\",\n  \"override_due_date\": \"<datetime>\",\n  \"state\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00880b88-bcfe-4c4b-a327-5b97382ccbd9",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":section_id",
+                    "assignments",
+                    ":assignment_id",
+                    "submissions",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "section_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assignment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachments\": [\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"extra_attempts\": \"<integer>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grade\": \"<string>\",\n  \"grade_comment\": \"<string>\",\n  \"grade_points\": \"<float>\",\n  \"grader_id\": \"<string>\",\n  \"override_due_date\": \"<datetime>\",\n  \"state\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "374c185a-0ecc-4162-b29c-8d270e0bcda2",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":section_id",
+                    "assignments",
+                    ":assignment_id",
+                    "submissions",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "section_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assignment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<mongo-id>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachments\": [\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"extra_attempts\": \"<integer>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grade\": \"<string>\",\n  \"grade_comment\": \"<string>\",\n  \"grade_points\": \"<float>\",\n  \"grader_id\": \"<string>\",\n  \"override_due_date\": \"<datetime>\",\n  \"state\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.clever.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://clever.com/oauth/tokens"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://clever.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2f6ac8ce-ac51-4ae1-a6d6-0544883c95b3",
+    "name": "Data Assignments Submissions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Serves the Clever Data API",
+      "type": "text/plain"
+    }
+  }
+}

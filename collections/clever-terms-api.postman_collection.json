@@ -1,0 +1,850 @@
+{
+  "item": [
+    {
+      "id": "82a1f1de-ffd0-4670-af9d-436cdd3715b9",
+      "name": "Terms",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7785aff3-3394-473f-865b-96205e4045b0",
+          "name": "get Terms",
+          "request": {
+            "name": "get Terms",
+            "description": {
+              "content": "Returns a list of terms",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "terms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c31a0c09-81aa-4191-9864-2542fa32943b",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"data\": {\n        \"district\": \"string\",\n        \"end_date\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"start_date\": \"string\"\n      }\n    },\n    {\n      \"data\": {\n        \"district\": \"string\",\n        \"end_date\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"start_date\": \"string\"\n      }\n    }\n  ],\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"uri\": \"string\"\n    },\n    {\n      \"rel\": \"prev\",\n      \"uri\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79c76e58-2c98-4b7d-9c0e-077325b2d178",
+          "name": "get Term",
+          "request": {
+            "name": "get Term",
+            "description": {
+              "content": "Returns a specific term",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "terms",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1f2be64-a9d6-42c6-ac41-f41a368f4331",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terms",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"district\": \"string\",\n    \"end_date\": \"string\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"start_date\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f46cc76-ef1a-4df0-b024-620005d80973",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terms",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bca81d8-6074-4c41-a293-418a4dbcd117",
+          "name": "get District For Term",
+          "request": {
+            "name": "get District For Term",
+            "description": {
+              "content": "Returns the district for a term",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "terms",
+                ":id",
+                "district"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21cdcafa-ab96-452c-a60c-da535f949232",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terms",
+                    ":id",
+                    "district"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"district_contact\": {\n      \"district\": \"string\",\n      \"email\": \"string\",\n      \"id\": \"string\",\n      \"name\": {\n        \"first\": \"string\",\n        \"last\": \"string\",\n        \"middle\": \"string\"\n      },\n      \"title\": \"string\"\n    },\n    \"error\": \"string\",\n    \"id\": \"string\",\n    \"last_attendance_sync\": \"string\",\n    \"last_sync\": \"string\",\n    \"launch_date\": \"1976-08-12\",\n    \"lms_state\": \"matching_in_progress\",\n    \"lms_type\": \"\",\n    \"login_methods\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mdr_number\": \"string\",\n    \"name\": \"string\",\n    \"nces_id\": \"string\",\n    \"pause_end\": \"string\",\n    \"pause_start\": \"string\",\n    \"portal_url\": \"string\",\n    \"sis_type\": \"string\",\n    \"state\": \"paused\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d451501-d7bd-4a2f-b2fe-65e6645925fb",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terms",
+                    ":id",
+                    "district"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9b3a50d-e5d3-4186-8ae1-206fcef4447a",
+          "name": "get Schools For Term",
+          "request": {
+            "name": "get Schools For Term",
+            "description": {
+              "content": "Returns the schools for a term",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "terms",
+                ":id",
+                "schools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f59f2aa-f0c1-487f-bbdc-5aafa239e39b",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terms",
+                    ":id",
+                    "schools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"data\": {\n        \"created\": \"string\",\n        \"district\": \"string\",\n        \"ext\": {},\n        \"high_grade\": \"2\",\n        \"id\": \"string\",\n        \"last_modified\": \"string\",\n        \"location\": {\n          \"address\": \"string\",\n          \"city\": \"string\",\n          \"lat\": \"string\",\n          \"lon\": \"string\",\n          \"state\": \"string\",\n          \"zip\": \"string\"\n        },\n        \"low_grade\": \"PreKindergarten\",\n        \"mdr_number\": \"string\",\n        \"name\": \"string\",\n        \"nces_id\": \"string\",\n        \"phone\": \"string\",\n        \"principal\": {\n          \"email\": \"string\",\n          \"name\": \"string\"\n        },\n        \"school_number\": \"string\",\n        \"sis_id\": \"string\",\n        \"state_id\": \"string\"\n      }\n    },\n    {\n      \"data\": {\n        \"created\": \"string\",\n        \"district\": \"string\",\n        \"ext\": {},\n        \"high_grade\": \"12\",\n        \"id\": \"string\",\n        \"last_modified\": \"string\",\n        \"location\": {\n          \"address\": \"string\",\n          \"city\": \"string\",\n          \"lat\": \"string\",\n          \"lon\": \"string\",\n          \"state\": \"string\",\n          \"zip\": \"string\"\n        },\n        \"low_grade\": \"6\",\n        \"mdr_number\": \"string\",\n        \"name\": \"string\",\n        \"nces_id\": \"string\",\n        \"phone\": \"string\",\n        \"principal\": {\n          \"email\": \"string\",\n          \"name\": \"string\"\n        },\n        \"school_number\": \"string\",\n        \"sis_id\": \"string\",\n        \"state_id\": \"string\"\n      }\n    }\n  ],\n  \"links\": [\n    {\n      \"rel\": \"next\",\n      \"uri\": \"string\"\n    },\n    {\n      \"rel\": \"next\",\n      \"uri\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12f46142-541c-49c7-b747-aa1ca709f1c5",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terms",
+                    ":id",
+                    "schools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f881ed5d-e000-4f27-b2b2-8ac8833abe80",
+          "name": "get Sections For Term",
+          "request": {
+            "name": "get Sections For Term",
+            "description": {
+              "content": "Returns the sections for a term",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "terms",
+                ":id",
+                "sections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ea93a60-0937-439a-903c-6def3c15f9ba",
+              "name": "OK Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terms",
+                    ":id",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"data\": {\n        \"course\": \"string\",\n        \"created\": \"string\",\n        \"district\": \"string\",\n        \"ext\": {},\n        \"grade\": \"Ungraded\",\n        \"id\": \"string\",\n        \"last_modified\": \"string\",\n        \"lms_status\": {\n          \"synced_in_lms\": true\n        },\n        \"name\": \"string\",\n        \"period\": \"string\",\n        \"school\": \"string\",\n        \"section_number\": \"string\",\n        \"sis_id\": \"string\",\n        \"students\": [\n          \"string\",\n          \"string\"\n        ],\n        \"subject\": \"homeroom/advisory\",\n        \"teacher\": \"string\",\n        \"teachers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"term_id\": \"string\"\n      }\n    },\n    {\n      \"data\": {\n        \"course\": \"string\",\n        \"created\": \"string\",\n        \"district\": \"string\",\n        \"ext\": {},\n        \"grade\": \"PreKindergarten\",\n        \"id\": \"string\",\n        \"last_modified\": \"string\",\n        \"lms_status\": {\n          \"synced_in_lms\": true\n        },\n        \"name\": \"string\",\n        \"period\": \"string\",\n        \"school\": \"string\",\n        \"section_number\": \"string\",\n        \"sis_id\": \"string\",\n        \"students\": [\n          \"string\",\n          \"string\"\n        ],\n        \"subject\": \"\",\n        \"teacher\": \"string\",\n        \"teachers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"term_id\": \"string\"\n      }\n    }\n  ],\n  \"links\": [\n    {\n      \"rel\": \"next\",\n      \"uri\": \"string\"\n    },\n    {\n      \"rel\": \"prev\",\n      \"uri\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a436a488-0405-40f8-88e1-bf0686501964",
+              "name": "Entity Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terms",
+                    ":id",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.clever.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://clever.com/oauth/tokens"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://clever.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cfb4f0c8-7c06-4b98-beb9-84e161cb6225",
+    "name": "Data Assignments Terms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Serves the Clever Data API",
+      "type": "text/plain"
+    }
+  }
+}
