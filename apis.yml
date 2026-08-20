@@ -51,6 +51,12 @@ apis:
   baseURL: https://clever.com/oauth
   tags:
   - Single Sign-On
+  - Authentication
+  - OIDC
+  - SAML
+  - Identity
+  tags_raw:
+  - Single Sign-On
   - OAuth
   - OIDC
   - SAML
@@ -68,6 +74,11 @@ apis:
   humanURL: https://dev.clever.com/docs/api-overview
   baseURL: https://api.clever.com/v3.1
   tags:
+  - Event
+  - Delta Sync
+  - Webhook
+  - Rostering
+  tags_raw:
   - Events
   - Delta Sync
   - Webhooks
@@ -211,6 +222,8 @@ apis:
   humanURL: https://dev.clever.com/docs/api-overview
   baseURL: https://api.clever.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
