@@ -1,0 +1,37 @@
+slug: clever
+provider: Clever
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Assignments
+  spec_file: clever-assignments-api-openapi.yml
+  capability_id: BC-4740.30
+  capability_id_l1: BC-4740
+  capability_name: Marking & Grading Operations
+  confidence: 0.7
+  evidence: POST /sections/{section_id}/assignments  createAssignmentForSection; GET .../assignments/{assignment_id}/submissions  getSubmissionsForAssignment;
+    schemas GradingScale, GradingType, GradingScaleEntry, Submission
+  reason: Assignments are created against class sections and carry grading scales, grading types and student
+    submissions — coursework assessment and grading operations. Sub-capability chosen because the schemas
+    explicitly concern grading and submitted work rather than item banking or exam invigilation.
+- tag: Submissions
+  spec_file: clever-submissions-api-openapi.yml
+  capability_id: BC-4740.30
+  capability_id_l1: BC-4740
+  capability_name: Marking & Grading Operations
+  confidence: 0.7
+  evidence: PATCH /sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}  updateSubmissionForAssignment;
+    schemas Submission, SubmissionState, SubmissionFlag, Attachment
+  reason: Retrieving and updating a named student's submission state against an assignment is the marking/grading
+    of student work. Sub-capability is grading operations rather than examination logistics, since there
+    is no scheduling or proctoring surface.

@@ -247,6 +247,9 @@ apis:
   - type: Documentation
     url: https://dev.clever.com/docs/integration-types
 common:
+- type: CapabilityMap
+  url: capabilities/clever-capability-edges.yml
+  name: Clever Business Capability Map
 - type: AgenticAccess
   url: agentic-access/clever-agentic-access.yml
 - type: TrustCenter
