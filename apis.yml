@@ -1,15 +1,13 @@
 aid: clever
 name: Clever
-description: Clever is a K-12 EdTech identity platform that provides a unified single
-  sign-on portal and roster synchronization service used by over 111,000 US schools,
-  including 95 of the largest 100 districts. The Clever REST API enables application
-  partners to securely access real-time student roster data, school and district information,
-  class and section data, and user identity records through a single integration.
-  Clever Complete offers Secure Sync for district-managed rostering, LMS Connect for
-  gradebook syncing, and Single Sign-On via OAuth 2.0, OIDC, and SAML, eliminating
-  the need for per-SIS integrations. Approximately 60 percent of US students log in
-  monthly through Clever, making it the de facto identity layer for K-12 EdTech applications
-  across the United States.
+description: Clever is a K-12 EdTech identity platform that provides a unified single sign-on portal and
+  roster synchronization service used by over 111,000 US schools, including 95 of the largest 100 districts.
+  The Clever REST API enables application partners to securely access real-time student roster data, school
+  and district information, class and section data, and user identity records through a single integration.
+  Clever Complete offers Secure Sync for district-managed rostering, LMS Connect for gradebook syncing,
+  and Single Sign-On via OAuth 2.0, OIDC, and SAML, eliminating the need for per-SIS integrations. Approximately
+  60 percent of US students log in monthly through Clever, making it the de facto identity layer for K-12
+  EdTech applications across the United States.
 type: Index
 deliveryModel:
   model: saas
@@ -39,7 +37,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/clever.png
 url: https://raw.githubusercontent.com/api-evangelist/clever/refs/heads/main/apis.yml
 created: 2026-06-13
-modified: 2026-06-13
+modified: '2026-09-16'
 specificationVersion: '0.23'
 tags:
 - Education
@@ -52,12 +50,12 @@ tags:
 - Student Data
 - LMS
 - SIS
+- Identity Federation
 apis:
 - name: Clever Single Sign-On API
-  description: >-
-    OAuth 2.0, OIDC, and SAML-based single sign-on integration that enables application partners to authenticate
-    students, teachers, and staff through the Clever portal. Issues bearer access tokens scoped to individual
-    users for identity and profile data access.
+  description: OAuth 2.0, OIDC, and SAML-based single sign-on integration that enables application partners
+    to authenticate students, teachers, and staff through the Clever portal. Issues bearer access tokens
+    scoped to individual users for identity and profile data access.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dev.clever.com/docs/integration-types
   baseURL: https://clever.com/oauth
@@ -78,10 +76,9 @@ apis:
   - type: Documentation
     url: https://dev.clever.com/docs/integration-types
 - name: Clever Events API
-  description: >-
-    Delta-sync event stream API that notifies application partners of changes to roster data (creates,
-    updates, deletes) within a district. Must be enabled via the application dashboard and uses a district-app
-    token for access, enabling efficient incremental data synchronization.
+  description: Delta-sync event stream API that notifies application partners of changes to roster data
+    (creates, updates, deletes) within a district. Must be enabled via the application dashboard and uses
+    a district-app token for access, enabling efficient incremental data synchronization.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dev.clever.com/docs/api-overview
   baseURL: https://api.clever.com/v3.1
