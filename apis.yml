@@ -43,6 +43,17 @@ tags:
 - Education
 - K-12
 - EdTech
+- SSO
+- Rostering
+- Identity
+- Student Data
+- LMS
+- SIS
+- Identity Federation
+tags_raw:
+- Education
+- K-12
+- EdTech
 - Single Sign-On
 - Rostering
 - Identity
@@ -60,7 +71,7 @@ apis:
   humanURL: https://dev.clever.com/docs/integration-types
   baseURL: https://clever.com/oauth
   tags:
-  - Single Sign-On
+  - SSO
   - Authentication
   - OIDC
   - SAML
