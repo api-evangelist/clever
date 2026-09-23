@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: Serves the Clever Data API
-  title: Data Assignments Submissions API
+  description: The Clever LMS Connect API
+  title: LMS Connect Submissions API
   version: 3.1.0
 servers:
 - url: https://api.clever.com/v3.1
@@ -45,6 +45,8 @@ paths:
           $ref: '#/components/responses/NotFound'
       tags:
       - Submissions
+      summary: Get submission for assignment
+      x-summary-source: derived
     patch:
       description: Updates an existing submission in the specified assignment for a user.
       operationId: updateSubmissionForAssignment
@@ -89,20 +91,10 @@ paths:
           $ref: '#/components/responses/InternalError'
       tags:
       - Submissions
+      summary: Update submission for assignment
+      x-summary-source: derived
 components:
   schemas:
-    SubmissionResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/Submission'
-      type: object
-    SubmissionState:
-      enum:
-      - created
-      - submitted
-      - returned
-      - reclaimed
-      type: string
     SubmissionRequest:
       properties:
         attachments:
@@ -119,72 +111,45 @@ components:
           type: array
           x-omitempty: true
         grade:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         grade_comment:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         grade_points:
           format: float
           type: number
           x-omitempty: true
         grader_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         override_due_date:
           format: datetime
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         state:
           $ref: '#/components/schemas/SubmissionState'
       type: object
-    SubmissionFlag:
-      enum:
-      - excused
-      - late
-      - missing
-      type: string
-    AttachmentRequest:
+    NotFound:
       properties:
-        description:
+        message:
           type: string
-          nullable: true
-        title:
-          type: string
-          nullable: true
-        type:
-          enum:
-          - file
-          type: string
-        url:
-          type: string
-          nullable: true
       type: object
-    Attachment:
+    SubmissionResponse:
       properties:
-        description:
-          type: string
-          nullable: true
-        file_external_id:
-          type: string
-          nullable: true
-        size:
-          format: float
-          type: number
-          x-omitempty: true
-        thumbnail_url:
-          type: string
-          nullable: true
-        title:
-          type: string
-          nullable: true
-        type:
-          type: string
-        url:
-          type: string
-          nullable: true
+        data:
+          $ref: '#/components/schemas/Submission'
       type: object
     BadRequest:
+      properties:
+        message:
+          type: string
+      type: object
+    Unauthorized:
       properties:
         message:
           type: string
@@ -200,8 +165,9 @@ components:
           x-omitempty: true
         created:
           format: datetime
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         extra_attempts:
           type: integer
           x-omitempty: true
@@ -211,18 +177,21 @@ components:
           type: array
           x-omitempty: true
         grade:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         grade_comment:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         grade_points:
           format: float
           type: number
           x-omitempty: true
         grader_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         id:
           description: 'Deprecated. The Clever unique identifier of the submission. Will always be empty if the
 
@@ -234,31 +203,84 @@ components:
           type: string
         last_modified:
           format: datetime
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         override_due_date:
           format: datetime
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         state:
           $ref: '#/components/schemas/SubmissionState'
         user_id:
           type: string
       type: object
+    SubmissionState:
+      enum:
+      - created
+      - submitted
+      - returned
+      - reclaimed
+      type: string
     InternalError:
       properties:
         message:
           type: string
       type: object
-    Unauthorized:
+    AttachmentRequest:
       properties:
-        message:
+        description:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        type:
+          enum:
+          - file
           type: string
+        url:
+          type:
+          - string
+          - 'null'
       type: object
-    NotFound:
+    SubmissionFlag:
+      enum:
+      - excused
+      - late
+      - missing
+      type: string
+    Attachment:
       properties:
-        message:
+        description:
+          type:
+          - string
+          - 'null'
+        file_external_id:
+          type:
+          - string
+          - 'null'
+        size:
+          format: float
+          type: number
+          x-omitempty: true
+        thumbnail_url:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        type:
           type: string
+        url:
+          type:
+          - string
+          - 'null'
       type: object
   responses:
     InternalError:
@@ -267,18 +289,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/InternalError'
-    Unauthorized:
-      description: Not authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Unauthorized'
     BadRequest:
       description: Bad Request
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/BadRequest'
+    Unauthorized:
+      description: Not authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
     NotFound:
       description: Entity Not Found
       content:
