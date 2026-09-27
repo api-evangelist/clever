@@ -60,44 +60,10 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DistrictContact:
-      properties:
-        district:
-          type: string
-          x-validation: true
-        email:
-          type:
-          - string
-          - 'null'
-        id:
-          type: string
-          x-validation: true
-        name:
-          $ref: '#/components/schemas/Name'
-        title:
-          type: string
-          x-validation: true
-      type: object
-    DistrictsResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/DistrictResponse'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/Link'
-          type: array
-      type: object
     NotFound:
       properties:
         message:
           type: string
-      type: object
-    DistrictResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/District'
       type: object
     District:
       properties:
@@ -192,17 +158,6 @@ components:
           - 'null'
           x-validation: true
       type: object
-    Link:
-      properties:
-        rel:
-          enum:
-          - next
-          - prev
-          - self
-          type: string
-        uri:
-          type: string
-      type: object
     Name:
       properties:
         first:
@@ -217,6 +172,51 @@ components:
           type:
           - string
           - 'null'
+      type: object
+    Link:
+      properties:
+        rel:
+          enum:
+          - next
+          - prev
+          - self
+          type: string
+        uri:
+          type: string
+      type: object
+    DistrictsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DistrictResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    DistrictContact:
+      properties:
+        district:
+          type: string
+          x-validation: true
+        email:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+          x-validation: true
+        name:
+          $ref: '#/components/schemas/Name'
+        title:
+          type: string
+          x-validation: true
+      type: object
+    DistrictResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/District'
       type: object
   responses:
     NotFound:

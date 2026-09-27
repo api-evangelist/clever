@@ -241,179 +241,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Term:
-      properties:
-        district:
-          type: string
-          x-validation: true
-        end_date:
-          format: datetime
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        id:
-          type: string
-          x-validation: true
-        name:
-          type:
-          - string
-          - 'null'
-        start_date:
-          format: datetime
-          type:
-          - string
-          - 'null'
-          x-validation: true
-      type: object
-    Location:
-      properties:
-        address:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        lat:
-          type:
-          - string
-          - 'null'
-        lon:
-          type:
-          - string
-          - 'null'
-        state:
-          type:
-          - string
-          - 'null'
-        zip:
-          type:
-          - string
-          - 'null'
-      type: object
-    SectionResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/Section'
-      type: object
-    Staff:
-      properties:
-        credentials:
-          $ref: '#/components/schemas/Credentials'
-        department:
-          type:
-          - string
-          - 'null'
-        ext:
-          type: object
-        legacy_id:
-          type: string
-          x-validation: true
-        roles:
-          items:
-            type: string
-          type: array
-          x-validation: true
-        schools:
-          items:
-            type: string
-          type: array
-          x-validation: true
-        staff_id:
-          type: string
-        title:
-          type:
-          - string
-          - 'null'
-      type: object
-    ResourcesResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/ResourceResponse'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/Link'
-          type: array
-      type: object
-    CourseResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/Course'
-      type: object
-    User:
-      properties:
-        created:
-          format: datetime
-          type: string
-          x-validation: true
-        district:
-          type: string
-          x-validation: true
-        email:
-          type:
-          - string
-          - 'null'
-        id:
-          type: string
-          x-validation: true
-        last_modified:
-          format: datetime
-          type: string
-          x-validation: true
-        lms_status:
-          $ref: '#/components/schemas/LmsStatus'
-        name:
-          $ref: '#/components/schemas/Name'
-        roles:
-          $ref: '#/components/schemas/Roles'
-      type: object
-    Course:
-      properties:
-        district:
-          type: string
-          x-validation: true
-        id:
-          type: string
-          x-validation: true
-        name:
-          type:
-          - string
-          - 'null'
-        number:
-          type:
-          - string
-          - 'null'
-      type: object
-    PreferredName:
-      properties:
-        first:
-          type:
-          - string
-          - 'null'
-        last:
-          type:
-          - string
-          - 'null'
-        middle:
-          type:
-          - string
-          - 'null'
-      type: object
-    Link:
-      properties:
-        rel:
-          enum:
-          - next
-          - prev
-          - self
-          type: string
-        uri:
-          type: string
-      type: object
     StudentRelationship:
       properties:
         relationship:
@@ -446,26 +273,67 @@ components:
           - 'null'
           x-validation: true
       type: object
-    TermResponse:
+    UserResponse:
       properties:
         data:
-          $ref: '#/components/schemas/Term'
+          $ref: '#/components/schemas/User'
       type: object
-    UsersResponse:
+    Resource:
       properties:
-        data:
-          items:
-            $ref: '#/components/schemas/UserResponse'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/Link'
-          type: array
-      type: object
-    NotFound:
-      properties:
-        message:
+        created:
+          format: date-time
           type: string
+        district:
+          type: string
+        id:
+          type: string
+        resource_id:
+          type: string
+        roles:
+          items:
+            enum:
+            - teacher
+            - student
+            type: string
+          type: array
+        title:
+          type: string
+        updated:
+          format: date-time
+          type: string
+      type: object
+    Roles:
+      properties:
+        contact:
+          $ref: '#/components/schemas/Contact'
+        district_admin:
+          $ref: '#/components/schemas/DistrictAdmin'
+        staff:
+          $ref: '#/components/schemas/Staff'
+        student:
+          $ref: '#/components/schemas/Student'
+        teacher:
+          $ref: '#/components/schemas/Teacher'
+    Link:
+      properties:
+        rel:
+          enum:
+          - next
+          - prev
+          - self
+          type: string
+        uri:
+          type: string
+      type: object
+    DistrictAdmin:
+      properties:
+        legacy_id:
+          type: string
+          x-validation: true
+        title:
+          type:
+          - string
+          - 'null'
       type: object
     Teacher:
       properties:
@@ -512,173 +380,15 @@ components:
           - string
           - 'null'
       type: object
-    SchoolResponse:
+    TermResponse:
       properties:
         data:
-          $ref: '#/components/schemas/School'
+          $ref: '#/components/schemas/Term'
       type: object
-    Name:
+    Credentials:
       properties:
-        first:
-          type:
-          - string
-          - 'null'
-        last:
-          type:
-          - string
-          - 'null'
-        middle:
-          type:
-          - string
-          - 'null'
-      type: object
-    ResourceResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/Resource'
-      type: object
-    Roles:
-      properties:
-        contact:
-          $ref: '#/components/schemas/Contact'
-        district_admin:
-          $ref: '#/components/schemas/DistrictAdmin'
-        staff:
-          $ref: '#/components/schemas/Staff'
-        student:
-          $ref: '#/components/schemas/Student'
-        teacher:
-          $ref: '#/components/schemas/Teacher'
-    UserResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/User'
-      type: object
-    School:
-      properties:
-        created:
-          format: datetime
+        district_username:
           type: string
-          x-validation: true
-        district:
-          type: string
-          x-validation: true
-        ext:
-          type: object
-        high_grade:
-          enum:
-          - InfantToddler
-          - Preschool
-          - PreKindergarten
-          - TransitionalKindergarten
-          - Kindergarten
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-          - '7'
-          - '8'
-          - '9'
-          - '10'
-          - '11'
-          - '12'
-          - '13'
-          - PostGraduate
-          - Ungraded
-          - Other
-          - ''
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        id:
-          type: string
-          x-validation: true
-        last_modified:
-          format: datetime
-          type: string
-          x-validation: true
-        location:
-          $ref: '#/components/schemas/Location'
-        low_grade:
-          enum:
-          - InfantToddler
-          - Preschool
-          - PreKindergarten
-          - TransitionalKindergarten
-          - Kindergarten
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-          - '7'
-          - '8'
-          - '9'
-          - '10'
-          - '11'
-          - '12'
-          - '13'
-          - PostGraduate
-          - Ungraded
-          - Other
-          - ''
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        mdr_number:
-          type:
-          - string
-          - 'null'
-        name:
-          type: string
-        nces_id:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
-        principal:
-          $ref: '#/components/schemas/Principal'
-        school_number:
-          type: string
-        sis_id:
-          type: string
-        state_id:
-          type:
-          - string
-          - 'null'
-      type: object
-    SchoolEnrollment:
-      properties:
-        end_date:
-          format: datetime
-          type: string
-          x-validation: true
-        school:
-          type: string
-          x-validation: true
-        start_date:
-          format: datetime
-          type: string
-          x-validation: true
-      type: object
-    SectionsResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/SectionResponse'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/Link'
-          type: array
       type: object
     District:
       properties:
@@ -773,29 +483,345 @@ components:
           - 'null'
           x-validation: true
       type: object
-    Resource:
+    NotFound:
       properties:
-        created:
-          format: date-time
+        message:
           type: string
+      type: object
+    Name:
+      properties:
+        first:
+          type:
+          - string
+          - 'null'
+        last:
+          type:
+          - string
+          - 'null'
+        middle:
+          type:
+          - string
+          - 'null'
+      type: object
+    ResourcesResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ResourceResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    Course:
+      properties:
         district:
           type: string
+          x-validation: true
         id:
           type: string
-        resource_id:
+          x-validation: true
+        name:
+          type:
+          - string
+          - 'null'
+        number:
+          type:
+          - string
+          - 'null'
+      type: object
+    Principal:
+      properties:
+        email:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+      type: object
+    LmsStatus:
+      properties:
+        synced_in_lms:
+          type: boolean
+      type: object
+    DistrictResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/District'
+      type: object
+    Term:
+      properties:
+        district:
           type: string
+          x-validation: true
+        end_date:
+          format: datetime
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        id:
+          type: string
+          x-validation: true
+        name:
+          type:
+          - string
+          - 'null'
+        start_date:
+          format: datetime
+          type:
+          - string
+          - 'null'
+          x-validation: true
+      type: object
+    User:
+      properties:
+        created:
+          format: datetime
+          type: string
+          x-validation: true
+        district:
+          type: string
+          x-validation: true
+        email:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+          x-validation: true
+        last_modified:
+          format: datetime
+          type: string
+          x-validation: true
+        lms_status:
+          $ref: '#/components/schemas/LmsStatus'
+        name:
+          $ref: '#/components/schemas/Name'
         roles:
-          items:
-            enum:
-            - teacher
-            - student
-            type: string
-          type: array
+          $ref: '#/components/schemas/Roles'
+      type: object
+    CourseResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Course'
+      type: object
+    DistrictContact:
+      properties:
+        district:
+          type: string
+          x-validation: true
+        email:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+          x-validation: true
+        name:
+          $ref: '#/components/schemas/Name'
         title:
           type: string
-        updated:
-          format: date-time
+          x-validation: true
+      type: object
+    ResourceResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Resource'
+      type: object
+    Staff:
+      properties:
+        credentials:
+          $ref: '#/components/schemas/Credentials'
+        department:
+          type:
+          - string
+          - 'null'
+        ext:
+          type: object
+        legacy_id:
           type: string
+          x-validation: true
+        roles:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        schools:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        staff_id:
+          type: string
+        title:
+          type:
+          - string
+          - 'null'
+      type: object
+    UsersResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UserResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    Location:
+      properties:
+        address:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        lat:
+          type:
+          - string
+          - 'null'
+        lon:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        zip:
+          type:
+          - string
+          - 'null'
+      type: object
+    SectionResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Section'
+      type: object
+    SectionsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SectionResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    Section:
+      properties:
+        course:
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        created:
+          format: datetime
+          type: string
+          x-validation: true
+        district:
+          type: string
+          x-validation: true
+        ext:
+          type: object
+        grade:
+          enum:
+          - InfantToddler
+          - Preschool
+          - PreKindergarten
+          - TransitionalKindergarten
+          - Kindergarten
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+          - '11'
+          - '12'
+          - '13'
+          - PostGraduate
+          - Ungraded
+          - Other
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        id:
+          type: string
+          x-validation: true
+        last_modified:
+          format: datetime
+          type: string
+          x-validation: true
+        lms_status:
+          $ref: '#/components/schemas/LmsStatus'
+        name:
+          type: string
+        period:
+          type:
+          - string
+          - 'null'
+        school:
+          type: string
+          x-validation: true
+        section_number:
+          type:
+          - string
+          - 'null'
+        sis_id:
+          type: string
+        students:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        subject:
+          enum:
+          - english/language arts
+          - math
+          - science
+          - social studies
+          - language
+          - homeroom/advisory
+          - interventions/online learning
+          - technology and engineering
+          - PE and health
+          - arts and music
+          - other
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        teacher:
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        teachers:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        term_id:
+          type:
+          - string
+          - 'null'
+          x-validation: true
       type: object
     Contact:
       properties:
@@ -826,29 +852,6 @@ components:
             $ref: '#/components/schemas/StudentRelationship'
           type: array
           x-validation: true
-      type: object
-    DistrictContact:
-      properties:
-        district:
-          type: string
-          x-validation: true
-        email:
-          type:
-          - string
-          - 'null'
-        id:
-          type: string
-          x-validation: true
-        name:
-          $ref: '#/components/schemas/Name'
-        title:
-          type: string
-          x-validation: true
-      type: object
-    Credentials:
-      properties:
-        district_username:
-          type: string
       type: object
     Disability:
       properties:
@@ -899,21 +902,19 @@ components:
           - string
           - 'null'
       type: object
-    Principal:
+    SchoolEnrollment:
       properties:
-        email:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-      type: object
-    DistrictResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/District'
+        end_date:
+          format: datetime
+          type: string
+          x-validation: true
+        school:
+          type: string
+          x-validation: true
+        start_date:
+          format: datetime
+          type: string
+          x-validation: true
       type: object
     Student:
       properties:
@@ -1392,13 +1393,8 @@ components:
           - string
           - 'null'
       type: object
-    Section:
+    School:
       properties:
-        course:
-          type:
-          - string
-          - 'null'
-          x-validation: true
         created:
           format: datetime
           type: string
@@ -1408,7 +1404,7 @@ components:
           x-validation: true
         ext:
           type: object
-        grade:
+        high_grade:
           enum:
           - InfantToddler
           - Preschool
@@ -1443,76 +1439,80 @@ components:
           format: datetime
           type: string
           x-validation: true
-        lms_status:
-          $ref: '#/components/schemas/LmsStatus'
-        name:
-          type: string
-        period:
-          type:
-          - string
-          - 'null'
-        school:
-          type: string
-          x-validation: true
-        section_number:
-          type:
-          - string
-          - 'null'
-        sis_id:
-          type: string
-        students:
-          items:
-            type: string
-          type: array
-          x-validation: true
-        subject:
+        location:
+          $ref: '#/components/schemas/Location'
+        low_grade:
           enum:
-          - english/language arts
-          - math
-          - science
-          - social studies
-          - language
-          - homeroom/advisory
-          - interventions/online learning
-          - technology and engineering
-          - PE and health
-          - arts and music
-          - other
+          - InfantToddler
+          - Preschool
+          - PreKindergarten
+          - TransitionalKindergarten
+          - Kindergarten
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+          - '11'
+          - '12'
+          - '13'
+          - PostGraduate
+          - Ungraded
+          - Other
           - ''
           type:
           - string
           - 'null'
           x-validation: true
-        teacher:
+        mdr_number:
           type:
           - string
           - 'null'
-          x-validation: true
-        teachers:
-          items:
-            type: string
-          type: array
-          x-validation: true
-        term_id:
-          type:
-          - string
-          - 'null'
-          x-validation: true
-      type: object
-    LmsStatus:
-      properties:
-        synced_in_lms:
-          type: boolean
-      type: object
-    DistrictAdmin:
-      properties:
-        legacy_id:
+        name:
           type: string
-          x-validation: true
-        title:
+        nces_id:
           type:
           - string
           - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        principal:
+          $ref: '#/components/schemas/Principal'
+        school_number:
+          type: string
+        sis_id:
+          type: string
+        state_id:
+          type:
+          - string
+          - 'null'
+      type: object
+    PreferredName:
+      properties:
+        first:
+          type:
+          - string
+          - 'null'
+        last:
+          type:
+          - string
+          - 'null'
+        middle:
+          type:
+          - string
+          - 'null'
+      type: object
+    SchoolResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/School'
       type: object
   responses:
     NotFound:

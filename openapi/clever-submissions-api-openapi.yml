@@ -134,26 +134,56 @@ components:
         state:
           $ref: '#/components/schemas/SubmissionState'
       type: object
-    NotFound:
+    Unauthorized:
       properties:
         message:
           type: string
       type: object
-    SubmissionResponse:
+    NotFound:
       properties:
-        data:
-          $ref: '#/components/schemas/Submission'
+        message:
+          type: string
       type: object
     BadRequest:
       properties:
         message:
           type: string
       type: object
-    Unauthorized:
+    InternalError:
       properties:
         message:
           type: string
       type: object
+    AttachmentRequest:
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        type:
+          enum:
+          - file
+          type: string
+        url:
+          type:
+          - string
+          - 'null'
+      type: object
+    SubmissionResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Submission'
+      type: object
+    SubmissionFlag:
+      enum:
+      - excused
+      - late
+      - missing
+      type: string
     Submission:
       properties:
         assignment_id:
@@ -216,43 +246,6 @@ components:
         user_id:
           type: string
       type: object
-    SubmissionState:
-      enum:
-      - created
-      - submitted
-      - returned
-      - reclaimed
-      type: string
-    InternalError:
-      properties:
-        message:
-          type: string
-      type: object
-    AttachmentRequest:
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        type:
-          enum:
-          - file
-          type: string
-        url:
-          type:
-          - string
-          - 'null'
-      type: object
-    SubmissionFlag:
-      enum:
-      - excused
-      - late
-      - missing
-      type: string
     Attachment:
       properties:
         description:
@@ -282,31 +275,38 @@ components:
           - string
           - 'null'
       type: object
+    SubmissionState:
+      enum:
+      - created
+      - submitted
+      - returned
+      - reclaimed
+      type: string
   responses:
-    InternalError:
-      description: Internal Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InternalError'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/BadRequest'
-    Unauthorized:
-      description: Not authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Unauthorized'
     NotFound:
       description: Entity Not Found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/NotFound'
+    Unauthorized:
+      description: Not authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BadRequest'
+    InternalError:
+      description: Internal Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalError'
   securitySchemes:
     oauth:
       type: oauth2

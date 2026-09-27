@@ -76,22 +76,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    EventsResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/EventResponse'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/Link'
-          type: array
-      type: object
-    NotFound:
-      properties:
-        message:
-          type: string
-      type: object
     Event:
       discriminator:
         propertyName: type
@@ -109,6 +93,11 @@ components:
       required:
       - type
       type: object
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
     Link:
       properties:
         rel:
@@ -124,6 +113,17 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Event'
+      type: object
+    EventsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EventResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
       type: object
   responses:
     NotFound:

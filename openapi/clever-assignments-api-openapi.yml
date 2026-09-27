@@ -174,57 +174,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    AssignmentResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/Assignment'
-      type: object
-    AssigneeMode:
-      enum:
-      - all
-      - individuals
-      type: string
-    AttachmentRequest:
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        type:
-          enum:
-          - file
-          type: string
-        url:
-          type:
-          - string
-          - 'null'
-      type: object
-    InternalError:
-      properties:
-        message:
-          type: string
-      type: object
-    GradingType:
-      enum:
-      - points
-      - percent
-      - pass_fail
-      - letter_grade
-      type: string
-    NotFound:
-      properties:
-        message:
-          type: string
-      type: object
-    BadRequest:
-      properties:
-        message:
-          type: string
-      type: object
     GradingScale:
       properties:
         entries:
@@ -236,55 +185,48 @@ components:
         name:
           type: string
       type: object
-    Attachment:
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        file_external_id:
-          type:
-          - string
-          - 'null'
-        size:
-          format: float
-          type: number
-          x-omitempty: true
-        thumbnail_url:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        type:
-          type: string
-        url:
-          type:
-          - string
-          - 'null'
-      type: object
-    SubmissionsLink:
-      properties:
-        rel:
-          enum:
-          - next
-          type: string
-        uri:
-          type: string
-      type: object
     Unauthorized:
       properties:
         message:
           type: string
       type: object
-    SubmissionState:
+    SubmissionsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/Submission'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/SubmissionsLink'
+          type: array
+          x-omitempty: true
+      type: object
+    AssignmentState:
       enum:
-      - created
-      - submitted
-      - returned
-      - reclaimed
+      - draft
+      - scheduled
+      - open
+      - locked
+      type: string
+    InternalError:
+      properties:
+        message:
+          type: string
+      type: object
+    GradingScaleEntry:
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
+    GradingType:
+      enum:
+      - points
+      - percent
+      - pass_fail
+      - letter_grade
       type: string
     AssignmentRequest:
       properties:
@@ -352,105 +294,30 @@ components:
           - string
           - 'null'
       type: object
-    SubmissionFlag:
+    SubmissionState:
       enum:
-      - excused
-      - late
-      - missing
+      - created
+      - submitted
+      - returned
+      - reclaimed
       type: string
-    SubmissionType:
-      enum:
-      - link
-      - file
-      - text
-      - discussion
-      type: string
-    SubmissionsResponse:
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+    AssignmentResponse:
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/Submission'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/SubmissionsLink'
-          type: array
-          x-omitempty: true
+          $ref: '#/components/schemas/Assignment'
       type: object
-    AssignmentState:
-      enum:
-      - draft
-      - scheduled
-      - open
-      - locked
-      type: string
-    GradingScaleEntry:
+    SubmissionsLink:
       properties:
-        name:
+        rel:
+          enum:
+          - next
           type: string
-        value:
-          type: string
-      type: object
-    Submission:
-      properties:
-        assignment_id:
-          type: string
-        attachments:
-          items:
-            $ref: '#/components/schemas/Attachment'
-          type: array
-          x-omitempty: true
-        created:
-          format: datetime
-          type:
-          - string
-          - 'null'
-        extra_attempts:
-          type: integer
-          x-omitempty: true
-        flags:
-          items:
-            $ref: '#/components/schemas/SubmissionFlag'
-          type: array
-          x-omitempty: true
-        grade:
-          type:
-          - string
-          - 'null'
-        grade_comment:
-          type:
-          - string
-          - 'null'
-        grade_points:
-          format: float
-          type: number
-          x-omitempty: true
-        grader_id:
-          type:
-          - string
-          - 'null'
-        id:
-          description: 'Deprecated. The Clever unique identifier of the submission. Will always be empty if the
-
-            upstream LMS provider is Google Classroom; it is currently still present for Canvas and
-
-            Schoology LMSs but will be removed in the near future.
-
-            '
-          type: string
-        last_modified:
-          format: datetime
-          type:
-          - string
-          - 'null'
-        override_due_date:
-          format: datetime
-          type:
-          - string
-          - 'null'
-        state:
-          $ref: '#/components/schemas/SubmissionState'
-        user_id:
+        uri:
           type: string
       type: object
     Assignment:
@@ -538,6 +405,164 @@ components:
         title:
           type: string
       type: object
+    SubmissionType:
+      enum:
+      - link
+      - file
+      - text
+      - discussion
+      type: string
+    AttachmentRequest:
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        type:
+          enum:
+          - file
+          type: string
+        url:
+          type:
+          - string
+          - 'null'
+      type: object
+    SubmissionFlag:
+      enum:
+      - excused
+      - late
+      - missing
+      type: string
+    Attachment:
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        file_external_id:
+          type:
+          - string
+          - 'null'
+        size:
+          format: float
+          type: number
+          x-omitempty: true
+        thumbnail_url:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+        url:
+          type:
+          - string
+          - 'null'
+      type: object
+    BadRequest:
+      properties:
+        message:
+          type: string
+      type: object
+    AssigneeMode:
+      enum:
+      - all
+      - individuals
+      type: string
+    Submission:
+      properties:
+        assignment_id:
+          type: string
+        attachments:
+          items:
+            $ref: '#/components/schemas/Attachment'
+          type: array
+          x-omitempty: true
+        created:
+          format: datetime
+          type:
+          - string
+          - 'null'
+        extra_attempts:
+          type: integer
+          x-omitempty: true
+        flags:
+          items:
+            $ref: '#/components/schemas/SubmissionFlag'
+          type: array
+          x-omitempty: true
+        grade:
+          type:
+          - string
+          - 'null'
+        grade_comment:
+          type:
+          - string
+          - 'null'
+        grade_points:
+          format: float
+          type: number
+          x-omitempty: true
+        grader_id:
+          type:
+          - string
+          - 'null'
+        id:
+          description: 'Deprecated. The Clever unique identifier of the submission. Will always be empty if the
+
+            upstream LMS provider is Google Classroom; it is currently still present for Canvas and
+
+            Schoology LMSs but will be removed in the near future.
+
+            '
+          type: string
+        last_modified:
+          format: datetime
+          type:
+          - string
+          - 'null'
+        override_due_date:
+          format: datetime
+          type:
+          - string
+          - 'null'
+        state:
+          $ref: '#/components/schemas/SubmissionState'
+        user_id:
+          type: string
+      type: object
+  responses:
+    Unauthorized:
+      description: Not authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BadRequest'
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFound'
+    InternalError:
+      description: Internal Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalError'
   requestBodies:
     AssignmentRequest:
       content:
@@ -545,31 +570,6 @@ components:
           schema:
             $ref: '#/components/schemas/AssignmentRequest'
       required: true
-  responses:
-    InternalError:
-      description: Internal Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InternalError'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/BadRequest'
-    Unauthorized:
-      description: Not authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Unauthorized'
-    NotFound:
-      description: Entity Not Found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/NotFound'
   securitySchemes:
     oauth:
       type: oauth2
