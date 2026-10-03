@@ -165,6 +165,36 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    Term:
+      properties:
+        district:
+          type: string
+          x-validation: true
+        end_date:
+          format: datetime
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        id:
+          type: string
+          x-validation: true
+        name:
+          type:
+          - string
+          - 'null'
+        start_date:
+          format: datetime
+          type:
+          - string
+          - 'null'
+          x-validation: true
+      type: object
+    TermResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Term'
+      type: object
     Link:
       properties:
         rel:
@@ -176,27 +206,54 @@ components:
         uri:
           type: string
       type: object
-    TermsResponse:
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+    Location:
+      properties:
+        address:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        lat:
+          type:
+          - string
+          - 'null'
+        lon:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        zip:
+          type:
+          - string
+          - 'null'
+      type: object
+    SectionsResponse:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/TermResponse'
+            $ref: '#/components/schemas/SectionResponse'
           type: array
         links:
           items:
             $ref: '#/components/schemas/Link'
           type: array
       type: object
-    TermResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/Term'
-      type: object
-    SchoolsResponse:
+    TermsResponse:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/SchoolResponse'
+            $ref: '#/components/schemas/TermResponse'
           type: array
         links:
           items:
@@ -296,26 +353,6 @@ components:
           - 'null'
           x-validation: true
       type: object
-    NotFound:
-      properties:
-        message:
-          type: string
-      type: object
-    Name:
-      properties:
-        first:
-          type:
-          - string
-          - 'null'
-        last:
-          type:
-          - string
-          - 'null'
-        middle:
-          type:
-          - string
-          - 'null'
-      type: object
     Principal:
       properties:
         email:
@@ -327,101 +364,10 @@ components:
           - string
           - 'null'
       type: object
-    LmsStatus:
-      properties:
-        synced_in_lms:
-          type: boolean
-      type: object
-    DistrictResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/District'
-      type: object
-    Term:
-      properties:
-        district:
-          type: string
-          x-validation: true
-        end_date:
-          format: datetime
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        id:
-          type: string
-          x-validation: true
-        name:
-          type:
-          - string
-          - 'null'
-        start_date:
-          format: datetime
-          type:
-          - string
-          - 'null'
-          x-validation: true
-      type: object
-    DistrictContact:
-      properties:
-        district:
-          type: string
-          x-validation: true
-        email:
-          type:
-          - string
-          - 'null'
-        id:
-          type: string
-          x-validation: true
-        name:
-          $ref: '#/components/schemas/Name'
-        title:
-          type: string
-          x-validation: true
-      type: object
-    Location:
-      properties:
-        address:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        lat:
-          type:
-          - string
-          - 'null'
-        lon:
-          type:
-          - string
-          - 'null'
-        state:
-          type:
-          - string
-          - 'null'
-        zip:
-          type:
-          - string
-          - 'null'
-      type: object
     SectionResponse:
       properties:
         data:
           $ref: '#/components/schemas/Section'
-      type: object
-    SectionsResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/SectionResponse'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/Link'
-          type: array
       type: object
     Section:
       properties:
@@ -530,6 +476,22 @@ components:
           - 'null'
           x-validation: true
       type: object
+    SchoolsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SchoolResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    LmsStatus:
+      properties:
+        synced_in_lms:
+          type: boolean
+      type: object
     School:
       properties:
         created:
@@ -631,10 +593,48 @@ components:
           - string
           - 'null'
       type: object
+    Name:
+      properties:
+        first:
+          type:
+          - string
+          - 'null'
+        last:
+          type:
+          - string
+          - 'null'
+        middle:
+          type:
+          - string
+          - 'null'
+      type: object
+    DistrictResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/District'
+      type: object
     SchoolResponse:
       properties:
         data:
           $ref: '#/components/schemas/School'
+      type: object
+    DistrictContact:
+      properties:
+        district:
+          type: string
+          x-validation: true
+        email:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+          x-validation: true
+        name:
+          $ref: '#/components/schemas/Name'
+        title:
+          type: string
+          x-validation: true
       type: object
   responses:
     NotFound:

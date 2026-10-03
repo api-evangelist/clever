@@ -175,79 +175,58 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    StudentRelationship:
+    Course:
       properties:
-        relationship:
-          enum:
-          - Parent
-          - Grandparent
-          - Self
-          - Aunt/Uncle
-          - Sibling
-          - Other
-          - ''
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        student:
-          type: string
-          x-validation: true
-        type:
-          enum:
-          - Parent/Guardian
-          - Emergency
-          - Primary
-          - Secondary
-          - Family
-          - Other
-          - ''
-          type:
-          - string
-          - 'null'
-          x-validation: true
-      type: object
-    UserResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/User'
-      type: object
-    Resource:
-      properties:
-        created:
-          format: date-time
-          type: string
         district:
           type: string
+          x-validation: true
         id:
           type: string
-        resource_id:
+          x-validation: true
+        name:
+          type:
+          - string
+          - 'null'
+        number:
+          type:
+          - string
+          - 'null'
+      type: object
+    Contact:
+      properties:
+        legacy_id:
           type: string
-        roles:
+          x-validation: true
+        phone:
+          type:
+          - string
+          - 'null'
+        phone_type:
+          enum:
+          - Cell
+          - Home
+          - Work
+          - Other
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        sis_id:
+          type:
+          - string
+          - 'null'
+        student_relationships:
           items:
-            enum:
-            - teacher
-            - student
-            type: string
+            $ref: '#/components/schemas/StudentRelationship'
           type: array
-        title:
-          type: string
-        updated:
-          format: date-time
+          x-validation: true
+      type: object
+    NotFound:
+      properties:
+        message:
           type: string
       type: object
-    Roles:
-      properties:
-        contact:
-          $ref: '#/components/schemas/Contact'
-        district_admin:
-          $ref: '#/components/schemas/DistrictAdmin'
-        staff:
-          $ref: '#/components/schemas/Staff'
-        student:
-          $ref: '#/components/schemas/Student'
-        teacher:
-          $ref: '#/components/schemas/Teacher'
     Link:
       properties:
         rel:
@@ -259,15 +238,74 @@ components:
         uri:
           type: string
       type: object
-    DistrictAdmin:
+    PreferredName:
       properties:
-        legacy_id:
-          type: string
-          x-validation: true
-        title:
+        first:
           type:
           - string
           - 'null'
+        last:
+          type:
+          - string
+          - 'null'
+        middle:
+          type:
+          - string
+          - 'null'
+      type: object
+    Location:
+      properties:
+        address:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        lat:
+          type:
+          - string
+          - 'null'
+        lon:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        zip:
+          type:
+          - string
+          - 'null'
+      type: object
+    User:
+      properties:
+        created:
+          format: datetime
+          type: string
+          x-validation: true
+        district:
+          type: string
+          x-validation: true
+        email:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+          x-validation: true
+        last_modified:
+          format: datetime
+          type: string
+          x-validation: true
+        lms_status:
+          $ref: '#/components/schemas/LmsStatus'
+        name:
+          $ref: '#/components/schemas/Name'
+        roles:
+          $ref: '#/components/schemas/Roles'
       type: object
     Teacher:
       properties:
@@ -314,173 +352,10 @@ components:
           - string
           - 'null'
       type: object
-    Credentials:
-      properties:
-        district_username:
-          type: string
-      type: object
-    NotFound:
-      properties:
-        message:
-          type: string
-      type: object
-    Name:
-      properties:
-        first:
-          type:
-          - string
-          - 'null'
-        last:
-          type:
-          - string
-          - 'null'
-        middle:
-          type:
-          - string
-          - 'null'
-      type: object
-    ResourcesResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/ResourceResponse'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/Link'
-          type: array
-      type: object
-    Course:
-      properties:
-        district:
-          type: string
-          x-validation: true
-        id:
-          type: string
-          x-validation: true
-        name:
-          type:
-          - string
-          - 'null'
-        number:
-          type:
-          - string
-          - 'null'
-      type: object
-    LmsStatus:
-      properties:
-        synced_in_lms:
-          type: boolean
-      type: object
-    User:
-      properties:
-        created:
-          format: datetime
-          type: string
-          x-validation: true
-        district:
-          type: string
-          x-validation: true
-        email:
-          type:
-          - string
-          - 'null'
-        id:
-          type: string
-          x-validation: true
-        last_modified:
-          format: datetime
-          type: string
-          x-validation: true
-        lms_status:
-          $ref: '#/components/schemas/LmsStatus'
-        name:
-          $ref: '#/components/schemas/Name'
-        roles:
-          $ref: '#/components/schemas/Roles'
-      type: object
-    CourseResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/Course'
-      type: object
     ResourceResponse:
       properties:
         data:
           $ref: '#/components/schemas/Resource'
-      type: object
-    Staff:
-      properties:
-        credentials:
-          $ref: '#/components/schemas/Credentials'
-        department:
-          type:
-          - string
-          - 'null'
-        ext:
-          type: object
-        legacy_id:
-          type: string
-          x-validation: true
-        roles:
-          items:
-            type: string
-          type: array
-          x-validation: true
-        schools:
-          items:
-            type: string
-          type: array
-          x-validation: true
-        staff_id:
-          type: string
-        title:
-          type:
-          - string
-          - 'null'
-      type: object
-    UsersResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/UserResponse'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/Link'
-          type: array
-      type: object
-    Location:
-      properties:
-        address:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        lat:
-          type:
-          - string
-          - 'null'
-        lon:
-          type:
-          - string
-          - 'null'
-        state:
-          type:
-          - string
-          - 'null'
-        zip:
-          type:
-          - string
-          - 'null'
-      type: object
-    SectionResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/Section'
       type: object
     SectionsResponse:
       properties:
@@ -493,216 +368,21 @@ components:
             $ref: '#/components/schemas/Link'
           type: array
       type: object
-    Section:
+    UserResponse:
       properties:
-        course:
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        created:
-          format: datetime
-          type: string
-          x-validation: true
-        district:
-          type: string
-          x-validation: true
-        ext:
-          type: object
-        grade:
-          enum:
-          - InfantToddler
-          - Preschool
-          - PreKindergarten
-          - TransitionalKindergarten
-          - Kindergarten
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-          - '7'
-          - '8'
-          - '9'
-          - '10'
-          - '11'
-          - '12'
-          - '13'
-          - PostGraduate
-          - Ungraded
-          - Other
-          - ''
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        id:
-          type: string
-          x-validation: true
-        last_modified:
-          format: datetime
-          type: string
-          x-validation: true
-        lms_status:
-          $ref: '#/components/schemas/LmsStatus'
-        name:
-          type: string
-        period:
-          type:
-          - string
-          - 'null'
-        school:
-          type: string
-          x-validation: true
-        section_number:
-          type:
-          - string
-          - 'null'
-        sis_id:
-          type: string
-        students:
-          items:
-            type: string
-          type: array
-          x-validation: true
-        subject:
-          enum:
-          - english/language arts
-          - math
-          - science
-          - social studies
-          - language
-          - homeroom/advisory
-          - interventions/online learning
-          - technology and engineering
-          - PE and health
-          - arts and music
-          - other
-          - ''
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        teacher:
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        teachers:
-          items:
-            type: string
-          type: array
-          x-validation: true
-        term_id:
-          type:
-          - string
-          - 'null'
-          x-validation: true
+        data:
+          $ref: '#/components/schemas/User'
       type: object
-    Contact:
-      properties:
-        legacy_id:
-          type: string
-          x-validation: true
-        phone:
-          type:
-          - string
-          - 'null'
-        phone_type:
-          enum:
-          - Cell
-          - Home
-          - Work
-          - Other
-          - ''
-          type:
-          - string
-          - 'null'
-          x-validation: true
-        sis_id:
-          type:
-          - string
-          - 'null'
-        student_relationships:
-          items:
-            $ref: '#/components/schemas/StudentRelationship'
-          type: array
-          x-validation: true
-      type: object
-    CoursesResponse:
+    ResourcesResponse:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/CourseResponse'
+            $ref: '#/components/schemas/ResourceResponse'
           type: array
         links:
           items:
             $ref: '#/components/schemas/Link'
           type: array
-      type: object
-    Disability:
-      properties:
-        disability_code:
-          enum:
-          - aut
-          - db
-          - dd
-          - emn
-          - hi
-          - id
-          - md
-          - oi
-          - other
-          - ohi
-          - sld
-          - sli
-          - tbi
-          - vi
-          type:
-          - string
-          - 'null'
-        disability_status:
-          enum:
-          - Y
-          - N
-          - ''
-          type:
-          - string
-          - 'null'
-        disability_type:
-          enum:
-          - Autism
-          - Deaf-blindness
-          - Developmental delay
-          - Emotional disturbance
-          - Hearing impairment
-          - Intellectual Disability
-          - Multiple disabilities
-          - Orthopedic impairment
-          - Other
-          - Other health impairment
-          - Specific learning disability
-          - Speech or language impairment
-          - Traumatic brain injury
-          - Visual impairment
-          type:
-          - string
-          - 'null'
-      type: object
-    SchoolEnrollment:
-      properties:
-        end_date:
-          format: datetime
-          type: string
-          x-validation: true
-        school:
-          type: string
-          x-validation: true
-        start_date:
-          format: datetime
-          type: string
-          x-validation: true
       type: object
     Student:
       properties:
@@ -1181,7 +861,274 @@ components:
           - string
           - 'null'
       type: object
-    PreferredName:
+    Resource:
+      properties:
+        created:
+          format: date-time
+          type: string
+        district:
+          type: string
+        id:
+          type: string
+        resource_id:
+          type: string
+        roles:
+          items:
+            enum:
+            - teacher
+            - student
+            type: string
+          type: array
+        title:
+          type: string
+        updated:
+          format: date-time
+          type: string
+      type: object
+    StudentRelationship:
+      properties:
+        relationship:
+          enum:
+          - Parent
+          - Grandparent
+          - Self
+          - Aunt/Uncle
+          - Sibling
+          - Other
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        student:
+          type: string
+          x-validation: true
+        type:
+          enum:
+          - Parent/Guardian
+          - Emergency
+          - Primary
+          - Secondary
+          - Family
+          - Other
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+      type: object
+    UsersResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UserResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    Disability:
+      properties:
+        disability_code:
+          enum:
+          - aut
+          - db
+          - dd
+          - emn
+          - hi
+          - id
+          - md
+          - oi
+          - other
+          - ohi
+          - sld
+          - sli
+          - tbi
+          - vi
+          type:
+          - string
+          - 'null'
+        disability_status:
+          enum:
+          - Y
+          - N
+          - ''
+          type:
+          - string
+          - 'null'
+        disability_type:
+          enum:
+          - Autism
+          - Deaf-blindness
+          - Developmental delay
+          - Emotional disturbance
+          - Hearing impairment
+          - Intellectual Disability
+          - Multiple disabilities
+          - Orthopedic impairment
+          - Other
+          - Other health impairment
+          - Specific learning disability
+          - Speech or language impairment
+          - Traumatic brain injury
+          - Visual impairment
+          type:
+          - string
+          - 'null'
+      type: object
+    SectionResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Section'
+      type: object
+    Section:
+      properties:
+        course:
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        created:
+          format: datetime
+          type: string
+          x-validation: true
+        district:
+          type: string
+          x-validation: true
+        ext:
+          type: object
+        grade:
+          enum:
+          - InfantToddler
+          - Preschool
+          - PreKindergarten
+          - TransitionalKindergarten
+          - Kindergarten
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+          - '11'
+          - '12'
+          - '13'
+          - PostGraduate
+          - Ungraded
+          - Other
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        id:
+          type: string
+          x-validation: true
+        last_modified:
+          format: datetime
+          type: string
+          x-validation: true
+        lms_status:
+          $ref: '#/components/schemas/LmsStatus'
+        name:
+          type: string
+        period:
+          type:
+          - string
+          - 'null'
+        school:
+          type: string
+          x-validation: true
+        section_number:
+          type:
+          - string
+          - 'null'
+        sis_id:
+          type: string
+        students:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        subject:
+          enum:
+          - english/language arts
+          - math
+          - science
+          - social studies
+          - language
+          - homeroom/advisory
+          - interventions/online learning
+          - technology and engineering
+          - PE and health
+          - arts and music
+          - other
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        teacher:
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        teachers:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        term_id:
+          type:
+          - string
+          - 'null'
+          x-validation: true
+      type: object
+    DistrictAdmin:
+      properties:
+        legacy_id:
+          type: string
+          x-validation: true
+        title:
+          type:
+          - string
+          - 'null'
+      type: object
+    Credentials:
+      properties:
+        district_username:
+          type: string
+      type: object
+    CourseResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Course'
+      type: object
+    LmsStatus:
+      properties:
+        synced_in_lms:
+          type: boolean
+      type: object
+    SchoolEnrollment:
+      properties:
+        end_date:
+          format: datetime
+          type: string
+          x-validation: true
+        school:
+          type: string
+          x-validation: true
+        start_date:
+          format: datetime
+          type: string
+          x-validation: true
+      type: object
+    Name:
       properties:
         first:
           type:
@@ -1196,6 +1143,59 @@ components:
           - string
           - 'null'
       type: object
+    Staff:
+      properties:
+        credentials:
+          $ref: '#/components/schemas/Credentials'
+        department:
+          type:
+          - string
+          - 'null'
+        ext:
+          type: object
+        legacy_id:
+          type: string
+          x-validation: true
+        roles:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        schools:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        staff_id:
+          type: string
+        title:
+          type:
+          - string
+          - 'null'
+      type: object
+    CoursesResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CourseResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    Roles:
+      properties:
+        contact:
+          $ref: '#/components/schemas/Contact'
+        district_admin:
+          $ref: '#/components/schemas/DistrictAdmin'
+        staff:
+          $ref: '#/components/schemas/Staff'
+        student:
+          $ref: '#/components/schemas/Student'
+        teacher:
+          $ref: '#/components/schemas/Teacher'
   responses:
     NotFound:
       description: Entity Not Found

@@ -60,11 +60,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    NotFound:
-      properties:
-        message:
-          type: string
-      type: object
     District:
       properties:
         district_contact:
@@ -173,27 +168,15 @@ components:
           - string
           - 'null'
       type: object
-    Link:
-      properties:
-        rel:
-          enum:
-          - next
-          - prev
-          - self
-          type: string
-        uri:
-          type: string
-      type: object
-    DistrictsResponse:
+    DistrictResponse:
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/DistrictResponse'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/Link'
-          type: array
+          $ref: '#/components/schemas/District'
+      type: object
+    NotFound:
+      properties:
+        message:
+          type: string
       type: object
     DistrictContact:
       properties:
@@ -213,10 +196,27 @@ components:
           type: string
           x-validation: true
       type: object
-    DistrictResponse:
+    DistrictsResponse:
       properties:
         data:
-          $ref: '#/components/schemas/District'
+          items:
+            $ref: '#/components/schemas/DistrictResponse'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+      type: object
+    Link:
+      properties:
+        rel:
+          enum:
+          - next
+          - prev
+          - self
+          type: string
+        uri:
+          type: string
       type: object
   responses:
     NotFound:

@@ -173,53 +173,66 @@ paths:
       summary: Get submissions for assignment
       x-summary-source: derived
 components:
-  schemas:
-    GradingScale:
-      properties:
-        entries:
-          items:
-            $ref: '#/components/schemas/GradingScaleEntry'
-          type:
-          - array
-          - 'null'
-        name:
-          type: string
-      type: object
+  responses:
     Unauthorized:
-      properties:
-        message:
-          type: string
-      type: object
-    SubmissionsResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/Submission'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/SubmissionsLink'
-          type: array
-          x-omitempty: true
-      type: object
-    AssignmentState:
-      enum:
-      - draft
-      - scheduled
-      - open
-      - locked
-      type: string
+      description: Not authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BadRequest'
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFound'
     InternalError:
+      description: Internal Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalError'
+  schemas:
+    SubmissionFlag:
+      enum:
+      - excused
+      - late
+      - missing
+      type: string
+    Attachment:
       properties:
-        message:
+        description:
+          type:
+          - string
+          - 'null'
+        file_external_id:
+          type:
+          - string
+          - 'null'
+        size:
+          format: float
+          type: number
+          x-omitempty: true
+        thumbnail_url:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        type:
           type: string
-      type: object
-    GradingScaleEntry:
-      properties:
-        name:
-          type: string
-        value:
-          type: string
+        url:
+          type:
+          - string
+          - 'null'
       type: object
     GradingType:
       enum:
@@ -228,79 +241,68 @@ components:
       - pass_fail
       - letter_grade
       type: string
-    AssignmentRequest:
+    Submission:
       properties:
-        assignee_ids:
-          items:
-            type: string
-          type: array
-          x-omitempty: true
-        assignee_mode:
-          $ref: '#/components/schemas/AssigneeMode'
+        assignment_id:
+          type: string
         attachments:
           items:
-            $ref: '#/components/schemas/AttachmentRequest'
+            $ref: '#/components/schemas/Attachment'
           type: array
           x-omitempty: true
-        description:
-          type:
-          - string
-          - 'null'
-        description_plaintext:
-          type:
-          - string
-          - 'null'
-        display_date:
+        created:
           format: datetime
           type:
           - string
           - 'null'
-        due_date:
-          format: datetime
-          type:
-          - string
-          - 'null'
-        end_date:
-          format: datetime
-          type:
-          - string
-          - 'null'
-        grading_type:
-          $ref: '#/components/schemas/GradingType'
-        max_attempts:
+        extra_attempts:
           type: integer
           x-omitempty: true
-        points_possible:
-          format: float
+        flags:
+          items:
+            $ref: '#/components/schemas/SubmissionFlag'
+          type: array
+          x-omitempty: true
+        grade:
           type:
-          - number
+          - string
           - 'null'
-        start_date:
+        grade_comment:
+          type:
+          - string
+          - 'null'
+        grade_points:
+          format: float
+          type: number
+          x-omitempty: true
+        grader_id:
+          type:
+          - string
+          - 'null'
+        id:
+          description: 'Deprecated. The Clever unique identifier of the submission. Will always be empty if the
+
+            upstream LMS provider is Google Classroom; it is currently still present for Canvas and
+
+            Schoology LMSs but will be removed in the near future.
+
+            '
+          type: string
+        last_modified:
           format: datetime
           type:
           - string
           - 'null'
-        submission_types:
-          items:
-            $ref: '#/components/schemas/SubmissionType'
-          type: array
-          x-omitempty: true
-        term_id:
+        override_due_date:
+          format: datetime
           type:
           - string
           - 'null'
-        title:
-          type:
-          - string
-          - 'null'
+        state:
+          $ref: '#/components/schemas/SubmissionState'
+        user_id:
+          type: string
       type: object
-    SubmissionState:
-      enum:
-      - created
-      - submitted
-      - returned
-      - reclaimed
-      type: string
     NotFound:
       properties:
         message:
@@ -311,13 +313,28 @@ components:
         data:
           $ref: '#/components/schemas/Assignment'
       type: object
-    SubmissionsLink:
+    GradingScaleEntry:
       properties:
-        rel:
-          enum:
-          - next
+        name:
           type: string
-        uri:
+        value:
+          type: string
+      type: object
+    AssigneeMode:
+      enum:
+      - all
+      - individuals
+      type: string
+    AssignmentState:
+      enum:
+      - draft
+      - scheduled
+      - open
+      - locked
+      type: string
+    Unauthorized:
+      properties:
+        message:
           type: string
       type: object
     Assignment:
@@ -405,6 +422,48 @@ components:
         title:
           type: string
       type: object
+    InternalError:
+      properties:
+        message:
+          type: string
+      type: object
+    SubmissionsLink:
+      properties:
+        rel:
+          enum:
+          - next
+          type: string
+        uri:
+          type: string
+      type: object
+    GradingScale:
+      properties:
+        entries:
+          items:
+            $ref: '#/components/schemas/GradingScaleEntry'
+          type:
+          - array
+          - 'null'
+        name:
+          type: string
+      type: object
+    BadRequest:
+      properties:
+        message:
+          type: string
+      type: object
+    SubmissionsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/Submission'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/SubmissionsLink'
+          type: array
+          x-omitempty: true
+      type: object
     SubmissionType:
       enum:
       - link
@@ -412,6 +471,79 @@ components:
       - text
       - discussion
       type: string
+    SubmissionState:
+      enum:
+      - created
+      - submitted
+      - returned
+      - reclaimed
+      type: string
+    AssignmentRequest:
+      properties:
+        assignee_ids:
+          items:
+            type: string
+          type: array
+          x-omitempty: true
+        assignee_mode:
+          $ref: '#/components/schemas/AssigneeMode'
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentRequest'
+          type: array
+          x-omitempty: true
+        description:
+          type:
+          - string
+          - 'null'
+        description_plaintext:
+          type:
+          - string
+          - 'null'
+        display_date:
+          format: datetime
+          type:
+          - string
+          - 'null'
+        due_date:
+          format: datetime
+          type:
+          - string
+          - 'null'
+        end_date:
+          format: datetime
+          type:
+          - string
+          - 'null'
+        grading_type:
+          $ref: '#/components/schemas/GradingType'
+        max_attempts:
+          type: integer
+          x-omitempty: true
+        points_possible:
+          format: float
+          type:
+          - number
+          - 'null'
+        start_date:
+          format: datetime
+          type:
+          - string
+          - 'null'
+        submission_types:
+          items:
+            $ref: '#/components/schemas/SubmissionType'
+          type: array
+          x-omitempty: true
+        term_id:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+      type: object
     AttachmentRequest:
       properties:
         description:
@@ -431,138 +563,6 @@ components:
           - string
           - 'null'
       type: object
-    SubmissionFlag:
-      enum:
-      - excused
-      - late
-      - missing
-      type: string
-    Attachment:
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        file_external_id:
-          type:
-          - string
-          - 'null'
-        size:
-          format: float
-          type: number
-          x-omitempty: true
-        thumbnail_url:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        type:
-          type: string
-        url:
-          type:
-          - string
-          - 'null'
-      type: object
-    BadRequest:
-      properties:
-        message:
-          type: string
-      type: object
-    AssigneeMode:
-      enum:
-      - all
-      - individuals
-      type: string
-    Submission:
-      properties:
-        assignment_id:
-          type: string
-        attachments:
-          items:
-            $ref: '#/components/schemas/Attachment'
-          type: array
-          x-omitempty: true
-        created:
-          format: datetime
-          type:
-          - string
-          - 'null'
-        extra_attempts:
-          type: integer
-          x-omitempty: true
-        flags:
-          items:
-            $ref: '#/components/schemas/SubmissionFlag'
-          type: array
-          x-omitempty: true
-        grade:
-          type:
-          - string
-          - 'null'
-        grade_comment:
-          type:
-          - string
-          - 'null'
-        grade_points:
-          format: float
-          type: number
-          x-omitempty: true
-        grader_id:
-          type:
-          - string
-          - 'null'
-        id:
-          description: 'Deprecated. The Clever unique identifier of the submission. Will always be empty if the
-
-            upstream LMS provider is Google Classroom; it is currently still present for Canvas and
-
-            Schoology LMSs but will be removed in the near future.
-
-            '
-          type: string
-        last_modified:
-          format: datetime
-          type:
-          - string
-          - 'null'
-        override_due_date:
-          format: datetime
-          type:
-          - string
-          - 'null'
-        state:
-          $ref: '#/components/schemas/SubmissionState'
-        user_id:
-          type: string
-      type: object
-  responses:
-    Unauthorized:
-      description: Not authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Unauthorized'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/BadRequest'
-    NotFound:
-      description: Entity Not Found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/NotFound'
-    InternalError:
-      description: Internal Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InternalError'
   requestBodies:
     AssignmentRequest:
       content:
