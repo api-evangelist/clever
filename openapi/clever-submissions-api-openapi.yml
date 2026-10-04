@@ -95,76 +95,31 @@ paths:
       x-summary-source: derived
 components:
   responses:
-    Unauthorized:
-      description: Not authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Unauthorized'
-    InternalError:
-      description: Internal Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InternalError'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/BadRequest'
     NotFound:
       description: Entity Not Found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/NotFound'
-  schemas:
-    SubmissionFlag:
-      enum:
-      - excused
-      - late
-      - missing
-      type: string
-    Attachment:
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        file_external_id:
-          type:
-          - string
-          - 'null'
-        size:
-          format: float
-          type: number
-          x-omitempty: true
-        thumbnail_url:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        type:
-          type: string
-        url:
-          type:
-          - string
-          - 'null'
-      type: object
     BadRequest:
-      properties:
-        message:
-          type: string
-      type: object
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BadRequest'
+    InternalError:
+      description: Internal Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalError'
     Unauthorized:
-      properties:
-        message:
-          type: string
-      type: object
+      description: Not authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+  schemas:
     SubmissionRequest:
       properties:
         attachments:
@@ -204,7 +159,7 @@ components:
         state:
           $ref: '#/components/schemas/SubmissionState'
       type: object
-    InternalError:
+    BadRequest:
       properties:
         message:
           type: string
@@ -271,11 +226,6 @@ components:
         user_id:
           type: string
       type: object
-    NotFound:
-      properties:
-        message:
-          type: string
-      type: object
     SubmissionState:
       enum:
       - created
@@ -283,6 +233,32 @@ components:
       - returned
       - reclaimed
       type: string
+    SubmissionResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Submission'
+      type: object
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+    SubmissionFlag:
+      enum:
+      - excused
+      - late
+      - missing
+      type: string
+    InternalError:
+      properties:
+        message:
+          type: string
+      type: object
+    Unauthorized:
+      properties:
+        message:
+          type: string
+      type: object
     AttachmentRequest:
       properties:
         description:
@@ -302,10 +278,34 @@ components:
           - string
           - 'null'
       type: object
-    SubmissionResponse:
+    Attachment:
       properties:
-        data:
-          $ref: '#/components/schemas/Submission'
+        description:
+          type:
+          - string
+          - 'null'
+        file_external_id:
+          type:
+          - string
+          - 'null'
+        size:
+          format: float
+          type: number
+          x-omitempty: true
+        thumbnail_url:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+        url:
+          type:
+          - string
+          - 'null'
       type: object
   securitySchemes:
     oauth:

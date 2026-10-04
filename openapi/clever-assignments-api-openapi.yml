@@ -173,74 +173,14 @@ paths:
       summary: Get submissions for assignment
       x-summary-source: derived
 components:
-  responses:
-    Unauthorized:
-      description: Not authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Unauthorized'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/BadRequest'
-    NotFound:
-      description: Entity Not Found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/NotFound'
-    InternalError:
-      description: Internal Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InternalError'
   schemas:
-    SubmissionFlag:
-      enum:
-      - excused
-      - late
-      - missing
-      type: string
-    Attachment:
+    GradingScaleEntry:
       properties:
-        description:
-          type:
-          - string
-          - 'null'
-        file_external_id:
-          type:
-          - string
-          - 'null'
-        size:
-          format: float
-          type: number
-          x-omitempty: true
-        thumbnail_url:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        type:
+        name:
           type: string
-        url:
-          type:
-          - string
-          - 'null'
+        value:
+          type: string
       type: object
-    GradingType:
-      enum:
-      - points
-      - percent
-      - pass_fail
-      - letter_grade
-      type: string
     Submission:
       properties:
         assignment_id:
@@ -303,28 +243,64 @@ components:
         user_id:
           type: string
       type: object
-    NotFound:
+    AttachmentRequest:
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        type:
+          enum:
+          - file
+          type: string
+        url:
+          type:
+          - string
+          - 'null'
+      type: object
+    Unauthorized:
       properties:
         message:
           type: string
       type: object
-    AssignmentResponse:
+    InternalError:
       properties:
-        data:
-          $ref: '#/components/schemas/Assignment'
-      type: object
-    GradingScaleEntry:
-      properties:
-        name:
-          type: string
-        value:
+        message:
           type: string
       type: object
-    AssigneeMode:
-      enum:
-      - all
-      - individuals
-      type: string
+    Attachment:
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        file_external_id:
+          type:
+          - string
+          - 'null'
+        size:
+          format: float
+          type: number
+          x-omitempty: true
+        thumbnail_url:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+        url:
+          type:
+          - string
+          - 'null'
+      type: object
     AssignmentState:
       enum:
       - draft
@@ -332,11 +308,30 @@ components:
       - open
       - locked
       type: string
-    Unauthorized:
+    SubmissionState:
+      enum:
+      - created
+      - submitted
+      - returned
+      - reclaimed
+      type: string
+    SubmissionsResponse:
       properties:
-        message:
-          type: string
+        data:
+          items:
+            $ref: '#/components/schemas/Submission'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/SubmissionsLink'
+          type: array
+          x-omitempty: true
       type: object
+    AssigneeMode:
+      enum:
+      - all
+      - individuals
+      type: string
     Assignment:
       properties:
         assignee_ids:
@@ -422,19 +417,27 @@ components:
         title:
           type: string
       type: object
-    InternalError:
+    BadRequest:
       properties:
         message:
           type: string
       type: object
-    SubmissionsLink:
+    NotFound:
       properties:
-        rel:
-          enum:
-          - next
+        message:
           type: string
-        uri:
-          type: string
+      type: object
+    GradingType:
+      enum:
+      - points
+      - percent
+      - pass_fail
+      - letter_grade
+      type: string
+    AssignmentResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Assignment'
       type: object
     GradingScale:
       properties:
@@ -447,37 +450,15 @@ components:
         name:
           type: string
       type: object
-    BadRequest:
+    SubmissionsLink:
       properties:
-        message:
+        rel:
+          enum:
+          - next
+          type: string
+        uri:
           type: string
       type: object
-    SubmissionsResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/Submission'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/SubmissionsLink'
-          type: array
-          x-omitempty: true
-      type: object
-    SubmissionType:
-      enum:
-      - link
-      - file
-      - text
-      - discussion
-      type: string
-    SubmissionState:
-      enum:
-      - created
-      - submitted
-      - returned
-      - reclaimed
-      type: string
     AssignmentRequest:
       properties:
         assignee_ids:
@@ -544,25 +525,44 @@ components:
           - string
           - 'null'
       type: object
-    AttachmentRequest:
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        type:
-          enum:
-          - file
-          type: string
-        url:
-          type:
-          - string
-          - 'null'
-      type: object
+    SubmissionType:
+      enum:
+      - link
+      - file
+      - text
+      - discussion
+      type: string
+    SubmissionFlag:
+      enum:
+      - excused
+      - late
+      - missing
+      type: string
+  responses:
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFound'
+    InternalError:
+      description: Internal Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalError'
+    Unauthorized:
+      description: Not authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BadRequest'
   requestBodies:
     AssignmentRequest:
       content:
