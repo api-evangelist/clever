@@ -76,7 +76,7 @@ apis:
   tags:
   - SSO
   - Authentication
-  - OIDC
+  - OpenID Connect
   - SAML
   - Identity
   tags_raw:
