@@ -21725,3 +21725,16 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: clever-google-workspace-own
+  label: Google Workspace (own)
+  partner: google-workspace
+  partner_name: Google Workspace (own)
+  category: Google Workspace app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://workspace.google.com/marketplace/app/waterford_early_learning/484297380700
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

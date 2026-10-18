@@ -31730,9 +31730,27 @@ edges:
   features:
   - instant_login
   - secure_sync
+- partner_name: Google Workspace (own)
+  partner: google-workspace
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://workspace.google.com/marketplace/app/waterford_early_learning/484297380700
+  mirror_of: google-workspace/integrations/google-workspace-integration-edges.yml
+  apps:
+  - Waterford Early Learning
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Google Workspace app
 generated: '2026-10-14'
 method: searched
 checked:
+- google-workspace/integrations/google-workspace-integration-edges.yml
 - https://clever.com/app-gallery
 - https://site.imsglobal.org/certifications
 marketplace_apps:
@@ -31743,3 +31761,5 @@ marketplace_apps:
   app_count: 1810
   listed: 1810
   adapter: sweep-edtech.py
+source:
+- google-workspace/integrations/google-workspace-integration-edges.yml
