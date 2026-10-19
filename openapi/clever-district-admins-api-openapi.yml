@@ -1,0 +1,137 @@
+openapi: 3.2.0
+info:
+  description: Serves the Clever Data API
+  title: Data District Admins API
+  version: 1.2.0
+servers:
+- url: https://api.clever.com/v1.2
+security:
+- oauth: []
+tags:
+- name: District Admins
+paths:
+  /district_admins:
+    get:
+      description: Returns a list of district admins
+      operationId: getDistrictAdmins
+      parameters:
+      - in: query
+        name: starting_after
+        schema:
+          type: string
+      - in: query
+        name: ending_before
+        schema:
+          type: string
+      - in: query
+        name: show_links
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistrictAdminsResponse'
+      tags:
+      - District Admins
+      summary: Get district admins
+      x-summary-source: derived
+  /district_admins/{id}:
+    get:
+      description: Returns a specific district admin
+      operationId: getDistrictAdmin
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistrictAdminResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - District Admins
+      summary: Get district admin
+      x-summary-source: derived
+components:
+  schemas:
+    Name:
+      properties:
+        first:
+          type:
+          - string
+          - 'null'
+        last:
+          type:
+          - string
+          - 'null'
+        middle:
+          type:
+          - string
+          - 'null'
+      type: object
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+    DistrictAdminResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/DistrictAdmin'
+      type: object
+    DistrictAdminsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DistrictAdmin'
+          type: array
+      type: object
+    DistrictAdmin:
+      properties:
+        district:
+          type: string
+          x-validation: true
+        email:
+          type: string
+        id:
+          type: string
+          x-validation: true
+        name:
+          $ref: '#/components/schemas/Name'
+        title:
+          type:
+          - string
+          - 'null'
+      type: object
+  responses:
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFound'
+  securitySchemes:
+    oauth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          scopes: {}
+          authorizationUrl: https://clever.com/oauth/authorize
+          tokenUrl: https://clever.com/oauth/tokens
+x-samples-languages:
+- curl
+- node
+- ruby
+- python
+- php
+- java
+- go

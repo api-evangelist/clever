@@ -1,20 +1,21 @@
 {
   "provider": "clever",
   "sources": [
-    "_original/clever-data-api-openapi.yml",
     "_original/clever-lms-connect-api-openapi.yml",
+    "_original/clever-openapi.yml",
     "clever-events-api-openapi.yml"
   ],
   "outputs": [
-    "clever-courses-api-openapi.yml",
-    "clever-districts-api-openapi.yml",
-    "clever-resources-api-openapi.yml",
-    "clever-schools-api-openapi.yml",
-    "clever-sections-api-openapi.yml",
-    "clever-terms-api-openapi.yml",
-    "clever-users-api-openapi.yml",
     "clever-assignments-api-openapi.yml",
     "clever-submissions-api-openapi.yml",
+    "clever-contacts-api-openapi.yml",
+    "clever-district-admins-api-openapi.yml",
+    "clever-districts-api-openapi.yml",
+    "clever-school-admins-api-openapi.yml",
+    "clever-schools-api-openapi.yml",
+    "clever-sections-api-openapi.yml",
+    "clever-students-api-openapi.yml",
+    "clever-teachers-api-openapi.yml",
     "clever-events-api-openapi.yml"
   ],
   "archived": [],
@@ -24,28 +25,22 @@
   ],
   "notes": [
     "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "clever-data-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "clever-data-api-openapi.yml: declared missing tag: Courses",
-    "clever-data-api-openapi.yml: declared missing tag: Districts",
-    "clever-data-api-openapi.yml: declared missing tag: Resources",
-    "clever-data-api-openapi.yml: declared missing tag: Schools",
-    "clever-data-api-openapi.yml: declared missing tag: Sections",
-    "clever-data-api-openapi.yml: declared missing tag: Terms",
-    "clever-data-api-openapi.yml: declared missing tag: Users",
     "clever-lms-connect-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
     "clever-lms-connect-api-openapi.yml: declared missing tag: Assignments",
     "clever-lms-connect-api-openapi.yml: declared missing tag: Submissions",
-    "apis.yml register: already-registered"
+    "clever-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "clever-openapi.yml: declared missing tag: Contacts",
+    "clever-openapi.yml: declared missing tag: District Admins",
+    "clever-openapi.yml: declared missing tag: Districts",
+    "clever-openapi.yml: declared missing tag: School Admins",
+    "clever-openapi.yml: declared missing tag: Schools",
+    "clever-openapi.yml: declared missing tag: Sections",
+    "clever-openapi.yml: declared missing tag: Students",
+    "clever-openapi.yml: declared missing tag: Teachers",
+    "apis.yml register: written (+5 apis, 12 total)"
   ],
   "skipped": [
     "clever-assignments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "clever-courses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "clever-districts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "clever-resources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "clever-schools-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "clever-sections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "clever-submissions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "clever-terms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "clever-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "clever-submissions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

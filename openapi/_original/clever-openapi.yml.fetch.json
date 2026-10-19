@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/Clever/swagger-api/master/v1.2.yml",
+ "final": "https://raw.githubusercontent.com/Clever/swagger-api/master/v1.2.yml",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 37443,
+ "sha256": "5b236a347e1ec1bd779c710c9c30b062accfe2eae830b920efb9c39221ee760b",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

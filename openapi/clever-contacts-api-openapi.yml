@@ -1,0 +1,375 @@
+openapi: 3.2.0
+info:
+  description: Serves the Clever Data API
+  title: Data Contacts API
+  version: 1.2.0
+servers:
+- url: https://api.clever.com/v1.2
+security:
+- oauth: []
+tags:
+- name: Contacts
+paths:
+  /contacts:
+    get:
+      description: Returns a list of student contacts
+      operationId: getContacts
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      - in: query
+        name: starting_after
+        schema:
+          type: string
+      - in: query
+        name: ending_before
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentContactsResponse'
+      tags:
+      - Contacts
+      summary: Get contacts
+      x-summary-source: derived
+  /contacts/{id}:
+    get:
+      description: Returns a specific student contact
+      operationId: getContact
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentContactResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Contacts
+      summary: Get contact
+      x-summary-source: derived
+  /contacts/{id}/district:
+    get:
+      description: Returns the district for a student contact
+      operationId: getDistrictForStudentContact
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistrictResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Contacts
+      summary: Get district for student contact
+      x-summary-source: derived
+  /contacts/{id}/student:
+    get:
+      description: Returns the student for a student contact
+      operationId: getStudentForContact
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      tags:
+      - Contacts
+      summary: Get student for contact
+      x-summary-source: derived
+components:
+  schemas:
+    Name:
+      properties:
+        first:
+          type:
+          - string
+          - 'null'
+        last:
+          type:
+          - string
+          - 'null'
+        middle:
+          type:
+          - string
+          - 'null'
+      type: object
+    StudentContactResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/StudentContact'
+      type: object
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+    DistrictResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/District'
+      type: object
+    Location:
+      properties:
+        address:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        lat:
+          type:
+          - string
+          - 'null'
+        lon:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        zip:
+          type:
+          - string
+          - 'null'
+      type: object
+    Credentials:
+      properties:
+        district_username:
+          type: string
+      type: object
+    StudentContactsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/StudentContactResponse'
+          type: array
+      type: object
+    Student:
+      properties:
+        created:
+          format: datetime
+          type: string
+          x-validation: true
+        credentials:
+          $ref: '#/components/schemas/Credentials'
+        district:
+          type: string
+          x-validation: true
+        dob:
+          pattern: (?:[0-9]{1,2})/([0-9]{1,2})/([0-9]{4})
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        ell_status:
+          enum:
+          - Y
+          - N
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        email:
+          type:
+          - string
+          - 'null'
+        gender:
+          enum:
+          - M
+          - F
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        grade:
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+          - '11'
+          - '12'
+          - PreKindergarten
+          - Kindergarten
+          - PostGraduate
+          - Other
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        graduation_year:
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        hispanic_ethnicity:
+          enum:
+          - Y
+          - N
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        id:
+          type: string
+          x-validation: true
+        last_modified:
+          format: datetime
+          type: string
+          x-validation: true
+        location:
+          $ref: '#/components/schemas/Location'
+        name:
+          $ref: '#/components/schemas/Name'
+        race:
+          enum:
+          - Caucasian
+          - Asian
+          - Black or African American
+          - American Indian
+          - Hawaiian or Other Pacific Islander
+          - Two or More Races
+          - Unknown
+          - ''
+          type:
+          - string
+          - 'null'
+          x-validation: true
+        school:
+          type: string
+          x-validation: true
+        schools:
+          items:
+            type: string
+          type: array
+          x-validation: true
+        sis_id:
+          type: string
+        state_id:
+          type:
+          - string
+          - 'null'
+        student_number:
+          type:
+          - string
+          - 'null'
+      type: object
+    StudentResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Student'
+      type: object
+    District:
+      properties:
+        id:
+          type: string
+          x-validation: true
+        mdr_number:
+          type:
+          - string
+          - 'null'
+        name:
+          type: string
+      type: object
+    StudentContact:
+      properties:
+        district:
+          type: string
+          x-validation: true
+        email:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+          x-validation: true
+        name:
+          type: string
+        phone:
+          type:
+          - string
+          - 'null'
+        phone_type:
+          type:
+          - string
+          - 'null'
+        relationship:
+          type:
+          - string
+          - 'null'
+        sis_id:
+          type:
+          - string
+          - 'null'
+        student:
+          type: string
+          x-validation: true
+        type:
+          type: string
+      type: object
+  responses:
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFound'
+  securitySchemes:
+    oauth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          scopes: {}
+          authorizationUrl: https://clever.com/oauth/authorize
+          tokenUrl: https://clever.com/oauth/tokens
+x-samples-languages:
+- curl
+- node
+- ruby
+- python
+- php
+- java
+- go

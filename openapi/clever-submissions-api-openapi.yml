@@ -94,31 +94,6 @@ paths:
       summary: Update submission for assignment
       x-summary-source: derived
 components:
-  responses:
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/BadRequest'
-    Unauthorized:
-      description: Not authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Unauthorized'
-    InternalError:
-      description: Internal Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InternalError'
-    NotFound:
-      description: Entity Not Found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/NotFound'
   schemas:
     SubmissionRequest:
       properties:
@@ -159,28 +134,6 @@ components:
         state:
           $ref: '#/components/schemas/SubmissionState'
       type: object
-    Unauthorized:
-      properties:
-        message:
-          type: string
-      type: object
-    SubmissionResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/Submission'
-      type: object
-    InternalError:
-      properties:
-        message:
-          type: string
-      type: object
-    SubmissionState:
-      enum:
-      - created
-      - submitted
-      - returned
-      - reclaimed
-      type: string
     Submission:
       properties:
         assignment_id:
@@ -243,10 +196,38 @@ components:
         user_id:
           type: string
       type: object
+    NotFound:
+      properties:
+        message:
+          type: string
+      type: object
+    InternalError:
+      properties:
+        message:
+          type: string
+      type: object
+    SubmissionState:
+      enum:
+      - created
+      - submitted
+      - returned
+      - reclaimed
+      type: string
+    SubmissionFlag:
+      enum:
+      - excused
+      - late
+      - missing
+      type: string
     BadRequest:
       properties:
         message:
           type: string
+      type: object
+    SubmissionResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Submission'
       type: object
     AttachmentRequest:
       properties:
@@ -296,17 +277,36 @@ components:
           - string
           - 'null'
       type: object
-    SubmissionFlag:
-      enum:
-      - excused
-      - late
-      - missing
-      type: string
-    NotFound:
+    Unauthorized:
       properties:
         message:
           type: string
       type: object
+  responses:
+    InternalError:
+      description: Internal Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalError'
+    NotFound:
+      description: Entity Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFound'
+    Unauthorized:
+      description: Not authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BadRequest'
   securitySchemes:
     oauth:
       type: oauth2
