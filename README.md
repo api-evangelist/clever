@@ -1,4 +1,4 @@
-# Clever (clever)
+# Clever
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,51 +66,185 @@
 
 Clever is a K-12 EdTech identity platform that provides a unified single sign-on portal and roster synchronization service used by over 111,000 US schools, including 95 of the largest 100 districts. The Clever REST API enables application partners to securely access real-time student roster data, school and district information, class and section data, and user identity records through a single integration. Clever Complete offers Secure Sync for district-managed rostering, LMS Connect for gradebook syncing, and Single Sign-On via OAuth 2.0, OIDC, and SAML, eliminating the need for per-SIS integrations. Approximately 60 percent of US students log in monthly through Clever, making it the de facto identity layer for K-12 EdTech applications across the United States.
 
-**APIs.json:** https://raw.githubusercontent.com/api-evangelist/clever/refs/heads/main/apis.yml
+**Areas:** Education · K-12 · EdTech · SSO · Rostering · Identity · Student Data · LMS · SIS · Identity Federation
 
-**Naftiko:** https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=clever-api-evangelist&utm_content=repo
+## Clever on APIs.io
 
-## Tags
+Everything profiled for Clever is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/clever/](https://apis.io/providers/clever/)** — or go straight to one of the APIs or properties below.
 
-Education, K-12, EdTech, Single Sign-On, Rostering, Identity, SSO, Student Data, LMS, SIS
+### APIs (11)
 
-## APIs
+- [Clever Single Sign-On API](https://apis.io/apis/clever/clever-single-sign-on-api/) — OAuth 2.0, OIDC, and SAML-based single sign-on integration that enables application partners to authenticate students, teachers, and staff through the…
+- [Clever Events API](https://apis.io/apis/clever/clever-events-api/) — Delta-sync event stream API that notifies application partners of changes to roster data (creates, updates, deletes) within a district. Must be enabled via…
+- [Clever Assignments API](https://apis.io/apis/clever/clever-assignments-api/) — The Assignments API from Clever — 3 operation(s) for assignments.
+- [Clever Courses API](https://apis.io/apis/clever/clever-courses-api/) — The Courses API from Clever — 6 operation(s) for courses.
+- [Clever Districts API](https://apis.io/apis/clever/clever-districts-api/) — The Districts API from Clever — 2 operation(s) for districts.
+- [Clever Resources API](https://apis.io/apis/clever/clever-resources-api/) — The Resources API from Clever — 5 operation(s) for resources.
+- [Clever Schools API](https://apis.io/apis/clever/clever-schools-api/) — The Schools API from Clever — 7 operation(s) for schools.
+- [Clever Sections API](https://apis.io/apis/clever/clever-sections-api/) — The Sections API from Clever — 8 operation(s) for sections.
+- [Clever Submissions API](https://apis.io/apis/clever/clever-submissions-api/) — The Submissions API from Clever — 1 operation(s) for submissions.
+- [Clever Terms API](https://apis.io/apis/clever/clever-terms-api/) — The Terms API from Clever — 5 operation(s) for terms.
+- [Clever Users API](https://apis.io/apis/clever/clever-users-api/) — The Users API from Clever — 9 operation(s) for users.
 
-| Name | Description | Docs |
-|------|-------------|------|
-| Clever Data API | RESTful API for district, school, student, teacher, section, and course data via Secure Sync (v3.1) | [Docs](https://dev.clever.com/docs/api-overview) |
-| Clever Single Sign-On API | OAuth 2.0, OIDC, and SAML SSO integration for K-12 application partners | [Docs](https://dev.clever.com/docs/integration-types) |
-| Clever LMS Connect API | Gradebook and LMS data sync integration available in API v3.1 | [Docs](https://dev.clever.com/docs/integration-types) |
-| Clever Events API | Delta-sync event stream for incremental roster change notifications | [Docs](https://dev.clever.com/docs/api-overview) |
+### Published properties
 
-## Plans / Rate Limits / FinOps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Resource | Path |
-|----------|------|
-| Plans & Pricing | [plans/clever-plans-pricing.yml](plans/clever-plans-pricing.yml) |
-| Rate Limits | [rate-limits/clever-rate-limits.yml](rate-limits/clever-rate-limits.yml) |
-| FinOps | [finops/clever-finops.yml](finops/clever-finops.yml) |
+#### GraphQL (1)
 
-## Timestamps
+GraphQL schemas.
 
-- **Created:** 2026-06-13
-- **Modified:** 2026-06-13
+- [Clever GraphQL API](https://apis.io/graphqls/clever/clever-graphql/)
 
-## Common
+#### Agentic access (1)
 
-| Type | URL |
-|------|-----|
-| Website | https://clever.com |
-| Documentation | https://dev.clever.com |
-| GitHub Org | https://github.com/clever-inc |
-| LinkedIn | https://www.linkedin.com/company/clever-inc-/ |
-| Blog | https://www.clever.com/blog |
-| Pricing | https://www.clever.com/pricing |
-| Status Page | https://status.clever.com |
-| X | https://twitter.com/clever |
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Maintainers
+- [Clever Agentic Access](https://apis.io/agentic-access/clever/clever-agentic-access/)
 
-| Name | Email |
-|------|-------|
-| Kin Lane | kin@apievangelist.com |
+#### JSON Schema (4)
+
+The data models the API reads and writes.
+
+- [School](https://apis.io/schemas/clever/clever-school/)
+- [Section](https://apis.io/schemas/clever/clever-section/)
+- [Student](https://apis.io/schemas/clever/clever-student/)
+- [User](https://apis.io/schemas/clever/clever-user/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Clever Context](https://apis.io/jsonld/clever/clever-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Clever API Vocabulary](https://apis.io/vocabularies/clever/clever-vocabulary/)
+
+#### Examples (4)
+
+Example requests and responses.
+
+- [Clever District Example](https://apis.io/examples/clever/clever-district-example/)
+- [Clever Section Example](https://apis.io/examples/clever/clever-section-example/)
+- [Clever Student Example](https://apis.io/examples/clever/clever-student-example/)
+- [Clever User Example](https://apis.io/examples/clever/clever-user-example/)
+
+#### Collections (10)
+
+Postman and Open Collection request collections.
+
+- [Data Assignments API](https://apis.io/collections/clever/open-clever-assignments-api/)
+- [Data Assignments Courses API](https://apis.io/collections/clever/open-clever-courses-api/)
+- [Data Assignments Districts API](https://apis.io/collections/clever/open-clever-districts-api/)
+- [Data Assignments Events API](https://apis.io/collections/clever/open-clever-events-api/)
+- [Data Assignments Resources API](https://apis.io/collections/clever/open-clever-resources-api/)
+- [Data Assignments Schools API](https://apis.io/collections/clever/open-clever-schools-api/)
+- [Data Assignments Sections API](https://apis.io/collections/clever/open-clever-sections-api/)
+- [Data Assignments Submissions API](https://apis.io/collections/clever/open-clever-submissions-api/)
+- [Data Assignments Terms API](https://apis.io/collections/clever/open-clever-terms-api/)
+- [Data Assignments Users API](https://apis.io/collections/clever/open-clever-users-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Clever — jsonschema rules](https://apis.io/rules/clever/clever-jsonschema-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Clever Authentication](https://apis.io/security/clever/clever-authentication/)
+- [Clever Domain Security](https://apis.io/security/clever/clever-domain-security/)
+- [Clever Trust Center](https://apis.io/security/clever/clever-trust-center/)
+- [Clever Vulnerability Disclosure](https://apis.io/security/clever/clever-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Clever Scopes](https://apis.io/scopes/clever/clever-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Clever Plans Pricing](https://apis.io/plans/clever/clever-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Clever Rate Limits](https://apis.io/rate-limits/clever/clever-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Clever Finops](https://apis.io/finops/clever/clever-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://clever.com)
+- [Documentation](https://dev.clever.com)
+- [Pricing](https://www.clever.com/pricing)
+- [Blog](https://www.clever.com/blog)
+- [Status](https://status.clever.com)
+
+## API Evangelist rating
+
+**Kin Score 39.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 62.8 |
+| Contract governance | 23.5 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 26.3 |
+
+**Agent readiness 24.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 37.3** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/clever/](https://apis.io/providers/clever/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Clever: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/clever/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
